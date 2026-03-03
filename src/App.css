@@ -40,3 +40,35 @@
 .read-the-docs {
   color: #888;
 }
+/* 1. Padronização das Fontes dos Blocos (Correção para Mobile) */
+.bloco-texto {
+    font-size: 1.15rem !important; /* Ajustado via Visual Debugging para leitura ideal */
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+}
+
+/* 2. Upgrade dos Botões Dourados (CTAs) - Estética de Luxo e Nitidez */
+.btn-compra-luxo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #d4af37 0%, #f9e272 50%, #b8860b 100%);
+    color: #000000 !important; /* Texto preto para máxima nitidez e contraste */
+    font-weight: 800;
+    font-size: 1.25rem;
+    padding: 18px 30px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    animation: pulsar 2s infinite; /* Movimento sutil para conversão */
+    margin: 20px auto; /* Centralização perfeita em qualquer tela */
+}
+
+/* Animação de Movimento Disparada por Scroll */
+@keyframes pulsar {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    50% { transform: scale(1.03); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4); }
+    100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+}
