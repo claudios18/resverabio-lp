@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/prebuild.cjs && tsc -b && vite build",
+    "build:clean": "rimraf dist && npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
