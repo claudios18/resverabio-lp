@@ -39,6 +39,33 @@ export function NutritionSection() {
 
       <Container className="relative z-10">
         {/* ═══════════════════════════════════════════════════════════════════
+            TÍTULO PRINCIPAL
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            • Estilo: Padrão BeautySection
+            • Cor: Dourado (#c9a962) para contraste com fundo preto
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <div className="mt-12 md:mt-16 lg:mt-20 text-center mb-12 md:mb-16">
+          <h2 
+            className="font-serif font-semibold tracking-tight leading-tight"
+            style={{ 
+              fontSize: 'clamp(32px, 5vw, 48px)',
+              color: '#c9a962', // Dourado para contrastar com fundo preto
+              fontFamily: "'Playfair Display', Georgia, serif"
+            }}
+          >
+            Informações Nutricionais
+          </h2>
+          
+          {/* Linha decorativa dourada */}
+          <div className="mt-6 flex justify-center">
+            <div 
+              className="w-24 h-1 rounded-full"
+              style={{ backgroundColor: '#c9a962' }}
+            />
+          </div>
+        </div>
+
+        {/* ═══════════════════════════════════════════════════════════════════
             GRID 50/50 - TABELA | PRODUTO
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             • Layout: 2 colunas iguais em desktop

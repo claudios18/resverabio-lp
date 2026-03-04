@@ -7,21 +7,13 @@
  *  • MOBILE (< md): Empilhamento vertical (imagem topo → texto abaixo)      ║
  *  • Asset: resverabio-intestino.png                                        ║
  *  • Fundo: Off-white (#faf9f7)                                             ║
- *  • Tipografia: Azul Premium (#1E3A5F)                                     ║
+ *  • Tipografia: Padrão BeautySection                                       ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
 import { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
 import { CTAButton, CTAButtonMobile } from '../ui/CTAButton';
-
-// Cores padronizadas - Azul Premium
-const COLORS = {
-  textPrimary: '#1a1a1a',
-  textBody: '#2d2d2d',
-  accent: '#c9a962',
-  primary: '#1E3A5F',
-} as const;
 
 export function PrebioticSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -67,23 +59,24 @@ export function PrebioticSection() {
             • Largura total do viewport
           */}
           <div className="flex flex-col md:hidden space-y-6">
-            {/* TÍTULO */}
+            {/* TÍTULO - PADRÃO BEAUTYSECTION */}
             <h2
               className="font-serif font-semibold tracking-tight leading-tight text-center px-4"
               style={{
-                fontSize: '26px',
-                color: COLORS.primary,
+                fontSize: 'clamp(32px, 5vw, 48px)',
+                color: '#1a1a1a',
                 fontFamily: "'Playfair Display', Georgia, serif",
-                wordBreak: 'keep-all',
-                overflowWrap: 'break-word',
               }}
             >
               O Efeito Prebiótico do Resveratrol e Intestino
             </h2>
 
-            {/* Linha decorativa */}
-            <div className="flex justify-center px-4" style={{ marginTop: '-4px' }}>
-              <div className="w-20 h-1 rounded-full" style={{ backgroundColor: COLORS.accent }} />
+            {/* Linha decorativa - PADRÃO BEAUTYSECTION */}
+            <div className="flex justify-center px-4">
+              <div 
+                className="w-24 h-1 rounded-full mt-6" 
+                style={{ backgroundColor: '#c9a962' }} 
+              />
             </div>
 
             {/* IMAGEM DO INTESTINO - MOBILE */}
@@ -97,16 +90,18 @@ export function PrebioticSection() {
               />
             </div>
 
-            {/* TEXTO DESCRITIVO */}
-            <div className="px-4 space-y-4">
+            {/* TEXTO DESCRITIVO - PADRÃO BEAUTYSECTION */}
+            <div className="px-4 space-y-6">
               <p
-                className="leading-relaxed text-center"
+                className="text-center mx-auto"
                 style={{
                   fontFamily: "'Inter', system-ui, sans-serif",
-                  fontSize: '16px',
+                  fontSize: 'clamp(19px, 2.2vw, 22px)',
                   fontWeight: 300,
-                  color: COLORS.textBody,
-                  lineHeight: 1.7,
+                  color: '#2d2d2d',
+                  maxWidth: '768px',
+                  lineHeight: 1.85,
+                  letterSpacing: '0.01em',
                 }}
               >
                 Estudos recentes mostram que o Trans-Resveratrol atua como um Probiótico de luxo. 
@@ -115,13 +110,15 @@ export function PrebioticSection() {
               </p>
 
               <p
-                className="leading-relaxed text-center"
+                className="text-center mx-auto"
                 style={{
                   fontFamily: "'Inter', system-ui, sans-serif",
-                  fontSize: '16px',
+                  fontSize: 'clamp(19px, 2.2vw, 22px)',
                   fontWeight: 300,
-                  color: COLORS.textBody,
-                  lineHeight: 1.7,
+                  color: '#2d2d2d',
+                  maxWidth: '768px',
+                  lineHeight: 1.85,
+                  letterSpacing: '0.01em',
                 }}
               >
                 Um dos maiores vilões do envelhecimento moderno é o <strong>Leaky Gut (Intestino Permeável)</strong>. 
@@ -130,13 +127,15 @@ export function PrebioticSection() {
               </p>
 
               <p
-                className="leading-relaxed text-center"
+                className="text-center mx-auto"
                 style={{
                   fontFamily: "'Inter', system-ui, sans-serif",
-                  fontSize: '16px',
+                  fontSize: 'clamp(19px, 2.2vw, 22px)',
                   fontWeight: 300,
-                  color: COLORS.textBody,
-                  lineHeight: 1.7,
+                  color: '#2d2d2d',
+                  maxWidth: '768px',
+                  lineHeight: 1.85,
+                  letterSpacing: '0.01em',
                 }}
               >
                 O RSV regula a <strong>integridade da barreira intestinal</strong> e afeta a microbiota. 
@@ -164,29 +163,31 @@ export function PrebioticSection() {
             <div className="grid grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* COLUNA ESQUERDA - TEXTO */}
               <div className="flex flex-col space-y-6">
-                {/* TÍTULO */}
+                {/* TÍTULO - PADRÃO BEAUTYSECTION */}
                 <h2
-                  className="font-serif font-semibold tracking-tight leading-tight"
+                  className="font-serif font-semibold tracking-tight leading-tight text-left"
                   style={{
                     fontSize: 'clamp(32px, 5vw, 48px)',
-                    color: COLORS.primary,
+                    color: '#1a1a1a',
                     fontFamily: "'Playfair Display', Georgia, serif",
                   }}
                 >
                   O Efeito Prebiótico do Resveratrol e Intestino
                 </h2>
 
-                {/* Linha decorativa */}
-                <div className="w-20 h-1 rounded-full" style={{ backgroundColor: COLORS.accent }} />
+                {/* Linha decorativa - PADRÃO BEAUTYSECTION */}
+                <div 
+                  className="w-24 h-1 rounded-full mt-6" 
+                  style={{ backgroundColor: '#c9a962' }} 
+                />
 
-                {/* TEXTO PRINCIPAL */}
+                {/* TEXTO PRINCIPAL - PADRÃO BEAUTYSECTION */}
                 <p
-                  className="leading-relaxed"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: 'clamp(19px, 2.2vw, 22px)',
                     fontWeight: 300,
-                    color: COLORS.textBody,
+                    color: '#2d2d2d',
                     lineHeight: 1.85,
                     letterSpacing: '0.01em',
                   }}
@@ -196,14 +197,13 @@ export function PrebioticSection() {
                   bactérias patogênicas.
                 </p>
 
-                {/* TEXTO LEAKY GUT */}
+                {/* TEXTO LEAKY GUT - PADRÃO BEAUTYSECTION */}
                 <p
-                  className="leading-relaxed"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: 'clamp(19px, 2.2vw, 22px)',
                     fontWeight: 300,
-                    color: COLORS.textBody,
+                    color: '#2d2d2d',
                     lineHeight: 1.85,
                     letterSpacing: '0.01em',
                   }}
@@ -213,14 +213,13 @@ export function PrebioticSection() {
                   permitindo que toxinas vazem para o sangue.
                 </p>
 
-                {/* TEXTO NERVO VAGO */}
+                {/* TEXTO NERVO VAGO - PADRÃO BEAUTYSECTION */}
                 <p
-                  className="leading-relaxed"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: 'clamp(19px, 2.2vw, 22px)',
                     fontWeight: 300,
-                    color: COLORS.textBody,
+                    color: '#2d2d2d',
                     lineHeight: 1.85,
                     letterSpacing: '0.01em',
                   }}

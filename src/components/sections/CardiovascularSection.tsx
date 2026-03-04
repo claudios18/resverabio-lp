@@ -2,10 +2,10 @@
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║           BLOCO 5: CARDIOVASCULAR SECTION - RESVERABIO®                  ║
  * ║                                                                          ║
- *  VERSÃO 8.0 - LAYOUT 50/50 DESKTOP:                                       ║
- *  • MOBILE (< md): Fontes grandes e nítidas (padrão Hero)                  ║
- *  • DESKTOP (md+): Layout 2 colunas - Texto (esq) | Imagem (dir)           ║
- *  • Botão: Preto com texto dourado (estilo luxo)                           ║
+ *  VERSÃO 9.0 - PADRONIZADO COM BEAUTY SECTION                              ║
+ *  • Tipografia alinhada ao padrão Beleza Que Vem de Dentro                 ║
+ *  • Layout 50/50 Desktop mantido                                           ║
+ *  • Estética suíça premium aplicada                                        ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
@@ -17,7 +17,6 @@ import { Container } from '../ui/Container';
 const COLORS = {
   gold: '#c9a962',
   black: '#1a1a1a',
-  primary: '#1E3A5F',
 } as const;
 
 export function CardiovascularSection() {
@@ -64,24 +63,60 @@ export function CardiovascularSection() {
         >
           {/* 
             ═══════════════════════════════════════════════════════════════════
-            MOBILE (< md): LAYOUT LUXO COM FONTES GRANDES
+            TÍTULO PRINCIPAL - PADRÃO BEAUTY SECTION (linhas 87-97)
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           */}
-          <div className="flex flex-col md:hidden space-y-6">
-            {/* TÍTULO PRINCIPAL - Estilo Hero Luxo */}
-            <h2
-              className="font-serif font-bold tracking-tight leading-none text-center px-4"
-              style={{
-                fontSize: 'clamp(28px, 8vw, 36px)',
-                color: COLORS.primary,
-                fontFamily: "'Playfair Display', Georgia, serif",
-                letterSpacing: '-0.02em',
+          <div className="mt-12 md:mt-16 lg:mt-20 text-center">
+            <h2 
+              className="font-serif font-semibold tracking-tight leading-tight"
+              style={{ 
+                fontSize: 'clamp(32px, 5vw, 48px)',
+                color: '#1a1a1a',
+                fontFamily: "'Playfair Display', Georgia, serif"
               }}
             >
               RESVERATROL
             </h2>
+            
+            {/* Linha decorativa dourada abaixo do título */}
+            <div className="mt-6 flex justify-center">
+              <div 
+                className="w-24 h-1 rounded-full"
+                style={{ backgroundColor: '#c9a962' }}
+              />
+            </div>
 
-            {/* SUBTÍTULO DOURADO */}
+            {/* 
+              ═══════════════════════════════════════════════════════════════════
+              PARÁGRAFO DESCRITIVO - PADRÃO BEAUTY SECTION (linhas 116-134)
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            */}
+            <p 
+              className="mt-8 md:mt-12 lg:mt-14 mx-auto leading-relaxed"
+              style={{ 
+                fontFamily: "'Inter', system-ui, sans-serif",
+                fontSize: 'clamp(19px, 2.2vw, 22px)',
+                fontWeight: 300,
+                color: '#2d2d2d',
+                maxWidth: '768px',
+                lineHeight: 1.85,
+                letterSpacing: '0.01em'
+              }}
+            >
+              O envelhecimento está associado ao comprometimento da função vascular
+              e à alteração do equilíbrio redox. O resveratrol na ação
+              cardioprotetora por ele demonstrada, foca na eficácia da prevenção e
+              gestão de doenças cardiovasculares.
+            </p>
+          </div>
+
+          {/* 
+            ═══════════════════════════════════════════════════════════════════
+            MOBILE (< md): LAYOUT VERTICAL
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          */}
+          <div className="flex flex-col md:hidden mt-8 md:mt-12 space-y-6">
+            {/* SUBTÍTULO DOURADO - Mobile */}
             <p
               className="font-serif text-center px-4"
               style={{
@@ -90,44 +125,21 @@ export function CardiovascularSection() {
                 fontFamily: "'Playfair Display', Georgia, serif",
                 fontWeight: 400,
                 fontStyle: 'italic',
-                marginTop: '-4px',
               }}
             >
               Ação Cardioprotetora
             </p>
 
-            {/* Linha decorativa */}
-            <div className="flex justify-center px-4" style={{ marginTop: '4px' }}>
-              <div className="w-24 h-1 rounded-full" style={{ backgroundColor: COLORS.gold }} />
-            </div>
-
-            {/* IMAGEM CARDIOPROTETORA */}
+            {/* IMAGEM CARDIOPROTETORA - maxHeight 65vh */}
             <div className="relative overflow-hidden" style={{ marginLeft: '-16px', marginRight: '-16px', width: 'calc(100% + 32px)' }}>
               <img
                 src="/resverabio-cardioprotecao.png"
                 alt="Resveratrol Cardioprotetor - Proteção Cardiovascular"
                 className="w-full h-auto object-contain"
-                style={{ maxHeight: '55vh' }}
+                style={{ maxHeight: '65vh' }}
                 loading="lazy"
               />
             </div>
-
-            {/* TEXTO DESCRITIVO - Fonte maior e nítida */}
-            <p
-              className="leading-relaxed text-center px-4"
-              style={{
-                fontFamily: "'Inter', system-ui, sans-serif",
-                fontSize: 'clamp(17px, 4vw, 20px)',
-                fontWeight: 400,
-                color: COLORS.black,
-                lineHeight: 1.7,
-              }}
-            >
-              O envelhecimento está associado ao comprometimento da função vascular
-              e à alteração do equilíbrio redox. O resveratrol na ação
-              cardioprotetora por ele demonstrada, foca na eficácia da prevenção e
-              gestão de doenças cardiovasculares.
-            </p>
 
             {/* BENEFÍCIOS - Fontes nítidas */}
             <div className="px-4 pb-4">
@@ -135,7 +147,7 @@ export function CardiovascularSection() {
                 className="font-bold text-center mb-5"
                 style={{
                   fontSize: 'clamp(18px, 4.5vw, 22px)',
-                  color: COLORS.primary,
+                  color: '#1a1a1a',
                   fontFamily: "'Inter', system-ui, sans-serif",
                 }}
               >
@@ -196,68 +208,31 @@ export function CardiovascularSection() {
             DESKTOP (md+): LAYOUT 50/50 - TEXTO (ESQ) | IMAGEM (DIR)
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           */}
-          <div className="hidden md:block">
+          <div className="hidden md:block mt-8 md:mt-12">
             <div className="grid grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* COLUNA ESQUERDA: TEXTO + BENEFÍCIOS + BOTÃO */}
               <div className="space-y-6 lg:space-y-8">
-                {/* TÍTULO PRINCIPAL */}
-                <div>
-                  <h2
-                    className="font-serif font-bold tracking-tight leading-none"
-                    style={{
-                      fontSize: 'clamp(36px, 4vw, 52px)',
-                      color: COLORS.primary,
-                      fontFamily: "'Playfair Display', Georgia, serif",
-                      letterSpacing: '-0.02em',
-                    }}
-                  >
-                    RESVERATROL
-                  </h2>
-
-                  {/* SUBTÍTULO DOURADO */}
-                  <p
-                    className="font-serif mt-2"
-                    style={{
-                      fontSize: 'clamp(24px, 2.5vw, 32px)',
-                      color: COLORS.gold,
-                      fontFamily: "'Playfair Display', Georgia, serif",
-                      fontWeight: 400,
-                      fontStyle: 'italic',
-                    }}
-                  >
-                    Ação Cardioprotetora
-                  </p>
-
-                  {/* Linha decorativa */}
-                  <div className="mt-4">
-                    <div className="w-24 h-1 rounded-full" style={{ backgroundColor: COLORS.gold }} />
-                  </div>
-                </div>
-
-                {/* TEXTO DESCRITIVO */}
+                {/* SUBTÍTULO DOURADO - Desktop */}
                 <p
-                  className="leading-relaxed"
+                  className="font-serif text-center"
                   style={{
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: 'clamp(17px, 1.5vw, 20px)',
+                    fontSize: 'clamp(24px, 2.5vw, 32px)',
+                    color: COLORS.gold,
+                    fontFamily: "'Playfair Display', Georgia, serif",
                     fontWeight: 400,
-                    color: COLORS.black,
-                    lineHeight: 1.7,
+                    fontStyle: 'italic',
                   }}
                 >
-                  O envelhecimento está associado ao comprometimento da função vascular
-                  e à alteração do equilíbrio redox. O resveratrol na ação
-                  cardioprotetora por ele demonstrada, foca na eficácia da prevenção e
-                  gestão de doenças cardiovasculares.
+                  Ação Cardioprotetora
                 </p>
 
                 {/* BENEFÍCIOS */}
                 <div>
                   <h3
-                    className="font-bold mb-4"
+                    className="font-bold mb-4 text-center"
                     style={{
                       fontSize: 'clamp(18px, 1.8vw, 22px)',
-                      color: COLORS.primary,
+                      color: '#1a1a1a',
                       fontFamily: "'Inter', system-ui, sans-serif",
                     }}
                   >
@@ -297,7 +272,7 @@ export function CardiovascularSection() {
                 </div>
 
                 {/* BOTÃO CTA - DESKTOP: Preto com texto dourado */}
-                <div className="pt-4">
+                <div className="pt-4 flex justify-center">
                   <button
                     onClick={scrollToProducts}
                     className="py-4 px-10 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"

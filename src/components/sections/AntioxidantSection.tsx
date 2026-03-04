@@ -2,24 +2,23 @@
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║           BLOCO ANTIOXIDANTE: POTENCIALIZAÇÃO AO MÁXIMO                  ║
  * ║                                                                          ║
- *  VERSÃO 1.0 - LAYOUT INVERSO:                                             ║
+ *  VERSÃO 1.1 - TIPOGRAFIA PADRONIZADA (BEAUTY SECTION):                    ║
  *  • DESKTOP (md+): Imagem ESQUERDA | Texto DIREITA (layout 50/50)          ║
  *  • MOBILE (< md): Empilhamento vertical (imagem topo → texto abaixo)      ║
  *  • Asset: resverabio-radicaislivres.png                                   ║
  *  • Fundo: Off-white (#faf9f7)                                             ║
- *  • Tipografia: Azul Premium (#1E3A5F) - padrão Beleza que Vem de Dentro   ║
+ *  • Tipografia: Padrão BeautySection (cinza #1a1a1a, dourado #c9a962)      ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
 import { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
 
-// Cores padronizadas - Azul Premium
+// Cores padronizadas - Padrão BeautySection
 const COLORS = {
   textPrimary: '#1a1a1a',
   textBody: '#2d2d2d',
   accent: '#c9a962',
-  primary: '#1E3A5F',
 } as const;
 
 export function AntioxidantSection() {
@@ -66,12 +65,12 @@ export function AntioxidantSection() {
             • Largura total do viewport
           */}
           <div className="flex flex-col md:hidden space-y-6">
-            {/* TÍTULO */}
+            {/* TÍTULO PRINCIPAL - Padrão BeautySection: clamp(32px, 5vw, 48px), cor #1a1a1a */}
             <h2
               className="font-serif font-semibold tracking-tight leading-tight text-center px-4"
               style={{
-                fontSize: '26px',
-                color: COLORS.primary,
+                fontSize: 'clamp(32px, 5vw, 48px)',
+                color: COLORS.textPrimary,
                 fontFamily: "'Playfair Display', Georgia, serif",
                 wordBreak: 'keep-all',
                 overflowWrap: 'break-word',
@@ -80,23 +79,22 @@ export function AntioxidantSection() {
               ANTIOXIDANTE: POTENCIALIZAÇÃO AO MÁXIMO
             </h2>
 
-            {/* Subtítulo */}
+            {/* Linha decorativa - Padrão BeautySection: mt-6, w-24 h-1 */}
+            <div className="flex justify-center px-4 mt-6">
+              <div className="w-24 h-1 rounded-full" style={{ backgroundColor: COLORS.accent }} />
+            </div>
+
+            {/* Subtítulo - Playfair Display, itálico, dourado */}
             <p
               className="font-serif italic text-center px-4"
               style={{
-                fontSize: '17px',
-                color: COLORS.primary,
+                fontSize: '18px',
+                color: COLORS.accent,
                 fontFamily: "'Playfair Display', Georgia, serif",
-                marginTop: '-8px',
               }}
             >
               O que a ciência diz
             </p>
-
-            {/* Linha decorativa */}
-            <div className="flex justify-center px-4" style={{ marginTop: '-4px' }}>
-              <div className="w-20 h-1 rounded-full" style={{ backgroundColor: COLORS.accent }} />
-            </div>
 
             {/* IMAGEM DOS RADICAIS LIVRES - MOBILE */}
             <div className="relative overflow-hidden" style={{ marginLeft: '-16px', marginRight: '-16px', width: 'calc(100% + 32px)' }}>
@@ -109,16 +107,18 @@ export function AntioxidantSection() {
               />
             </div>
 
-            {/* TEXTO DESCRITIVO */}
+            {/* TEXTO DESCRITIVO - Padrão BeautySection */}
             <div className="px-4 space-y-4">
               <p
-                className="leading-relaxed text-center"
+                className="text-center mx-auto"
                 style={{
                   fontFamily: "'Inter', system-ui, sans-serif",
-                  fontSize: '16px',
+                  fontSize: 'clamp(19px, 2.2vw, 22px)',
                   fontWeight: 300,
                   color: COLORS.textBody,
-                  lineHeight: 1.7,
+                  lineHeight: 1.85,
+                  letterSpacing: '0.01em',
+                  maxWidth: '768px',
                 }}
               >
                 O envelhecimento da pele não tem uma causa única; é um processo multifatorial, 
@@ -126,13 +126,13 @@ export function AntioxidantSection() {
                 de colágeno, entre outros. Por isso, uma "solução correta" deve ter múltiplos alvos.
               </p>
 
-              {/* Subtítulo Conceito Inside-Out */}
+              {/* Subtítulo Conceito Inside-Out - Playfair Display, itálico */}
               <h3
-                className="font-semibold text-center pt-2"
+                className="font-serif italic text-center pt-4"
                 style={{
-                  fontSize: '17px',
-                  color: COLORS.primary,
-                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontSize: '20px',
+                  color: COLORS.textPrimary,
+                  fontFamily: "'Playfair Display', Georgia, serif",
                 }}
               >
                 O Conceito "Inside-Out": Por que um não vive sem o outro
@@ -143,21 +143,23 @@ export function AntioxidantSection() {
                 <p
                   className="font-semibold text-center"
                   style={{
-                    fontSize: '15px',
-                    color: COLORS.primary,
+                    fontSize: 'clamp(17px, 2vw, 19px)',
+                    color: COLORS.textPrimary,
                     fontFamily: "'Inter', system-ui, sans-serif",
                   }}
                 >
                   &gt; Proteção (Ação Antioxidante):
                 </p>
                 <p
-                  className="leading-relaxed text-center"
+                  className="text-center mx-auto"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: '15px',
+                    fontSize: 'clamp(17px, 2vw, 19px)',
                     fontWeight: 300,
                     color: COLORS.textBody,
-                    lineHeight: 1.6,
+                    lineHeight: 1.85,
+                    letterSpacing: '0.01em',
+                    maxWidth: '768px',
                   }}
                 >
                   O RSV funciona como um antioxidante, protegendo as células contra o estresse 
@@ -170,21 +172,23 @@ export function AntioxidantSection() {
                 <p
                   className="font-semibold text-center"
                   style={{
-                    fontSize: '15px',
-                    color: COLORS.primary,
+                    fontSize: 'clamp(17px, 2vw, 19px)',
+                    color: COLORS.textPrimary,
                     fontFamily: "'Inter', system-ui, sans-serif",
                   }}
                 >
                   &gt; Reparo (Ação Estrutural):
                 </p>
                 <p
-                  className="leading-relaxed text-center"
+                  className="text-center mx-auto"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: '15px',
+                    fontSize: 'clamp(17px, 2vw, 19px)',
                     fontWeight: 300,
                     color: COLORS.textBody,
-                    lineHeight: 1.6,
+                    lineHeight: 1.85,
+                    letterSpacing: '0.01em',
+                    maxWidth: '768px',
                   }}
                 >
                   O RSV tem a capacidade de estimular a síntese de colágeno. Estudos tópicos com 
@@ -218,36 +222,35 @@ export function AntioxidantSection() {
 
               {/* COLUNA DIREITA - TEXTO */}
               <div className="flex flex-col space-y-6">
-                {/* TÍTULO - Alinhado com BeautySection: clamp(32px, 5vw, 48px) */}
+                {/* TÍTULO PRINCIPAL - Padrão BeautySection: clamp(32px, 5vw, 48px), cor #1a1a1a */}
                 <h2
                   className="font-serif font-semibold tracking-tight leading-tight"
                   style={{
                     fontSize: 'clamp(32px, 5vw, 48px)',
-                    color: COLORS.primary,
+                    color: COLORS.textPrimary,
                     fontFamily: "'Playfair Display', Georgia, serif",
                   }}
                 >
                   ANTIOXIDANTE: POTENCIALIZAÇÃO AO MÁXIMO
                 </h2>
 
-                {/* Subtítulo */}
+                {/* Linha decorativa - Padrão BeautySection: mt-6, w-24 h-1 */}
+                <div className="mt-6 w-24 h-1 rounded-full" style={{ backgroundColor: COLORS.accent }} />
+
+                {/* Subtítulo - Playfair Display, itálico, dourado */}
                 <p
                   className="font-serif italic"
                   style={{
-                    fontSize: '18px',
-                    color: COLORS.primary,
+                    fontSize: '20px',
+                    color: COLORS.accent,
                     fontFamily: "'Playfair Display', Georgia, serif",
                   }}
                 >
                   O que a ciência diz
                 </p>
 
-                {/* Linha decorativa */}
-                <div className="w-20 h-1 rounded-full" style={{ backgroundColor: COLORS.accent }} />
-
-                {/* TEXTO PRINCIPAL - Alinhado com BeautySection: clamp(19px, 2.2vw, 22px) */}
+                {/* TEXTO PRINCIPAL - Padrão BeautySection: clamp(19px, 2.2vw, 22px) */}
                 <p
-                  className="leading-relaxed"
                   style={{
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: 'clamp(19px, 2.2vw, 22px)',
@@ -262,35 +265,34 @@ export function AntioxidantSection() {
                   de colágeno, entre outros. Por isso, uma "solução correta" deve ter múltiplos alvos.
                 </p>
 
-                {/* Subtítulo Conceito Inside-Out - Alinhado com parágrafo principal */}
+                {/* Subtítulo Conceito Inside-Out - Playfair Display, itálico */}
                 <h3
-                  className="font-semibold pt-2"
+                  className="font-serif italic pt-2"
                   style={{
                     fontSize: 'clamp(19px, 2.2vw, 22px)',
-                    color: COLORS.primary,
-                    fontFamily: "'Inter', system-ui, sans-serif",
+                    color: COLORS.textPrimary,
+                    fontFamily: "'Playfair Display', Georgia, serif",
                   }}
                 >
                   O Conceito "Inside-Out": Por que um não vive sem o outro
                 </h3>
 
-                {/* Proteção - Alinhado com parágrafo principal */}
+                {/* Proteção */}
                 <div className="space-y-2">
                   <p
                     className="font-semibold"
                     style={{
-                      fontSize: 'clamp(19px, 2.2vw, 22px)',
-                      color: COLORS.primary,
+                      fontSize: 'clamp(17px, 2vw, 19px)',
+                      color: COLORS.textPrimary,
                       fontFamily: "'Inter', system-ui, sans-serif",
                     }}
                   >
                     &gt; Proteção (Ação Antioxidante):
                   </p>
                   <p
-                    className="leading-relaxed"
                     style={{
                       fontFamily: "'Inter', system-ui, sans-serif",
-                      fontSize: 'clamp(19px, 2.2vw, 22px)',
+                      fontSize: 'clamp(17px, 2vw, 19px)',
                       fontWeight: 300,
                       color: COLORS.textBody,
                       lineHeight: 1.85,
@@ -302,23 +304,22 @@ export function AntioxidantSection() {
                   </p>
                 </div>
 
-                {/* Reparo - Alinhado com parágrafo principal */}
+                {/* Reparo */}
                 <div className="space-y-2">
                   <p
                     className="font-semibold"
                     style={{
-                      fontSize: 'clamp(19px, 2.2vw, 22px)',
-                      color: COLORS.primary,
+                      fontSize: 'clamp(17px, 2vw, 19px)',
+                      color: COLORS.textPrimary,
                       fontFamily: "'Inter', system-ui, sans-serif",
                     }}
                   >
                     &gt; Reparo (Ação Estrutural):
                   </p>
                   <p
-                    className="leading-relaxed"
                     style={{
                       fontFamily: "'Inter', system-ui, sans-serif",
-                      fontSize: 'clamp(19px, 2.2vw, 22px)',
+                      fontSize: 'clamp(17px, 2vw, 19px)',
                       fontWeight: 300,
                       color: COLORS.textBody,
                       lineHeight: 1.85,

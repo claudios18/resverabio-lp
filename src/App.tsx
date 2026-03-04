@@ -9,6 +9,7 @@ import { ScienceSection } from './components/sections/ScienceSection';
 import { PrebioticSection } from './components/sections/PrebioticSection';
 import { CustomerReviews } from './components/sections/CustomerReviews';
 import { PurchaseSection } from './components/sections/PurchaseSection';
+import { Footer } from './components/sections/Footer';
 
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
@@ -122,10 +123,15 @@ function App() {
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <PurchaseSection />
 
-      {/* Espaço reservado para próximos blocos */}
-      {/* 
+      {/* ═══════════════════════════════════════════════════════════════════
+          BLOCO 11: FOOTER
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          • Fundo: Preto absoluto (#000000)
+          • Seção obrigatória: FONTES CIENTÍFICAS CONSULTADAS
+          • Link: resveratrolciencia.com
+          • Design: Padrão de luxo suíço
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <Footer />
-      */}
     </div>
   );
 }
