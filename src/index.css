@@ -229,6 +229,88 @@
   .bg-black {
     background-color: #000000 !important;
   }
+  
+  /* ===== BOTÕES DE LUXO - CARDS DO PRODUTO ===== */
+  .btn-compra-luxo {
+    background: linear-gradient(135deg, #c9a962 0%, #e8d5a3 50%, #c9a962 100%) !important;
+    color: #000000 !important;
+    padding: 1rem 2rem !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    border-radius: 12px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(201, 169, 98, 0.4) !important;
+    width: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: block !important;
+  }
+  
+  .btn-compra-luxo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .btn-compra-luxo:hover::before {
+    left: 100%;
+  }
+  
+  .btn-compra-luxo:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(201, 169, 98, 0.6) !important;
+    background: linear-gradient(135deg, #e8d5a3 0%, #c9a962 50%, #e8d5a3 100%) !important;
+  }
+  
+  .btn-compra-luxo:active {
+    transform: translateY(-1px) !important;
+  }
+  
+  /* Botão Destaque (Card central) */
+  .btn-compra-luxo-destaque {
+    background: linear-gradient(135deg, #c9a962 0%, #f0e68c 50%, #c9a962 100%) !important;
+    box-shadow: 0 6px 20px rgba(201, 169, 98, 0.5), 0 0 30px rgba(201, 169, 98, 0.3) !important;
+    animation: pulse-luxo 2s infinite !important;
+  }
+  
+  @keyframes pulse-luxo {
+    0%, 100% { box-shadow: 0 6px 20px rgba(201, 169, 98, 0.5), 0 0 30px rgba(201, 169, 98, 0.3); }
+    50% { box-shadow: 0 6px 25px rgba(201, 169, 98, 0.7), 0 0 40px rgba(201, 169, 98, 0.5); }
+  }
+  
+  /* ===== WRAPPER DOS CARDS - VISIBILIDADE MOBILE ===== */
+  .cards-produto-wrapper {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  @media (max-width: 768px) {
+    .cards-produto-wrapper {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem !important;
+    }
+    
+    .cards-produto-wrapper > * {
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    .btn-compra-luxo {
+      font-size: 14px !important;
+      padding: 0.875rem 1.5rem !important;
+    }
+  }
 }
 
 @layer utilities {
@@ -247,8 +329,15 @@
   .card-hover-glow:hover {
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.4),
                 0 0 50px rgba(255, 255, 255, 0.2);
-    transform: translateY(-5px); /* Movimento suave solicitado */
+    transform: translateY(-5px);
     border-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Forçar renderização visível */
+  .force-visible {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
 

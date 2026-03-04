@@ -37,7 +37,7 @@ const products = [
     id: 'combo3',
     name: 'Resverabio® Kit Trimestral',
     description: '3 Potes - 180 cápsulas (90 dias)',
-    image: '/resverabio-combo3.png',
+    image: '/resverabio-combo3c(1).png',
     price: { 
       original: 'R$ 891,00', 
       final: 'R$ 415,50' 

@@ -7,6 +7,8 @@ import { AntioxidantSection } from './components/sections/AntioxidantSection';
 import { NutritionSection } from './components/sections/NutritionSection';
 import { ScienceSection } from './components/sections/ScienceSection';
 import { PrebioticSection } from './components/sections/PrebioticSection';
+import { CustomerReviews } from './components/sections/CustomerReviews';
+import { PurchaseSection } from './components/sections/PurchaseSection';
 
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
@@ -100,11 +102,28 @@ function App() {
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <PrebioticSection />
 
-      {/* Espaço reservado para próximos blocos -->
+      {/* ═══════════════════════════════════════════════════════════════════
+          BLOCO 9: AVALIAÇÕES DOS CLIENTES
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          • Fundo branco (#ffffff)
+          • Layout: Sidebar (estatísticas) + Lista de avaliações
+          • Nota média 4.9/5 com gráfico de distribuição
+          • Cards de avaliações com avatar, nome, data e conteúdo
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <CustomerReviews />
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          BLOCO 10: VENDAS (OFERTAS)
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          • Fundo preto (#000000)
+          • Grid de 4 cards de produtos
+          • Preços, parcelas e desconto PIX
+          • Badge "Campeão de Vendas" no kit 3 potes
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <PurchaseSection />
+
+      {/* Espaço reservado para próximos blocos */}
       {/* 
-      <Benefits />
-      <Testimonials />
-      <ProductShowcase />
       <Footer />
       */}
     </div>

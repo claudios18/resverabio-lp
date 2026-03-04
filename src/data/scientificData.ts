@@ -252,7 +252,7 @@ export const placeholders = {
   images: {
     // Imagens na raiz da pasta /assets
     pote: '/assets/resverabio-pote.png',
-    combo3: '/assets/resverabio-combo3.png',
+    combo3: '/assets/resverabio-combo3c(1).png',
     box: '/assets/resverabio-box.png',
     tabela: '/assets/resverabio-tabela.png',
     frontal: '/assets/resverabio-frontal.png'
