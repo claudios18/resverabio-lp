@@ -155,7 +155,7 @@ export function Hero() {
               <div className="relative w-full h-[50vh] lg:h-[80vh] flex items-center justify-center lg:justify-end">
                 {!imageError ? (
                   <img
-                    src="/resverabio-hero.png"
+                    src="/resverabio-hero2.png"
                     alt="Resverabio®"
                     className="relative z-10 max-w-full max-h-full w-auto h-auto object-contain"
                     style={{
