@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Atom, Dna, Droplets, Shield, Sparkles } from 'lucide-react';
 import { Container } from '../ui/Container';
 
 /**
@@ -28,28 +28,29 @@ export function Hero() {
 
   const pillars = [
     { 
-      icon: Sparkles, 
+      icon: Atom, 
       title: 'RESVERATROL', 
       description: 'o poder Antioxidante',
     },
     { 
-      icon: Sparkles, 
+      icon: Dna, 
       title: 'COLÁGENO', 
       description: 'o construtor de novas células',
     },
     { 
-      icon: Sparkles, 
+      icon: Droplets, 
       title: 'ÁC HIALURÔNICO', 
       description: 'combate rugas e o envelhecimento da pele',
     },
     { 
-      icon: Sparkles, 
+      icon: Shield, 
       title: 'NIACINA', 
       description: 'pele com saúde e cor homogenia',
     },
   ];
 
 
+  
   const scrollToProducts = () => {
     const element = document.querySelector('#produtos');
     if (element) {
