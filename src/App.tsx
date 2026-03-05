@@ -10,6 +10,7 @@ import { PrebioticSection } from './components/sections/PrebioticSection';
 import { CustomerReviews } from './components/sections/CustomerReviews';
 import { PurchaseSection } from './components/sections/PurchaseSection';
 import { Footer } from './components/sections/Footer';
+import { TrustCards } from './components/sections/TrustCards';
 
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
@@ -34,6 +35,15 @@ function App() {
           BLOCO 2: HERO BANNER
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <Hero />
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          BLOCO 2.5: CARDS DE CONFIANÇA
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          • Grid 4 colunas com fundos em degradê roxo
+          • Ícones dourados e textos brancos
+          • Escala aumentada para mobile
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <TrustCards />
 
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 3: BEAUTY SECTION (Puravida Inspired)
