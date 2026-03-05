@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Atom, Dna, Droplets, Shield } from 'lucide-react';
 import { Container } from '../ui/Container';
 
 /**
@@ -26,7 +26,13 @@ export function Hero() {
     setIsVisible(true);
   }, []);
 
-  
+  const pillars = [
+    { icon: Atom, title: 'RESVERATROL', description: 'o poder Antioxidante' },
+    { icon: Dna, title: 'COLÁGENO', description: 'o construtor de novas células' },
+    { icon: Droplets, title: 'ÁC HIALURÔNICO', description: 'combate rugas e o envelhecimento da pele' },
+    { icon: Shield, title: 'NIACINA', description: 'pele com saúde e cor homogenia' },
+  ];
+
   const scrollToProducts = () => {
     const element = document.querySelector('#produtos');
     if (element) {
@@ -189,6 +195,72 @@ export function Hero() {
             </div>
           </div>
         </Container>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            PILARES DE ATIVOS - 4 Cards Pretos (Mobile Contained)
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <div className="relative z-10 pb-8 md:pb-6 mt-4 md:mt-0">
+          <Container>
+            <div 
+              className={`transition-all duration-1000 delay-500 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+                  {pillars.map((pillar, index) => {
+                    const Icon = pillar.icon;
+                    return (
+                      <div
+                        key={pillar.title}
+                        className="card-hover-glow group relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/10 p-8 md:p-10 text-center min-h-[280px] md:min-h-[320px] justify-center"
+                        style={{ animationDelay: `${600 + index * 100}ms` }}
+                      >
+                        {/* Efeito de luz blur no hover */}
+                        <div 
+                          className="absolute -inset-1 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
+                          style={{
+                            background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 70%)',
+                            filter: 'blur(20px)',
+                          }}
+                        />
+                        {/* Ícone */}
+                        <div className="mb-4 flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-full bg-[#c9a962]/20 transition-transform duration-300 ease-out group-hover:scale-110">
+                          <Icon size={40} style={{ color: '#c9a962' }} />
+                        </div>
+                        {/* Título */}
+                        <h3 
+                          className="mb-2"
+                          style={{
+                            fontFamily: "'Playfair Display', Georgia, serif",
+                            fontSize: 'clamp(16px, 2.5vw, 22px)',
+                            fontWeight: 600,
+                            color: '#ffffff',
+                            letterSpacing: '0.02em',
+                          }}
+                        >
+                          {pillar.title}
+                        </h3>
+                        {/* Descrição */}
+                        <p 
+                          style={{
+                            fontFamily: "'Inter', system-ui, sans-serif",
+                            fontSize: 'clamp(13px, 1.8vw, 17px)',
+                            fontWeight: 300,
+                            color: 'rgba(255, 255, 255, 0.8)',
+                            lineHeight: 1.4,
+                          }}
+                        >
+                          {pillar.description}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </Container>
+        </div>
       </div>
     </section>
   );
