@@ -19,7 +19,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
-import { CTAButton, CTAButtonMobile } from '../ui/CTAButton';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // ASSETS OFICIAIS RESVERABIO® - IMAGENS PREMIUM DO BLOCO PELE
@@ -43,6 +42,8 @@ const COLORS = {
   accent: '#c9a962',         // Dourado (linha decorativa - igual BeautySection)
   primary: '#1E3A5F',        // Azul Navy (para destaques e CTAs)
   light: '#E8EEF4',          // Azul claro (backgrounds)
+  black: '#1a1a1a',          // Preto para botões
+  gold: '#c9a962',           // Dourado para texto de botões
 } as const;
 
 export function LongevitySection() {
@@ -251,13 +252,24 @@ export function LongevitySection() {
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════════
-              CALL TO ACTION - BOTÃO DOURADO ELEGANTE
+              CALL TO ACTION - BOTÃO PRETO COM TEXTO DOURADO (Padrão Luxo)
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          <div className="mt-10 md:mt-12 hidden md:flex justify-center">
-            <CTAButton text="Quero Longevidade Real" />
-          </div>
-          <div className="mt-10 md:mt-12 flex md:hidden justify-center px-6">
-            <CTAButtonMobile text="Quero Longevidade Real" />
+          <div className="mt-10 md:mt-12 flex justify-center px-6">
+            <button
+              onClick={() => {
+                const element = document.querySelector('#produtos');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95"
+              style={{
+                backgroundColor: COLORS.black,
+                color: COLORS.gold,
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+                letterSpacing: '0.05em',
+              }}
+            >
+              QUERO REJUVENESCER
+            </button>
           </div>
         </div>
       </Container>
