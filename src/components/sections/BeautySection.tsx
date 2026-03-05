@@ -14,7 +14,12 @@
  */
 
 import { Container } from '../ui/Container';
-import { CTAButton, CTAButtonMobile } from '../ui/CTAButton';
+
+// Cores de luxo padronizadas
+const COLORS = {
+  black: '#1a1a1a',
+  gold: '#c9a962',
+} as const;
 
 // Dados das imagens do bloco
 const beautyImages = [
@@ -134,13 +139,24 @@ export function BeautySection() {
           </p>
 
           {/* ═══════════════════════════════════════════════════════════════════
-              CALL TO ACTION - BOTÃO DOURADO ELEGANTE
+              CALL TO ACTION - BOTÃO PRETO COM TEXTO DOURADO (Padrão Luxo)
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          <div className="mt-10 md:mt-12 hidden md:flex justify-center">
-            <CTAButton text="Quero Beleza de Verdade" />
-          </div>
-          <div className="mt-10 md:mt-12 flex md:hidden justify-center px-6">
-            <CTAButtonMobile text="Quero Beleza de Verdade" />
+          <div className="mt-10 md:mt-12 flex justify-center px-6">
+            <button
+              onClick={() => {
+                const element = document.querySelector('#produtos');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95"
+              style={{
+                backgroundColor: COLORS.black,
+                color: COLORS.gold,
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+                letterSpacing: '0.05em',
+              }}
+            >
+              GARANTIR MEU RESVERABIO®
+            </button>
           </div>
         </div>
       </Container>
