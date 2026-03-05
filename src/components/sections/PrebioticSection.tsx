@@ -13,14 +13,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
-
-// Cores padronizadas
-const COLORS = {
-  accent: '#c9a962',
-  primary: '#1E3A5F',
-  black: '#1a1a1a',
-  gold: '#c9a962',
-} as const;
+import { LuxuryButtonResponsive } from '../ui/LuxuryButton';
 
 export function PrebioticSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -152,23 +145,9 @@ export function PrebioticSection() {
               </p>
             </div>
 
-            {/* BOTÃO CTA - MOBILE: Preto com texto dourado (Luxo) */}
-            <div className="flex md:hidden justify-center mt-8 px-6">
-              <button
-                onClick={() => {
-                  const element = document.querySelector('#produtos');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="w-full max-w-sm py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95"
-                style={{
-                  backgroundColor: COLORS.black,
-                  color: COLORS.gold,
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-                  letterSpacing: '0.05em',
-                }}
-              >
-                QUERO INTESTINO SAUDÁVEL
-              </button>
+            {/* BOTÃO CTA - MOBILE */}
+            <div className="flex justify-center mt-8 px-6">
+              <LuxuryButtonResponsive text="QUERO INTESTINO SAUDÁVEL" />
             </div>
           </div>
 
@@ -251,23 +230,9 @@ export function PrebioticSection() {
                   o cérebro recebe sinais de equilíbrio.
                 </p>
 
-                {/* BOTÃO CTA - DESKTOP: Preto com texto dourado (Luxo) */}
-                <div className="hidden md:flex justify-start pt-4">
-                  <button
-                    onClick={() => {
-                      const element = document.querySelector('#produtos');
-                      if (element) element.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="py-4 px-10 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-                    style={{
-                      backgroundColor: COLORS.black,
-                      color: COLORS.gold,
-                      boxShadow: '0 12px 40px rgba(0, 0, 0, 0.25)',
-                      letterSpacing: '0.08em',
-                    }}
-                  >
-                    QUERO INTESTINO SAUDÁVEL
-                  </button>
+                {/* BOTÃO CTA - DESKTOP */}
+                <div className="flex justify-start pt-4">
+                  <LuxuryButtonResponsive text="QUERO INTESTINO SAUDÁVEL" />
                 </div>
               </div>
 

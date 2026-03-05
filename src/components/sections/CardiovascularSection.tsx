@@ -11,6 +11,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
+import { LuxuryButtonResponsive } from '../ui/LuxuryButton';
 
 
 // Cores padronizadas
@@ -188,18 +189,7 @@ export function CardiovascularSection() {
 
             {/* BOTÃO CTA - MOBILE: Preto com texto dourado (Luxo) */}
             <div className="flex md:hidden justify-center mt-8 px-6">
-              <button
-                onClick={scrollToProducts}
-                className="w-full max-w-sm py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95"
-                style={{
-                  backgroundColor: COLORS.black,
-                  color: COLORS.gold,
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-                  letterSpacing: '0.05em',
-                }}
-              >
-                GARANTIR MEU RESVERABIO®
-              </button>
+              <LuxuryButtonResponsive text="GARANTIR MEU RESVERABIO®" />
             </div>
           </div>
 
