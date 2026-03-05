@@ -40,7 +40,7 @@ export function Hero() {
     { 
       icon: Sparkles, 
       title: 'ÁC HIALURÔNICO', 
-      description: 'combate rugas e envelhecimento da pele',
+      description: 'combate rugas e o envelhecimento da pele',
     },
     { 
       icon: Sparkles, 
@@ -223,14 +223,14 @@ export function Hero() {
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
                   {pillars.map((pillar, index) => {
                     const Icon = pillar.icon;
                     return (
                       <div
                         key={pillar.title}
-                        className="card-hover-glow group relative flex flex-col items-center rounded-xl border border-white/10 bg-white/10 p-6 md:p-8 text-center"
+                        className="card-hover-glow group relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/10 p-8 md:p-10 text-center min-h-[280px] md:min-h-[320px] justify-center"
                         style={{
                           animationDelay: `${600 + index * 100}ms`,
                         }}
@@ -244,15 +244,15 @@ export function Hero() {
                           }}
                         />
                         {/* Ícone */}
-                        <div className="mb-3 flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-[#c9a962]/20 transition-transform duration-300 ease-out group-hover:scale-110">
-                          <Icon size={32} style={{ color: '#c9a962' }} />
+                        <div className="mb-4 flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-full bg-[#c9a962]/20 transition-transform duration-300 ease-out group-hover:scale-110">
+                          <Icon size={40} style={{ color: '#c9a962' }} />
                         </div>
                         {/* Título */}
                         <h3 
                           className="mb-2"
                           style={{
                             fontFamily: "'Playfair Display', Georgia, serif",
-                            fontSize: 'clamp(14px, 2vw, 18px)',
+                            fontSize: 'clamp(16px, 2.5vw, 22px)',
                             fontWeight: 600,
                             color: '#ffffff',
                             letterSpacing: '0.02em',
@@ -264,7 +264,7 @@ export function Hero() {
                         <p 
                           style={{
                             fontFamily: "'Inter', system-ui, sans-serif",
-                            fontSize: 'clamp(11px, 1.5vw, 14px)',
+                            fontSize: 'clamp(13px, 1.8vw, 17px)',
                             fontWeight: 300,
                             color: 'rgba(255, 255, 255, 0.8)',
                             lineHeight: 1.4,
