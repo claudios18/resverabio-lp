@@ -47,7 +47,7 @@ const trustData = [
 
 export function TrustCards() {
   return (
-    <section className="relative w-full py-8 md:py-12" style={{ backgroundColor: '#faf9f7' }}>
+    <section className="relative w-full py-6 md:py-8" style={{ backgroundColor: '#faf9f7' }}>
       <Container>
         {/* Grid de 4 Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">

@@ -37,15 +37,6 @@ function App() {
       <Hero />
 
       {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 2.5: CARDS DE CONFIANÇA
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Grid 4 colunas com fundos em degradê roxo
-          • Ícones dourados e textos brancos
-          • Escala aumentada para mobile
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <TrustCards />
-
-      {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 3: BEAUTY SECTION (Puravida Inspired)
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           • 3 imagens alinhadas horizontalmente
@@ -83,6 +74,15 @@ function App() {
           • Título: "ANTIOXIDANTE: POTENCIALIZAÇÃO AO MÁXIMO" (Azul Premium)
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <AntioxidantSection />
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          BLOCO 5.6: CARDS DE CONFIANÇA
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          • Grid 4 colunas com fundos em degradê roxo
+          • Ícones dourados e textos brancos
+          • Posição: Entre Antioxidante e Nutrição
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <TrustCards />
 
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 6: NUTRITION SECTION (Puravida Inspired)
