@@ -200,43 +200,71 @@ export const Footer = () => {
       </Container>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          COPYRIGHT
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+          COPYRIGHT & DADOS JURÍDICOS
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          • Dados empresariais oficiais
+          • Links obrigatórios de e-commerce
+          • Estética de luxo preservada
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
-        <Container className="py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <Container className="py-8">
+          {/* Dados da Empresa */}
+          <div className="text-center mb-6">
             <p 
-              className="text-xs text-center md:text-left"
+              className="text-xs leading-relaxed"
               style={{ 
                 color: COLORS.whiteSubtle,
                 fontFamily: "'Inter', system-ui, sans-serif",
                 fontWeight: 300
               }}
             >
-              © {currentYear} Resverabio®. Todos os direitos reservados.
+              <span style={{ color: COLORS.gold }}>Naturalbio Suplementos Ltda</span>
+              <span className="mx-2" style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
+              CNPJ: 50.482.086/0001-04
+              <span className="mx-2" style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
+              Rua Piloto 5 - Cabo Frio - RJ
             </p>
-            
-            <div className="flex items-center gap-6">
-              {['Termos de Uso', 'Política de Privacidade'].map((text) => (
-                <a
-                  key={text}
-                  href={`#${text.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="text-xs transition-colors duration-200"
-                  style={{ 
-                    color: COLORS.whiteSubtle,
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontWeight: 300
-                  }}
-                >
-                  {text}
-                </a>
-              ))}
-            </div>
+          </div>
+
+          {/* Links Obrigatórios */}
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 mb-6">
+            {[
+              { label: 'Política de Privacidade', href: '#politica-de-privacidade' },
+              { label: 'Termos e Condições', href: '#termos-e-condicoes' },
+              { label: 'Política de Trocas', href: '#politica-de-trocas' },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-xs transition-all duration-200 hover:tracking-wider"
+                style={{ 
+                  color: COLORS.whiteSubtle,
+                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontWeight: 400
+                }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center mb-4">
+            <p 
+              className="text-xs"
+              style={{ 
+                color: 'rgba(255, 255, 255, 0.3)',
+                fontFamily: "'Inter', system-ui, sans-serif",
+                fontWeight: 300
+              }}
+            >
+              ©2024 RESVERABIO® Todos os direitos Reservados
+            </p>
           </div>
           
           {/* Frase de amor */}
           <p 
-            className="text-center mt-4 flex items-center justify-center gap-2"
+            className="text-center flex items-center justify-center gap-2"
             style={{ 
               color: 'rgba(255, 255, 255, 0.2)',
               fontFamily: "'Inter', system-ui, sans-serif",
