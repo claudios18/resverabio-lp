@@ -136,13 +136,14 @@ export const Footer = () => {
             <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
               {[
                 { label: 'Benefícios', href: '#cardiovascular' },
-                { label: 'Ciência', href: '#ciencia' },
+                { label: 'Referências Científicas', href: 'https://resveratrolciencia.com', external: true },
                 { label: 'Depoimentos', href: '#avaliacoes' },
-                { label: 'Comprar', href: '#produtos' },
+                { label: 'Comprar', href: '#vendas' },
               ].map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
+                  {...(link.external && { target: '_blank', rel: 'noopener noreferrer' })}
                   className="text-sm transition-colors duration-200 hover:opacity-100"
                   style={{ 
                     color: COLORS.whiteMuted,
