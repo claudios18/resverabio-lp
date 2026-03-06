@@ -24,7 +24,7 @@ const COLORS = {
 } as const;
 
 export const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  
 
   return (
     <footer style={{ backgroundColor: COLORS.black }}>
