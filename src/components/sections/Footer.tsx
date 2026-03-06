@@ -170,7 +170,7 @@ export const Footer = () => {
             </h4>
             <div className="space-y-2">
               <a
-                href="mailto:contato@resverabio.com.br"
+                href="mailto:contato@resverabio.com"
                 className="block text-sm transition-colors duration-200"
                 style={{ 
                   color: COLORS.whiteMuted,
@@ -178,10 +178,10 @@ export const Footer = () => {
                   fontWeight: 300
                 }}
               >
-                contato@resverabio.com.br
+                contato@resverabio.com
               </a>
               <a
-                href="https://wa.me/5511999999999"
+                href="https://wa.me/5521979582229"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-sm transition-colors duration-200"
@@ -191,7 +191,7 @@ export const Footer = () => {
                   fontWeight: 300
                 }}
               >
-                WhatsApp: (11) 99999-9999
+                WhatsApp: (21) 97958-2229
               </a>
             </div>
           </div>
