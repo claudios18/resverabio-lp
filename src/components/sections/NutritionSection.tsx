@@ -89,18 +89,19 @@ export function NutritionSection() {
               }}
             >
               <img
-                src="/resverabio-tabnutri.png"
-                alt="Tabela Nutricional Resverabio® - Informações completas de valores nutricionais"
+                src="/resverabio-rotuloduplo.png"
+                alt="Rótulo Duplo Resverabio® - Informações Nutricionais e Tabela Completa"
                 className="w-full h-auto object-contain"
                 style={{ 
                   filter: 'drop-shadow(0 4px 20px rgba(255,255,255,0.1))'
                 }}
+                loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                   target.parentElement!.innerHTML = `
                     <div class="aspect-[4/5] bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] flex items-center justify-center border border-[#c9a962]/20 rounded-xl">
-                      <span class="text-[#c9a962] font-medium text-lg">Tabela Nutricional</span>
+                      <span class="text-[#c9a962] font-medium text-lg">Rótulo Nutricional</span>
                     </div>
                   `;
                 }}
