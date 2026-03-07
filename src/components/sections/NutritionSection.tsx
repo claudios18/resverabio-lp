@@ -1,24 +1,24 @@
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    BLOCO 4: NUTRITION SECTION - RESVERABIO®              ║
- * ║   VERSÃO 2.0 | Sinergia Box Integrado | 28 Fev 2026                      ║
+ * ║   VERSÃO 3.0 | Rótulo Duplo Centralizado | 07 Mar 2026                   ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  * 
  * ESPECIFICAÇÕES DE LUXO:
  * - Fundo: Preto Absoluto (#000000) - contraste máximo
- * - Layout Superior: 2 colunas 50/50 (Tabela | Sinergia Box)
- * - Asset Direita: resverabio-boxsinergia.png (com card dourado integrado)
+ * - Layout Superior: Centralizado, foco único no rótulo duplo
+ * - Asset Principal: resverabio-rotuloduplo.png (rótulo duplo premium)
  * - Layout Inferior: 2 cards informativos (Alérgenos | Benefícios)
  * - Cards: Fundo cinza escuro (#0f0f0f) com borda dourada sutil
  * - Efeitos: Levitação + Glow branco blur no hover
  * - Padding: Elegante e respirável
  * 
  * REFINAMENTOS APLICADOS:
- * ✓ Asset da direita trocado: box.png → boxsinergia.png
- * ✓ Card dourado de sinergia integrado na imagem
- * ✓ Proporções mobile otimizadas (max-h responsivo)
- * ✓ Gap eliminado pelo card dourado na base da imagem
- * ✓ Alinhamento vertical ajustado para mobile
+ * ✓ Asset atualizado: tabela nutricional → rótulo duplo
+ * ✓ Layout simplificado: coluna única centralizada
+ * ✓ Sinergia Box removida (asset antigo eliminado)
+ * ✓ Foco total nas informações nutricionais oficiais
+ * ✓ Lazy loading otimizado para performance
  */
 
 import { Container } from '../ui/Container';
@@ -66,22 +66,22 @@ export function NutritionSection() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            GRID 50/50 - TABELA | PRODUTO
+            GRID CENTRALIZADO - RÓTULO DUPLO
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            • Layout: 2 colunas iguais em desktop
-            • Mobile: Empilhado (tabela acima, produto abaixo)
-            • Gap: Harmonioso entre os elementos
+            • Layout: Centralizado, largura máxima controlada
+            • Mobile: Responsivo com padding adequado
+            • Alinhamento: Centro para destaque máximo do rótulo
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start lg:items-center">
+        <div className="flex justify-center items-center">
           
           {/* ═══════════════════════════════════════════════════════════════
-              COLUNA ESQUERDA: TABELA NUTRICIONAL
+              RÓTULO DUPLO NUTRICIONAL
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Imagem: resverabio-tabnutri.png (alta resolução)
+              • Imagem: resverabio-rotuloduplo.png (rótulo duplo premium)
               • Destaque: Contraste máximo contra fundo preto
-              • Alinhamento: Centro/esquerda com padding elegante
+              • Alinhamento: Centro para foco total no produto
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          <div className="flex flex-col items-center lg:items-start">
+          <div className="flex flex-col items-center">
             <div 
               className="relative w-full max-w-lg rounded-xl overflow-hidden shadow-2xl"
               style={{
@@ -119,44 +119,6 @@ export function NutritionSection() {
             >
               Informação Nutricional Completa
             </p>
-          </div>
-
-          {/* ═══════════════════════════════════════════════════════════════
-              COLUNA DIREITA: SINERGIA BOX
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Imagem: resverabio-boxsinergia.png (fórmula bioquímica premium)
-              • Efeito: Drop shadow dourada para destaque
-              • Alinhamento: Centro/direita com escala impactante
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          <div className="flex items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg">
-              {/* Glow dourado atrás do produto */}
-              <div 
-                className="absolute inset-0 -z-10 blur-3xl opacity-30"
-                style={{
-                  background: 'radial-gradient(ellipse at center, rgba(201,169,98,0.4) 0%, transparent 60%)',
-                  transform: 'scale(1.3)'
-                }}
-              />
-              
-              <img
-                src="/resverabio-boxsinergia2.png"
-                alt="Resverabio® Sinergia - Fórmula Bioquímica Premium"
-                className="w-full h-auto object-contain relative z-10 max-h-[60vh] sm:max-h-[65vh] lg:max-h-[70vh]"
-                style={{
-                  filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.8))'
-                }}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  target.parentElement!.innerHTML = `
-                    <div class="aspect-square bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] flex items-center justify-center border-2 border-dashed border-[#c9a962]/30 rounded-xl">
-                      <span class="text-[#c9a962]/60 font-medium text-xl">Resverabio® Box</span>
-                    </div>
-                  `;
-                }}
-              />
-            </div>
           </div>
 
         </div>
