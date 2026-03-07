@@ -130,12 +130,11 @@ export function BeautySection() {
               letterSpacing: '0.01em'
             }}
           >
-            A verdadeira sofisticação reside no epicentro da vida celular. RESVERABIO® transcende 
-            a suplementação comum ao focar na renovação dos telômeros, preservando a integridade 
-            do seu DNA. Através de uma ação sinergética inédita, fundimos a potência do Resveratrol 
-            puro ao Colágeno premium, Ácido Hialurônico e Niacina, potencializados por um complexo 
-            vitamínico essencial (A, B3 e C). Uma fórmula rara, desenhada para quem exige 
-            longevidade sistêmica e beleza que emana de dentro.
+            RESVERABIO® transcende a suplementação comum ao focar na renovação dos telômeros 
+            cromossômicos, preservando a integridade do seu DNA. Numa ação sinergética inédita, 
+            alia a potência do Resveratrol puro ao Colágeno Premium, Ácido Hialurônico e Niacina, 
+            potencializados por um complexo vitamínico essencial (Vitaminas A, B3 e C). Uma fórmula 
+            rara e original, criada para quem exige longevidade sistêmica e beleza que emana de dentro.
           </p>
 
           {/* ═══════════════════════════════════════════════════════════════════

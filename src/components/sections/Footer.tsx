@@ -2,27 +2,28 @@
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    FOOTER - RESVERABIO®                                  ║
  * ║                                                                          ║
- *  VERSÃO 3.0 - Padrão de Luxo Suíço + Modais Legais                        ║
+ *  VERSÃO 3.1 - Layout Mobile Refinado + Modais Legais                      ║
  *  • Fundo: Preto absoluto (#000000)                                        ║
  *  • Tipografia: Playfair Display + Inter                                   ║
- *  • Seção obrigatória: FONTES CIENTÍFICAS CONSULTADAS                      ║
- *  • Modais LGPD/CDC implementados                                          ║
+ *  • Mobile-first: Stack elegante com hierarquia clara                      ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
 import { useState } from 'react';
 import { Container } from '../ui/Container';
-import { ExternalLink, BookOpen, Heart, X, Shield, FileText, RefreshCw } from 'lucide-react';
+import { ExternalLink, BookOpen, Heart, X, Shield, FileText, RefreshCw, Mail, MessageCircle } from 'lucide-react';
 
 // Cores de luxo padronizadas
 const COLORS = {
   gold: '#c9a962',
   goldLight: '#e8d5a3',
   white: '#ffffff',
-  whiteMuted: 'rgba(255, 255, 255, 0.6)',
-  whiteSubtle: 'rgba(255, 255, 255, 0.4)',
+  whiteMuted: 'rgba(255, 255, 255, 0.7)',
+  whiteSubtle: 'rgba(255, 255, 255, 0.5)',
+  whiteGhost: 'rgba(255, 255, 255, 0.25)',
   black: '#000000',
   blackLight: '#1a1a1a',
+  blackElevated: '#0d0d0d',
 } as const;
 
 type ModalType = 'privacy' | 'terms' | 'returns' | null;
@@ -199,15 +200,15 @@ const LegalModal = ({
   return (
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.85)' }}
+      style={{ backgroundColor: 'rgba(0, 0, 0, 0.9)' }}
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl"
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-hidden rounded-2xl"
         style={{ 
           backgroundColor: COLORS.blackLight,
           border: `1px solid ${COLORS.gold}40`,
-          boxShadow: `0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 40px ${COLORS.gold}20`,
+          boxShadow: `0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 60px ${COLORS.gold}15`,
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -235,7 +236,7 @@ const LegalModal = ({
           </div>
           <button
             onClick={onClose}
-            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
             style={{ 
               backgroundColor: 'rgba(201, 169, 98, 0.1)',
               border: `1px solid ${COLORS.gold}30`,
@@ -250,7 +251,7 @@ const LegalModal = ({
         <div 
           className="px-6 py-6 overflow-y-auto"
           style={{ 
-            maxHeight: 'calc(85vh - 80px)',
+            maxHeight: 'calc(90vh - 140px)',
             scrollbarWidth: 'thin',
             scrollbarColor: `${COLORS.gold}40 transparent`,
           }}
@@ -260,7 +261,7 @@ const LegalModal = ({
             style={{ 
               color: COLORS.whiteMuted,
               fontFamily: "'Inter', system-ui, sans-serif",
-              lineHeight: 1.7,
+              lineHeight: 1.8,
             }}
             dangerouslySetInnerHTML={{ __html: content.content }}
           />
@@ -273,7 +274,7 @@ const LegalModal = ({
         >
           <button
             onClick={onClose}
-            className="px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105"
+            className="px-8 py-3 rounded-full text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
             style={{ 
               backgroundColor: COLORS.gold,
               color: COLORS.black,
@@ -289,7 +290,7 @@ const LegalModal = ({
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
-// COMPONENTE FOOTER PRINCIPAL
+// COMPONENTE FOOTER PRINCIPAL - MOBILE REFINADO
 // ═══════════════════════════════════════════════════════════════════════════
 
 export const Footer = () => {
@@ -316,33 +317,33 @@ export const Footer = () => {
 
       <footer style={{ backgroundColor: COLORS.black }}>
         {/* ═══════════════════════════════════════════════════════════════════
-            SEÇÃO OBRIGATÓRIA: FONTES CIENTÍFICAS CONSULTADAS
+            SEÇÃO: FONTES CIENTÍFICAS
         ═══════════════════════════════════════════════════════════════════ */}
         <div 
           className="border-t border-b"
           style={{ 
-            borderColor: 'rgba(201, 169, 98, 0.3)',
-            backgroundColor: 'rgba(201, 169, 98, 0.05)'
+            borderColor: 'rgba(201, 169, 98, 0.25)',
+            backgroundColor: COLORS.blackElevated,
           }}
         >
-          <Container className="py-6 md:py-8">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
-              <div className="flex items-center gap-3">
+          <Container className="py-5 md:py-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5">
+              <div className="flex items-center gap-2.5">
                 <div 
-                  className="w-10 h-10 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: 'rgba(201, 169, 98, 0.2)' }}
+                  className="w-9 h-9 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: 'rgba(201, 169, 98, 0.15)' }}
                 >
-                  <BookOpen size={20} style={{ color: COLORS.gold }} />
+                  <BookOpen size={18} style={{ color: COLORS.gold }} />
                 </div>
                 <span 
-                  className="font-semibold tracking-wide uppercase text-sm md:text-base"
+                  className="font-semibold tracking-wide uppercase text-xs sm:text-sm"
                   style={{ 
                     color: COLORS.gold,
                     fontFamily: "'Inter', system-ui, sans-serif",
-                    letterSpacing: '0.15em'
+                    letterSpacing: '0.12em'
                   }}
                 >
-                  Fontes Científicas Consultadas
+                  Fontes Científicas
                 </span>
               </div>
               
@@ -350,34 +351,35 @@ export const Footer = () => {
                 href="https://resveratrolciencia.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105"
+                className="flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 hover:scale-105"
                 style={{ 
-                  backgroundColor: 'rgba(201, 169, 98, 0.15)',
-                  border: `1px solid ${COLORS.gold}40`,
+                  backgroundColor: 'rgba(201, 169, 98, 0.1)',
+                  border: `1px solid ${COLORS.gold}35`,
                 }}
               >
                 <span 
-                  className="font-medium text-sm"
-                  style={{ color: COLORS.gold }}
+                  className="font-medium text-xs sm:text-sm"
+                  style={{ color: COLORS.goldLight }}
                 >
                   resveratrolciencia.com
                 </span>
-                <ExternalLink size={14} style={{ color: COLORS.gold }} />
+                <ExternalLink size={12} style={{ color: COLORS.gold }} />
               </a>
             </div>
           </Container>
         </div>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            CONTEÚDO PRINCIPAL DO FOOTER
+            CONTEÚDO PRINCIPAL - LAYOUT MOBILE REFINADO
         ═══════════════════════════════════════════════════════════════════ */}
-        <Container className="py-12 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
+        <Container className="py-10 md:py-14">
+          {/* Stack principal para mobile */}
+          <div className="flex flex-col items-center gap-10">
             
-            {/* Coluna 1 - Brand */}
-            <div className="text-center md:text-left space-y-4">
+            {/* SEÇÃO 1 - BRAND */}
+            <div className="text-center space-y-3 max-w-sm">
               <h3 
-                className="font-serif text-2xl md:text-3xl font-semibold"
+                className="font-serif text-2xl md:text-3xl font-semibold tracking-tight"
                 style={{ 
                   color: COLORS.white,
                   fontFamily: "'Playfair Display', Georgia, serif"
@@ -391,29 +393,38 @@ export const Footer = () => {
                   color: COLORS.whiteMuted,
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontWeight: 300,
-                  lineHeight: 1.8
+                  lineHeight: 1.7
                 }}
               >
                 A molécula da longevidade. Trans-Resveratrol 99% de pureza para quem busca qualidade de vida com base científica.
               </p>
             </div>
 
-            {/* Coluna 2 - Links Rápidos */}
-            <div className="text-center space-y-4">
+            {/* Divisor sutil */}
+            <div 
+              className="w-16 h-px"
+              style={{ backgroundColor: 'rgba(201, 169, 98, 0.3)' }}
+            />
+
+            {/* SEÇÃO 2 - NAVEGAÇÃO */}
+            <div className="text-center space-y-4 w-full">
               <h4 
-                className="text-sm font-semibold uppercase tracking-widest"
+                className="text-xs font-semibold uppercase"
                 style={{ 
                   color: COLORS.gold,
                   fontFamily: "'Inter', system-ui, sans-serif",
-                  letterSpacing: '0.2em'
+                  letterSpacing: '0.25em'
                 }}
               >
                 Navegação
               </h4>
-              <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+              <nav 
+                className="flex flex-wrap justify-center gap-x-6 gap-y-3"
+                style={{ rowGap: '0.75rem' }}
+              >
                 {[
                   { label: 'Benefícios', href: '#cardiovascular' },
-                  { label: 'Referências Científicas', href: 'https://resveratrolciencia.com', external: true },
+                  { label: 'Ciência', href: 'https://resveratrolciencia.com', external: true },
                   { label: 'Depoimentos', href: '#avaliacoes' },
                   { label: 'Comprar', href: '#vendas' },
                 ].map((link) => (
@@ -421,11 +432,14 @@ export const Footer = () => {
                     key={link.label}
                     href={link.href}
                     {...(link.external && { target: '_blank', rel: 'noopener noreferrer' })}
-                    className="text-sm transition-colors duration-200 hover:opacity-100"
+                    className="text-sm transition-colors duration-200 hover:opacity-100 py-1"
                     style={{ 
                       color: COLORS.whiteMuted,
                       fontFamily: "'Inter', system-ui, sans-serif",
-                      fontWeight: 400
+                      fontWeight: 400,
+                      minHeight: '44px',
+                      display: 'flex',
+                      alignItems: 'center',
                     }}
                   >
                     {link.label}
@@ -434,42 +448,54 @@ export const Footer = () => {
               </nav>
             </div>
 
-            {/* Coluna 3 - Contato */}
-            <div className="text-center md:text-right space-y-4">
+            {/* Divisor sutil */}
+            <div 
+              className="w-16 h-px"
+              style={{ backgroundColor: 'rgba(201, 169, 98, 0.3)' }}
+            />
+
+            {/* SEÇÃO 3 - CONTATO COM TOUCH TARGETS AMPLIADOS */}
+            <div className="text-center space-y-4 w-full">
               <h4 
-                className="text-sm font-semibold uppercase tracking-widest"
+                className="text-xs font-semibold uppercase"
                 style={{ 
                   color: COLORS.gold,
                   fontFamily: "'Inter', system-ui, sans-serif",
-                  letterSpacing: '0.2em'
+                  letterSpacing: '0.25em'
                 }}
               >
                 Contato
               </h4>
-              <div className="space-y-2">
+              <div className="flex flex-col items-center gap-3">
                 <a
                   href="mailto:contato@resverabio.com"
-                  className="block text-sm transition-colors duration-200"
+                  className="flex items-center gap-2.5 text-sm transition-colors duration-200 hover:text-white px-4 py-3 rounded-lg"
                   style={{ 
                     color: COLORS.whiteMuted,
                     fontFamily: "'Inter', system-ui, sans-serif",
-                    fontWeight: 300
+                    fontWeight: 400,
+                    minHeight: '48px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.03)',
                   }}
                 >
+                  <Mail size={16} style={{ color: COLORS.gold }} />
                   contato@resverabio.com
                 </a>
                 <a
                   href="https://wa.me/5521979582229"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-sm transition-colors duration-200"
+                  className="flex items-center gap-2.5 text-sm font-medium transition-all duration-200 hover:scale-105 px-5 py-3.5 rounded-full"
                   style={{ 
-                    color: COLORS.whiteMuted,
+                    backgroundColor: 'rgba(201, 169, 98, 0.15)',
+                    color: COLORS.goldLight,
                     fontFamily: "'Inter', system-ui, sans-serif",
-                    fontWeight: 300
+                    border: `1px solid ${COLORS.gold}40`,
+                    minHeight: '52px',
                   }}
                 >
-                  WhatsApp: (21) 97958-2229
+                  <MessageCircle size={18} style={{ color: COLORS.gold }} />
+                  WhatsApp (21) 97958-2229
                 </a>
               </div>
             </div>
@@ -477,79 +503,109 @@ export const Footer = () => {
         </Container>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            COPYRIGHT & DADOS JURÍDICOS
+            SEÇÃO JURÍDICA - LAYOUT MOBILE OTIMIZADO
         ═══════════════════════════════════════════════════════════════════ */}
-        <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
-          <Container className="py-8">
-            {/* Dados da Empresa */}
-            <div className="text-center mb-6">
-              <p 
-                className="text-xs leading-relaxed"
-                style={{ 
-                  color: COLORS.whiteSubtle,
-                  fontFamily: "'Inter', system-ui, sans-serif",
-                  fontWeight: 300
-                }}
+        <div 
+          className="border-t"
+          style={{ 
+            borderColor: 'rgba(255, 255, 255, 0.08)',
+            backgroundColor: COLORS.blackElevated,
+          }}
+        >
+          <Container className="py-8 md:py-10">
+            <div className="flex flex-col items-center gap-6">
+              
+              {/* DADOS DA EMPRESA - STACK VERTICAL NO MOBILE */}
+              <div 
+                className="text-center space-y-2 px-4 py-4 rounded-xl w-full max-w-md"
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)' }}
               >
-                <span style={{ color: COLORS.gold }}>Naturalbio Suplementos Ltda</span>
-                <span className="mx-2" style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
-                CNPJ: 50.482.086/0001-04
-                <span className="mx-2" style={{ color: 'rgba(255,255,255,0.2)' }}>|</span>
-                Rua Piloto 5 - Cabo Frio - RJ
-              </p>
-            </div>
-
-            {/* Links Obrigatórios - Com Modais */}
-            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 mb-6">
-              {[
-                { label: 'Política de Privacidade', type: 'privacy' as const },
-                { label: 'Termos e Condições', type: 'terms' as const },
-                { label: 'Política de Trocas', type: 'returns' as const },
-              ].map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => openModal(link.type)}
-                  className="text-xs transition-all duration-200 hover:tracking-wider"
+                <p 
+                  className="text-sm font-medium"
+                  style={{ 
+                    color: COLORS.gold,
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                  }}
+                >
+                  Naturalbio Suplementos Ltda
+                </p>
+                <p 
+                  className="text-xs"
                   style={{ 
                     color: COLORS.whiteSubtle,
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontWeight: 400,
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
+                    letterSpacing: '0.02em',
                   }}
                 >
-                  {link.label}
-                </button>
-              ))}
-            </div>
+                  CNPJ: 50.482.086/0001-04
+                </p>
+                <p 
+                  className="text-xs"
+                  style={{ 
+                    color: COLORS.whiteSubtle,
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                    fontWeight: 400,
+                  }}
+                >
+                  Rua Piloto 5 - Cabo Frio - RJ
+                </p>
+              </div>
 
-            {/* Copyright */}
-            <div className="text-center mb-4">
+              {/* LINKS LEGAIS - STACK VERTICAL COM TOUCH TARGETS AMPLIADOS */}
+              <div className="flex flex-col items-center gap-2 w-full">
+                {[
+                  { label: 'Política de Privacidade', type: 'privacy' as const },
+                  { label: 'Termos e Condições', type: 'terms' as const },
+                  { label: 'Política de Trocas', type: 'returns' as const },
+                ].map((link) => (
+                  <button
+                    key={link.label}
+                    onClick={() => openModal(link.type)}
+                    className="w-full max-w-xs text-sm py-3.5 px-4 rounded-lg transition-all duration-200 hover:bg-white/5"
+                    style={{ 
+                      color: COLORS.whiteSubtle,
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontWeight: 400,
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      minHeight: '48px',
+                    }}
+                  >
+                    {link.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* COPYRIGHT */}
+              <div className="text-center pt-4">
+                <p 
+                  className="text-xs"
+                  style={{ 
+                    color: COLORS.whiteGhost,
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                    fontWeight: 300,
+                    letterSpacing: '0.03em',
+                  }}
+                >
+                  ©2024 RESVERABIO® Todos os direitos Reservados
+                </p>
+              </div>
+              
+              {/* FRASE DE AMOR */}
               <p 
-                className="text-xs"
+                className="text-center flex items-center justify-center gap-2"
                 style={{ 
-                  color: 'rgba(255, 255, 255, 0.3)',
+                  color: 'rgba(255, 255, 255, 0.15)',
                   fontFamily: "'Inter', system-ui, sans-serif",
-                  fontWeight: 300
+                  fontSize: '11px',
+                  fontWeight: 300,
                 }}
               >
-                ©2024 RESVERABIO® Todos os direitos Reservados
+                Feito com <Heart size={10} style={{ color: COLORS.gold }} fill={COLORS.gold} /> para sua longevidade
               </p>
             </div>
-            
-            {/* Frase de amor */}
-            <p 
-              className="text-center flex items-center justify-center gap-2"
-              style={{ 
-                color: 'rgba(255, 255, 255, 0.2)',
-                fontFamily: "'Inter', system-ui, sans-serif",
-                fontSize: '11px',
-                fontWeight: 300
-              }}
-            >
-              Feito com <Heart size={10} style={{ color: COLORS.gold }} /> para sua longevidade
-            </p>
           </Container>
         </div>
       </footer>
