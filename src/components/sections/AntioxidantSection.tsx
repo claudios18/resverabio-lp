@@ -16,8 +16,8 @@ import { Container } from '../ui/Container';
 
 // Cores padronizadas - Padrão BeautySection
 const COLORS = {
-  textPrimary: '#1a1a1a',
-  textBody: '#2d2d2d',
+  textPrimary: '#000000',
+  textBody: '#000000',
   accent: '#c9a962',
 } as const;
 

@@ -94,7 +94,7 @@ export function BeautySection() {
             className="font-serif font-semibold tracking-tight leading-tight"
             style={{ 
               fontSize: 'clamp(32px, 5vw, 48px)',
-              color: '#1a1a1a',
+              color: '#000000',
               fontFamily: "'Playfair Display', Georgia, serif"
             }}
           >
@@ -124,7 +124,7 @@ export function BeautySection() {
               fontFamily: "'Inter', system-ui, sans-serif",
               fontSize: 'clamp(19px, 2.2vw, 22px)', /* +3px para legibilidade premium */
               fontWeight: 300,
-              color: '#2d2d2d', /* Cinza profundo para contraste nítido */
+              color: '#000000', /* Preto puro para máxima legibilidade */
               maxWidth: '768px',
               lineHeight: 1.85,
               letterSpacing: '0.01em'

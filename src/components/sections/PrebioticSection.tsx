@@ -64,7 +64,7 @@ export function PrebioticSection() {
               className="font-serif font-semibold tracking-tight leading-tight text-center px-4"
               style={{
                 fontSize: 'clamp(32px, 5vw, 48px)',
-                color: '#1a1a1a',
+                color: '#000000',
                 fontFamily: "'Playfair Display', Georgia, serif",
               }}
             >
@@ -98,7 +98,7 @@ export function PrebioticSection() {
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontSize: 'clamp(19px, 2.2vw, 22px)',
                   fontWeight: 300,
-                  color: '#2d2d2d',
+                  color: '#000000',
                   maxWidth: '768px',
                   lineHeight: 1.85,
                   letterSpacing: '0.01em',
@@ -115,7 +115,7 @@ export function PrebioticSection() {
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontSize: 'clamp(19px, 2.2vw, 22px)',
                   fontWeight: 300,
-                  color: '#2d2d2d',
+                  color: '#000000',
                   maxWidth: '768px',
                   lineHeight: 1.85,
                   letterSpacing: '0.01em',
@@ -132,7 +132,7 @@ export function PrebioticSection() {
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontSize: 'clamp(19px, 2.2vw, 22px)',
                   fontWeight: 300,
-                  color: '#2d2d2d',
+                  color: '#000000',
                   maxWidth: '768px',
                   lineHeight: 1.85,
                   letterSpacing: '0.01em',
@@ -168,7 +168,7 @@ export function PrebioticSection() {
                   className="font-serif font-semibold tracking-tight leading-tight text-left"
                   style={{
                     fontSize: 'clamp(32px, 5vw, 48px)',
-                    color: '#1a1a1a',
+                    color: '#000000',
                     fontFamily: "'Playfair Display', Georgia, serif",
                   }}
                 >
@@ -187,7 +187,7 @@ export function PrebioticSection() {
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: 'clamp(19px, 2.2vw, 22px)',
                     fontWeight: 300,
-                    color: '#2d2d2d',
+                    color: '#000000',
                     lineHeight: 1.85,
                     letterSpacing: '0.01em',
                   }}
@@ -203,7 +203,7 @@ export function PrebioticSection() {
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: 'clamp(19px, 2.2vw, 22px)',
                     fontWeight: 300,
-                    color: '#2d2d2d',
+                    color: '#000000',
                     lineHeight: 1.85,
                     letterSpacing: '0.01em',
                   }}
@@ -219,7 +219,7 @@ export function PrebioticSection() {
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontSize: 'clamp(19px, 2.2vw, 22px)',
                     fontWeight: 300,
-                    color: '#2d2d2d',
+                    color: '#000000',
                     lineHeight: 1.85,
                     letterSpacing: '0.01em',
                   }}

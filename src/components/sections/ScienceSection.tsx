@@ -67,7 +67,7 @@ export function ScienceSection() {
             className="font-serif font-semibold tracking-tight leading-tight"
             style={{ 
               fontSize: 'clamp(32px, 5vw, 48px)',
-              color: '#1a1a1a',
+              color: '#000000',
               fontFamily: "'Playfair Display', Georgia, serif"
             }}
           >
@@ -80,7 +80,7 @@ export function ScienceSection() {
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: 'clamp(18px, 2.5vw, 24px)',
               fontStyle: 'italic',
-              color: '#4a4a4a'
+              color: '#000000'
             }}
           >
             O Duplo papel na Pele e no Rejuvenescimento
@@ -101,7 +101,7 @@ export function ScienceSection() {
             fontFamily: "'Inter', system-ui, sans-serif",
             fontSize: 'clamp(19px, 2.2vw, 22px)',
             fontWeight: 300,
-            color: '#2d2d2d',
+            color: '#000000',
             lineHeight: 1.85,
             letterSpacing: '0.01em'
           }}
@@ -142,7 +142,7 @@ export function ScienceSection() {
                 style={{ 
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontSize: 'clamp(13px, 1.4vw, 15px)',
-                  color: '#1a1a1a',
+                  color: '#000000',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase'
                 }}
@@ -171,7 +171,7 @@ export function ScienceSection() {
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontSize: 'clamp(16px, 1.8vw, 18px)',
                   fontWeight: 300,
-                  color: '#4a4a4a',
+                  color: '#000000',
                   lineHeight: 1.8
                 }}
               >
@@ -204,7 +204,7 @@ export function ScienceSection() {
                 style={{ 
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontSize: 'clamp(13px, 1.4vw, 15px)',
-                  color: '#1a1a1a',
+                  color: '#000000',
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase'
                 }}
@@ -233,7 +233,7 @@ export function ScienceSection() {
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontSize: 'clamp(16px, 1.8vw, 18px)',
                   fontWeight: 300,
-                  color: '#4a4a4a',
+                  color: '#000000',
                   lineHeight: 1.8
                 }}
               >

@@ -72,7 +72,7 @@ export function CardiovascularSection() {
               className="font-serif font-semibold tracking-tight leading-tight"
               style={{ 
                 fontSize: 'clamp(32px, 5vw, 48px)',
-                color: '#1a1a1a',
+                color: '#000000',
                 fontFamily: "'Playfair Display', Georgia, serif"
               }}
             >
@@ -98,7 +98,7 @@ export function CardiovascularSection() {
                 fontFamily: "'Inter', system-ui, sans-serif",
                 fontSize: 'clamp(19px, 2.2vw, 22px)',
                 fontWeight: 300,
-                color: '#2d2d2d',
+                color: '#000000',
                 maxWidth: '768px',
                 lineHeight: 1.85,
                 letterSpacing: '0.01em'
@@ -147,7 +147,7 @@ export function CardiovascularSection() {
                 className="font-bold text-center mb-5"
                 style={{
                   fontSize: 'clamp(18px, 4.5vw, 22px)',
-                  color: '#1a1a1a',
+                  color: '#000000',
                   fontFamily: "'Inter', system-ui, sans-serif",
                 }}
               >
@@ -221,7 +221,7 @@ export function CardiovascularSection() {
                     className="font-bold mb-4 text-center"
                     style={{
                       fontSize: 'clamp(18px, 1.8vw, 22px)',
-                      color: '#1a1a1a',
+                      color: '#000000',
                       fontFamily: "'Inter', system-ui, sans-serif",
                     }}
                   >
