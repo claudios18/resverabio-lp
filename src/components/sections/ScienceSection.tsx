@@ -66,19 +66,19 @@ export function ScienceSection() {
           <h2 
             className="font-serif font-semibold tracking-tight leading-tight"
             style={{ 
-              fontSize: 'clamp(32px, 5vw, 48px)',
+              fontSize: 'clamp(28px, 4.5vw, 48px)',
               color: '#000000',
               fontFamily: "'Playfair Display', Georgia, serif"
             }}
           >
-            RESVERATROL
+            RESVERABIO®
           </h2>
           
           <p 
-            className="mt-2 mb-6"
+            className="mt-3 mb-6 font-bold"
             style={{ 
               fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: 'clamp(18px, 2.5vw, 24px)',
+              fontSize: 'clamp(27px, 3.75vw, 36px)',
               fontStyle: 'italic',
               color: '#000000'
             }}
