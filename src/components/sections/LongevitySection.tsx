@@ -30,8 +30,8 @@ const longevityImages = [
     alt: 'Mulher com pele radiante protegida do sol - RESVERABIO®',
   },
   {
-    src: '/resverabio-pelemulher2.png',
-    alt: 'RESVERABIO® - Blend exclusivo de Resveratrol, Colágeno, Ácido Hialurônico e Niacina',
+    src: '/resverabio-uvas(2).png',
+    alt: 'Uvas roxas - Fonte natural de Resveratrol para rejuvenescimento celular - RESVERABIO®',
   },
 ];
 
