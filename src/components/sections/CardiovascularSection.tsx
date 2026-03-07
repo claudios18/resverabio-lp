@@ -67,7 +67,7 @@ export function CardiovascularSection() {
             TÍTULO PRINCIPAL - PADRÃO BEAUTY SECTION (linhas 87-97)
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           */}
-          <div className="mt-12 md:mt-16 lg:mt-20 text-center">
+          <div className="mt-6 md:mt-8 lg:mt-10 text-center">
             <h2 
               className="font-serif font-semibold tracking-tight leading-tight"
               style={{ 
@@ -76,7 +76,7 @@ export function CardiovascularSection() {
                 fontFamily: "'Playfair Display', Georgia, serif"
               }}
             >
-              RESVERATROL
+              RESVERATROL E CORAÇÃO
             </h2>
             
             {/* Linha decorativa dourada abaixo do título */}
@@ -104,8 +104,7 @@ export function CardiovascularSection() {
                 letterSpacing: '0.01em'
               }}
             >
-              O envelhecimento está associado ao comprometimento da função vascular
-              e à alteração do equilíbrio redox. O resveratrol na ação
+              O comprometimento da função vascular, além de outros perigos, altera o equilíbrio redox. O resveratrol na ação
               cardioprotetora por ele demonstrada, foca na eficácia da prevenção e
               gestão de doenças cardiovasculares.
             </p>
