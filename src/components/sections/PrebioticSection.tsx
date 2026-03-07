@@ -68,7 +68,7 @@ export function PrebioticSection() {
                 fontFamily: "'Playfair Display', Georgia, serif",
               }}
             >
-              O Efeito Prebiótico do Resveratrol e Intestino
+              O intestino - Nosso "Segundo Cérebro"
             </h2>
 
             {/* Linha decorativa - PADRÃO BEAUTYSECTION */}
@@ -172,7 +172,7 @@ export function PrebioticSection() {
                     fontFamily: "'Playfair Display', Georgia, serif",
                   }}
                 >
-                  O Efeito Prebiótico do Resveratrol e Intestino
+                  O intestino - Nosso "Segundo Cérebro"
                 </h2>
 
                 {/* Linha decorativa - PADRÃO BEAUTYSECTION */}
