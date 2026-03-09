@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
 import { BeautySection } from './components/sections/BeautySection';
@@ -12,18 +13,32 @@ import { PurchaseSection } from './components/sections/PurchaseSection';
 import { Footer } from './components/sections/Footer';
 import { TrustCards } from './components/sections/TrustCards';
 
+// Páginas de Obrigado
+import {
+  Obrigado,
+  ObrigadoPix,
+  ObrigadoBoleto,
+  ObrigadoAguardando,
+} from './pages/obrigado';
+
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
- * ║               RESVERABIO® LANDING PAGE - VERSÃO 2.0                      ║
+ * ║               RESVERABIO® LANDING PAGE - VERSÃO 3.0 COM ROTAS            ║
  * ║                                                                          ║
- * ║  Estrutura de Blocos:                                                    ║
- * ║  - Bloco 1: Header (Preto absoluto, fixo)                                ║
- * ║  - Bloco 2: Hero Banner (100vh, gradiente preto→azul)                    ║
- * ║  - Bloco 3+: Benefícios, Depoimentos, Produtos, Footer...                ║
+ * ║  Estrutura de Rotas:                                                     ║
+ * ║  - /                    → Landing Page principal                         ║
+ * ║  - /obrigado            → Página de agradecimento geral                  ║
+ * ║  - /obrigado-pix        → Página de pagamento PIX                        ║
+ * ║  - /obrigado-boleto     → Página de pagamento Boleto                     ║
+ * ║  - /obrigado-aguardando → Página de análise de segurança                 ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
-function App() {
+/**
+ * Componente da Landing Page Principal
+ * Todas as seções da página inicial em uma única rota
+ */
+function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* ═══════════════════════════════════════════════════════════════════
@@ -143,6 +158,30 @@ function App() {
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <Footer />
     </div>
+  );
+}
+
+/**
+ * Componente Principal com React Router
+ * Define todas as rotas da aplicação
+ */
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Landing Page Principal */}
+        <Route path="/" element={<LandingPage />} />
+
+        {/* Páginas de Obrigado */}
+        <Route path="/obrigado" element={<Obrigado />} />
+        <Route path="/obrigado-pix" element={<ObrigadoPix />} />
+        <Route path="/obrigado-boleto" element={<ObrigadoBoleto />} />
+        <Route path="/obrigado-aguardando" element={<ObrigadoAguardando />} />
+
+        {/* Redirecionamento para rota não encontrada */}
+        <Route path="*" element={<LandingPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
