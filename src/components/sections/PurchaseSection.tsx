@@ -70,6 +70,7 @@ export function PurchaseSection() {
           {products.map((product) => (
             <div
               key={product.id}
+              id={`kit${product.id}`}
               className={`relative rounded-2xl p-6 transition-all duration-300 flex flex-col ${
                 product.highlighted
                   ? 'bg-gradient-to-b from-luxury-gold/20 to-luxury-gold/5 border-2 border-luxury-gold scale-105 z-10'
