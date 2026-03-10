@@ -16,6 +16,7 @@ const products = [
     pixDiscount: 3,
     highlighted: false,
     freeShipping: false,
+    checkoutUrl: 'https://mon.net.br/3u6oiu',
   },
   {
     id: 3,
@@ -141,13 +142,26 @@ export function PurchaseSection() {
               </div>
 
               {/* Botão Comprar - CLASSE DE LUXO */}
-              <button
-                className={`btn-compra-luxo mb-3 mt-auto ${
-                  product.highlighted ? 'btn-compra-luxo-destaque' : ''
-                }`}
-              >
-                Comprar Agora
-              </button>
+              {product.checkoutUrl ? (
+                <a
+                  href={product.checkoutUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`btn-compra-luxo mb-3 mt-auto text-center block ${
+                    product.highlighted ? 'btn-compra-luxo-destaque' : ''
+                  }`}
+                >
+                  Comprar Agora
+                </a>
+              ) : (
+                <button
+                  className={`btn-compra-luxo mb-3 mt-auto ${
+                    product.highlighted ? 'btn-compra-luxo-destaque' : ''
+                  }`}
+                >
+                  Comprar Agora
+                </button>
+              )}
 
               {/* Desconto PIX */}
               <div
