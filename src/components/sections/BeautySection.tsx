@@ -141,12 +141,11 @@ export function BeautySection() {
               CALL TO ACTION - BOTÃO PRETO COM TEXTO DOURADO (Padrão Luxo)
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           <div className="mt-10 md:mt-12 flex justify-center px-6">
-            <button
-              onClick={() => {
-                const element = document.querySelector('#produtos');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95"
+            <a
+              href="https://mon.net.br/3u6oiu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95 text-center"
               style={{
                 backgroundColor: COLORS.black,
                 color: COLORS.gold,
@@ -155,7 +154,7 @@ export function BeautySection() {
               }}
             >
               GARANTIR MEU RESVERABIO®
-            </button>
+            </a>
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════════

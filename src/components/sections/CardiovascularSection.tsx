@@ -11,7 +11,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
-import { LuxuryButtonResponsive } from '../ui/LuxuryButton';
 
 
 // Cores padronizadas
@@ -41,13 +40,6 @@ export function CardiovascularSection() {
 
     return () => observer.disconnect();
   }, []);
-
-  const scrollToProducts = () => {
-    const element = document.querySelector('#produtos');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section
@@ -188,7 +180,20 @@ export function CardiovascularSection() {
 
             {/* BOTÃO CTA - MOBILE: Preto com texto dourado (Luxo) */}
             <div className="flex md:hidden justify-center mt-8 px-6">
-              <LuxuryButtonResponsive text="GARANTIR MEU RESVERABIO®" />
+              <a
+                href="https://mon.net.br/3u6oiu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center"
+                style={{
+                  backgroundColor: COLORS.black,
+                  color: COLORS.gold,
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+                  letterSpacing: '0.05em',
+                }}
+              >
+                GARANTIR MEU RESVERABIO®
+              </a>
             </div>
           </div>
 
@@ -262,9 +267,11 @@ export function CardiovascularSection() {
 
                 {/* BOTÃO CTA - DESKTOP: Preto com texto dourado */}
                 <div className="pt-4 flex justify-center">
-                  <button
-                    onClick={scrollToProducts}
-                    className="py-4 px-10 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                  <a
+                    href="https://mon.net.br/3u6oiu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-4 px-10 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl text-center"
                     style={{
                       backgroundColor: COLORS.black,
                       color: COLORS.gold,
@@ -273,7 +280,7 @@ export function CardiovascularSection() {
                     }}
                   >
                     GARANTIR MEU RESVERABIO®
-                  </button>
+                  </a>
                 </div>
               </div>
 

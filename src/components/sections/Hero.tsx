@@ -33,13 +33,6 @@ export function Hero() {
     { icon: Shield, title: 'NIACINA', description: 'pele com saúde e cor homogenia' },
   ];
 
-  const scrollToProducts = () => {
-    const element = document.querySelector('#produtos');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section 
       className="relative w-full bg-black overflow-hidden"
@@ -122,8 +115,10 @@ export function Hero() {
               </p>
 
               {/* CTA Button */}
-              <button
-                onClick={scrollToProducts}
+              <a
+                href="https://mon.net.br/3u6oiu"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 style={{ 
                   backgroundColor: '#c9a962',
@@ -133,7 +128,7 @@ export function Hero() {
               >
                 Quero Experimentar
                 <ArrowRight size={22} />
-              </button>
+              </a>
             </div>
 
             {/* COLUNA DIREITA: Imagem Hero - 50% */}
@@ -189,7 +184,7 @@ export function Hero() {
                   }}
                 >
                   <p className="text-xs font-bold text-black uppercase tracking-wider">Apenas</p>
-                  <p className="text-3xl font-bold text-black">R$ 187</p>
+                  <p className="text-3xl font-bold text-black">R$ 178</p>
                 </div>
               </div>
             </div>

@@ -150,7 +150,7 @@ const Hero = () => {
                   {/* Floating Badge - Price */}
                   <div className="absolute -right-4 top-1/4 z-20 animate-bounce-slow rounded-full bg-black/80 border border-[#c9a962]/50 px-4 py-3 shadow-xl backdrop-blur-md sm:right-0">
                     <p className="text-xs text-gray-400">A partir de</p>
-                    <p className="text-xl font-bold text-[#c9a962]">R$ 187</p>
+                    <p className="text-xl font-bold text-[#c9a962]">R$ 178</p>
                   </div>
 
                   {/* Floating Badge - Discount */}

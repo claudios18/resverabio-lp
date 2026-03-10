@@ -19,7 +19,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
-import { LuxuryButtonResponsive } from '../ui/LuxuryButton';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // ASSETS OFICIAIS RESVERABIO® - IMAGENS PREMIUM DO BLOCO PELE
@@ -256,7 +255,20 @@ export function LongevitySection() {
               CALL TO ACTION - BOTÃO PRETO COM TEXTO DOURADO (Padrão Luxo)
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           <div className="mt-10 md:mt-12 flex justify-center px-6">
-            <LuxuryButtonResponsive text="QUERO REJUVENESCER" />
+            <a
+              href="https://mon.net.br/3u6oiu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center"
+              style={{
+                backgroundColor: COLORS.black,
+                color: COLORS.gold,
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+                letterSpacing: '0.05em',
+              }}
+            >
+              QUERO REJUVENESCER
+            </a>
           </div>
         </div>
       </Container>
