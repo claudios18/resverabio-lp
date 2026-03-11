@@ -10,7 +10,7 @@ const products = [
     image: '/resverabio-pote2(2).png',
     badge: null,
     treatment: '1 Mês de tratamento | 60 cápsulas',
-    price: 178.0,
+    price: 187.00,
     installments: 12,
     installmentValue: 18.87,
     pixDiscount: 3,
@@ -37,9 +37,9 @@ const products = [
     image: '/resverabio-combo2.png',
     badge: null,
     treatment: '2 Meses de tratamento | 120 cápsulas',
-    price: 299.2,
+    price: 307.70,
     installments: 12,
-    installmentValue: 32.21,
+    installmentValue: 30.89,
     pixDiscount: 3,
     highlighted: false,
     freeShipping: true,
@@ -89,8 +89,12 @@ export function PurchaseSection() {
 
               {/* Frete Grátis Badge */}
               {product.freeShipping && (
-                <div className="absolute -top-3 right-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap bg-green-500 text-white flex items-center gap-1">
-                  <Truck size={14} />
+                <div className={`absolute -top-3 right-4 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap flex items-center gap-1.5 shadow-lg ${
+                  product.id === 2
+                    ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black shadow-amber-400/40 ring-1 ring-amber-300'
+                    : 'bg-green-500 text-white'
+                }`}>
+                  <Truck size={14} className={product.id === 2 ? 'stroke-[2.5px]' : ''} />
                   FRETE GRÁTIS
                 </div>
               )}

@@ -13,9 +13,9 @@ const products = [
     image: '/resverabio-pote.png',
     price: { 
       original: 'R$ 297,00', 
-      final: 'R$ 178,00' 
+      final: 'R$ 187,00' 
     },
-    perCapsule: 'R$ 2,97',
+    perCapsule: 'R$ 3,11',
     badge: null,
     freeShipping: false
   },

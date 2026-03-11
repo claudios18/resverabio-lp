@@ -184,7 +184,7 @@ export function Hero() {
                   }}
                 >
                   <p className="text-xs font-bold text-black uppercase tracking-wider">Apenas</p>
-                  <p className="text-3xl font-bold text-black">R$ 178</p>
+                  <p className="text-3xl font-bold text-black">R$ 187</p>
                 </div>
               </div>
             </div>
