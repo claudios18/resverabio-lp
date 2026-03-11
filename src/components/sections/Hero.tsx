@@ -116,7 +116,7 @@ export function Hero() {
 
               {/* CTA Button */}
               <a
-                href="https://mon.net.br/3u6oo3"
+                href="https://mon.net.br/3u6oiu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
@@ -184,7 +184,7 @@ export function Hero() {
                   }}
                 >
                   <p className="text-xs font-bold text-black uppercase tracking-wider">Apenas</p>
-                  <p className="text-3xl font-bold text-black">R$ 187</p>
+                  <p className="text-3xl font-bold text-black">R$ 187,00</p>
                 </div>
               </div>
             </div>

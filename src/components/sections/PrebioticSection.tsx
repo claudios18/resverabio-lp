@@ -147,7 +147,7 @@ export function PrebioticSection() {
             {/* BOTÃO CTA - MOBILE */}
             <div className="flex justify-center mt-8 px-6">
               <a
-                href="https://mon.net.br/3u6oo3"
+                href="https://mon.net.br/3u6oiu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center"
@@ -245,7 +245,7 @@ export function PrebioticSection() {
                 {/* BOTÃO CTA - DESKTOP */}
                 <div className="flex justify-start pt-4">
                   <a
-                    href="https://mon.net.br/3u6oo3"
+                    href="https://mon.net.br/3u6oiu"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center"
