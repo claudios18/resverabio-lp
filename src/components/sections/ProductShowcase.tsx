@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Container } from '../ui/Container';
 import { SectionLabel } from '../ui/SectionLabel';
-import { Button } from '../ui/Button';
 import { scientificSources } from '../../data/scientificData';
 import { ShoppingBag, Check, Truck, Shield, RotateCcw } from 'lucide-react';
 
@@ -17,7 +16,8 @@ const products = [
     },
     perCapsule: 'R$ 3,11',
     badge: null,
-    freeShipping: false
+    freeShipping: false,
+    checkoutUrl: 'https://mon.net.br/3u6oiu'
   },
   {
     id: 'combo2',
@@ -35,7 +35,8 @@ const products = [
     perCapsule: 'R$ 2,56',
     badge: 'MAIS POPULAR',
     freeShipping: true,
-    popular: true
+    popular: true,
+    checkoutUrl: 'https://mon.net.br/3u6oke'
   },
   {
     id: 'combo3',
@@ -53,7 +54,8 @@ const products = [
     perCapsule: 'R$ 2,49',
     badge: 'MELHOR CUSTO-BENEFÍCIO',
     freeShipping: true,
-    bestValue: true
+    bestValue: true,
+    checkoutUrl: 'https://mon.net.br/3u6oo3'
   }
 ];
 
@@ -299,10 +301,15 @@ export function ProductShowcase() {
             </div>
 
             {/* CTA */}
-            <Button size="lg" className="w-full flex items-center justify-center gap-2 bg-luxury-gold text-white hover:bg-luxury-gold-dark mb-4 py-5 text-lg font-bold">
+            <a
+              href={selectedProduct.checkoutUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 bg-luxury-gold text-white hover:bg-luxury-gold-dark mb-4 py-5 text-lg font-bold rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+            >
               <ShoppingBag size={22} />
               Comprar Agora
-            </Button>
+            </a>
 
             <p className="text-base text-center text-white/60">
               Pagamento processado com segurança • Entrega em 2-5 dias úteis

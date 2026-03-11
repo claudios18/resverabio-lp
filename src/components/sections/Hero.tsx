@@ -116,7 +116,7 @@ export function Hero() {
 
               {/* CTA Button */}
               <a
-                href="https://mon.net.br/3u6oiu"
+                href="https://mon.net.br/3u6oo3"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"

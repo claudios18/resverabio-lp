@@ -142,7 +142,7 @@ export function BeautySection() {
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           <div className="mt-10 md:mt-12 flex justify-center px-6">
             <a
-              href="https://mon.net.br/3u6oiu"
+              href="https://mon.net.br/3u6oo3"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95 text-center"

@@ -30,7 +30,7 @@ const products = [
     pixDiscount: 3,
     highlighted: true,
     freeShipping: true,
-    checkoutUrl: 'https://mon.net.br/3u6oiu',
+    checkoutUrl: 'https://mon.net.br/3u6oo3',
   },
   {
     id: 2,
@@ -44,6 +44,7 @@ const products = [
     pixDiscount: 3,
     highlighted: false,
     freeShipping: true,
+    checkoutUrl: 'https://mon.net.br/3u6oke',
   },
 ];
 
