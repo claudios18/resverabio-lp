@@ -24,12 +24,13 @@ const products = [
     image: '/resverabio-combo3c(1).png',
     badge: 'CAMPEÃO DE VENDAS',
     treatment: '3 Meses de tratamento | 180 cápsulas',
-    price: 435.4,
+    price: 447.90,
     installments: 12,
-    installmentValue: 46.81,
+    installmentValue: 44.97,
     pixDiscount: 3,
     highlighted: true,
     freeShipping: true,
+    checkoutUrl: 'https://mon.net.br/3u6oiu',
   },
   {
     id: 2,
@@ -90,11 +91,11 @@ export function PurchaseSection() {
               {/* Frete Grátis Badge */}
               {product.freeShipping && (
                 <div className={`absolute -top-3 right-4 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap flex items-center gap-1.5 shadow-lg ${
-                  product.id === 2
+                  product.id === 2 || product.id === 3
                     ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black shadow-amber-400/40 ring-1 ring-amber-300'
                     : 'bg-green-500 text-white'
                 }`}>
-                  <Truck size={14} className={product.id === 2 ? 'stroke-[2.5px]' : ''} />
+                  <Truck size={14} className={product.id === 2 || product.id === 3 ? 'stroke-[2.5px]' : ''} />
                   FRETE GRÁTIS
                 </div>
               )}

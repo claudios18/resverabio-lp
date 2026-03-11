@@ -44,9 +44,13 @@ const products = [
     image: '/resverabio-combo3c(1).png',
     price: { 
       original: 'R$ 891,00', 
-      final: 'R$ 415,50' 
+      final: 'R$ 447,90' 
     },
-    perCapsule: 'R$ 2,31',
+    installments: {
+      count: 12,
+      value: 'R$ 44,97'
+    },
+    perCapsule: 'R$ 2,49',
     badge: 'MELHOR CUSTO-BENEFÍCIO',
     freeShipping: true,
     bestValue: true
