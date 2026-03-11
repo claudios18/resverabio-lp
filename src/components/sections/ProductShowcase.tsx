@@ -26,9 +26,13 @@ const products = [
     image: '/resverabio-combo2.png',
     price: { 
       original: 'R$ 594,00', 
-      final: 'R$ 299,20' 
+      final: 'R$ 307,70' 
     },
-    perCapsule: 'R$ 2,49',
+    installments: {
+      count: 12,
+      value: 'R$ 30,89'
+    },
+    perCapsule: 'R$ 2,56',
     badge: 'MAIS POPULAR',
     freeShipping: true,
     popular: true
@@ -116,8 +120,12 @@ export function ProductShowcase() {
                         </span>
                       )}
                       {product.freeShipping && (
-                        <span className="text-xs px-3 py-1 rounded-full bg-green-500 text-white font-medium flex items-center gap-1">
-                          <Truck size={12} />
+                        <span className={`text-xs px-3 py-1.5 rounded-full font-semibold flex items-center gap-1.5 shadow-lg ${
+                          product.popular 
+                            ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black shadow-amber-400/30' 
+                            : 'bg-green-500 text-white'
+                        }`}>
+                          <Truck size={12} className={product.popular ? 'stroke-[2.5px]' : ''} />
                           FRETE GRÁTIS
                         </span>
                       )}
@@ -131,6 +139,11 @@ export function ProductShowcase() {
                         {product.price.original}
                       </span>
                     </div>
+                    {product.installments && (
+                      <p className="text-sm text-amber-300 font-medium mt-1">
+                        ou 12x de <span className="font-bold">{product.installments.value}</span>
+                      </p>
+                    )}
                     <p className="text-sm text-white/60 mt-1 text-base">
                       {product.perCapsule} por cápsula
                     </p>
@@ -198,9 +211,13 @@ export function ProductShowcase() {
                   className="w-full h-full object-contain drop-shadow-2xl"
                 />
                 {selectedProduct.freeShipping && (
-                  <div className="absolute top-4 right-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1">
-                    <Truck size={12} />
-                    FRETE GRÁTIS
+                  <div className={`absolute top-4 right-4 text-xs px-4 py-2 rounded-full font-bold flex items-center gap-2 shadow-xl ${
+                    selectedProduct.popular
+                      ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black shadow-amber-400/40 ring-2 ring-amber-300'
+                      : 'bg-green-500 text-white'
+                  }`}>
+                    <Truck size={14} className={selectedProduct.popular ? 'stroke-[2.5px]' : ''} />
+                    <span className="tracking-wide">FRETE GRÁTIS</span>
                   </div>
                 )}
               </div>
@@ -239,15 +256,31 @@ export function ProductShowcase() {
                 <span className="text-white font-medium text-lg">{selectedProduct.price.final}</span>
               </div>
               {selectedProduct.freeShipping && (
-                <div className="flex justify-between mb-2 text-green-400">
-                  <span className="text-lg">Frete</span>
-                  <span className="font-medium text-lg">GRÁTIS</span>
+                <div className={`flex justify-between mb-2 px-3 py-2 rounded-lg ${
+                  selectedProduct.popular 
+                    ? 'bg-gradient-to-r from-amber-400/20 to-amber-500/20 border border-amber-400/30' 
+                    : 'text-green-400'
+                }`}>
+                  <span className={`text-lg flex items-center gap-2 ${selectedProduct.popular ? 'text-amber-300' : ''}`}>
+                    <Truck size={18} />
+                    Frete
+                  </span>
+                  <span className={`font-bold text-lg ${selectedProduct.popular ? 'text-amber-300' : ''}`}>
+                    GRÁTIS
+                  </span>
                 </div>
               )}
               <div className="flex justify-between text-lg text-white/60 mb-4">
-                <span>Em até 12x no cartão</span>
+                <span>Em até {selectedProduct.installments ? selectedProduct.installments.count : 12}x no cartão</span>
                 <span>sem juros</span>
               </div>
+              {selectedProduct.installments && (
+                <div className="text-center mb-4 pb-4 border-b border-white/20">
+                  <span className="text-amber-300 font-medium">
+                    {selectedProduct.installments.count}x de <span className="text-xl font-bold">{selectedProduct.installments.value}</span> no cartão
+                  </span>
+                </div>
+              )}
               <div className="flex justify-between items-baseline pt-4 border-t border-white/20">
                 <span className="font-bold text-xl text-white">Total</span>
                 <div className="text-right">
