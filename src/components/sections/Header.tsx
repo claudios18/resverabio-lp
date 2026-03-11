@@ -42,16 +42,20 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { label: 'Benefícios', href: '#beneficios' },
-    { label: 'Depoimentos', href: '#depoimentos' },
-    { label: 'Produtos', href: '#produtos' },
-    { label: 'Fórmula', href: '#nutricao' },
+    { label: 'Benefícios', href: '#beneficios', external: false },
+    { label: 'Depoimentos', href: '#depoimentos', external: false },
+    { label: 'Produtos', href: '#comprar', external: false },
+    { label: 'Fórmula', href: 'https://resverabio.com/formula', external: true },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (link: typeof navLinks[0]) => {
+    if (link.external) {
+      window.open(link.href, '_blank', 'noopener,noreferrer');
+    } else {
+      const element = document.querySelector(link.href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -123,8 +127,8 @@ export function Header() {
               <nav className="hidden md:flex items-center gap-10 lg:gap-12">
                 {navLinks.map((link) => (
                   <button
-                    key={link.href}
-                    onClick={() => scrollToSection(link.href)}
+                    key={link.label}
+                    onClick={() => handleNavClick(link)}
                     className="text-white/90 hover:text-[#c9a962] transition-colors duration-300 font-medium tracking-wide"
                     style={{ fontSize: '21px', lineHeight: '1.2' }}
                   >
@@ -206,8 +210,8 @@ export function Header() {
           <nav className="flex flex-col py-8">
             {navLinks.map((link, index) => (
               <button
-                key={link.href}
-                onClick={() => scrollToSection(link.href)}
+                key={link.label}
+                onClick={() => handleNavClick(link)}
                 className="py-4 text-white/80 hover:text-[#c9a962] transition-colors duration-300 font-medium text-left border-b last:border-0"
                 style={{ 
                   fontSize: '20px',
