@@ -44,7 +44,7 @@ const products = [
     pixDiscount: 3,
     highlighted: false,
     freeShipping: true,
-    checkoutUrl: 'https://mon.net.br/3u6oke',
+    checkoutUrl: 'https://app.monetizze.com.br/checkout/KGH457434',
   },
 ];
 
