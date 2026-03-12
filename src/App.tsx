@@ -44,7 +44,33 @@ function LandingPage() {
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 1: HEADER
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <Header />
+      <Header />   {/* BLOCO HERO - IMPACTO INICIAL */}
+      <Hero />
+
+      {/* BLOCO BENEFÍCIOS - ANCORAGEM #beneficios */}
+      <section id="beneficios">
+        <BeautySection />
+        <LongevitySection />
+        <CardiovascularSection />
+        <AntioxidantSection />
+        <NutritionSection />
+        <ScienceSection />
+        <PrebioticSection />
+      </section>
+
+      {/* BLOCO DEPOIMENTOS - ANCORAGEM #depoimentos */}
+      <section id="depoimentos">
+        <CustomerReviews />
+      </section>
+
+      {/* BLOCO PRODUTOS (VITRINE) - ANCORAGEM #produtos */}
+      <section id="produtos">
+        <PurchaseSection />
+        <TrustCards />
+      </section>
+
+      {/* RODAPÉ FINAL */}
+      <Footer />
 
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 2: HERO BANNER
