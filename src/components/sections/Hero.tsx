@@ -114,19 +114,9 @@ export function Hero() {
                 proteja seu coração e desperte sua mente com a ciência da vida.
               </p>
 
-              {/* CTA Button */}
+              {/* CTA Button - Scroll nativo com scroll-margin CSS */}
               <a
                 href="#produtos"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.querySelector('#produtos');
-                  if (element) {
-                    const headerOffset = window.innerWidth < 768 ? 64 : 96;
-                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }}
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
                 style={{ 
                   backgroundColor: '#c9a962',

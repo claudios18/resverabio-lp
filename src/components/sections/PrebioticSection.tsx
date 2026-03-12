@@ -144,20 +144,10 @@ export function PrebioticSection() {
               </p>
             </div>
 
-            {/* BOTÃO CTA - MOBILE */}
+            {/* BOTÃO CTA - MOBILE - Scroll nativo */}
             <div className="flex justify-center mt-8 px-6">
               <a
                 href="#produtos"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const element = document.querySelector('#produtos');
-                  if (element) {
-                    const headerOffset = window.innerWidth < 768 ? 64 : 96;
-                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }}
                 className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center cursor-pointer"
                 style={{
                   backgroundColor: '#1a1a1a',
@@ -250,20 +240,10 @@ export function PrebioticSection() {
                   o cérebro recebe sinais de equilíbrio.
                 </p>
 
-                {/* BOTÃO CTA - DESKTOP */}
+                {/* BOTÃO CTA - DESKTOP - Scroll nativo */}
                 <div className="flex justify-start pt-4">
                   <a
                     href="#produtos"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const element = document.querySelector('#produtos');
-                      if (element) {
-                        const headerOffset = window.innerWidth < 768 ? 64 : 96;
-                        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = elementPosition - headerOffset;
-                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                      }
-                    }}
                     className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center cursor-pointer"
                     style={{
                       backgroundColor: '#1a1a1a',

@@ -140,19 +140,10 @@ export function BeautySection() {
           {/* ═══════════════════════════════════════════════════════════════════
               CALL TO ACTION - BOTÃO PRETO COM TEXTO DOURADO (Padrão Luxo)
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+          {/* CTA Button - Scroll nativo com scroll-margin CSS */}
           <div className="mt-10 md:mt-12 flex justify-center px-6">
             <a
               href="#produtos"
-              onClick={(e) => {
-                e.preventDefault();
-                const element = document.querySelector('#produtos');
-                if (element) {
-                  const headerOffset = window.innerWidth < 768 ? 64 : 96;
-                  const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                  const offsetPosition = elementPosition - headerOffset;
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-              }}
               className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95 text-center cursor-pointer"
               style={{
                 backgroundColor: COLORS.black,

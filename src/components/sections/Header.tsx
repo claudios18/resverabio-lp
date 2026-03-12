@@ -48,28 +48,23 @@ export function Header() {
     { label: 'Fórmula', href: 'https://resverabio.com/formula', external: true },
 ];
 
-  const handleNavClick = (link: typeof navLinks[0]) => {
-    // Fecha o menu mobile imediatamente (antes da rolagem)
-    setIsMobileMenuOpen(false);
-    
+  const handleNavClick = (link: typeof navLinks[0], e?: React.MouseEvent) => {
     if (link.external) {
+      // Links externos abrem em nova aba
       window.open(link.href, '_blank', 'noopener,noreferrer');
+      setIsMobileMenuOpen(false);
     } else {
-      // Pequeno delay para permitir que o menu feche antes do scroll
+      // Links internos: fecha menu primeiro, depois deixa o navegador fazer o scroll nativo
+      e?.preventDefault();
+      setIsMobileMenuOpen(false);
+      
+      // Delay para o menu fechar e recalcular posições
       setTimeout(() => {
         const element = document.querySelector(link.href);
         if (element) {
-          // Calcula offset considerando o header fixo (64px mobile / 96px desktop)
-          const headerOffset = window.innerWidth < 768 ? 64 : 96;
-          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementPosition - headerOffset;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      }, 10);
+      }, 50);
     }
   };
 
@@ -141,7 +136,7 @@ export function Header() {
                 {navLinks.map((link) => (
                   <button
                     key={link.label}
-                    onClick={() => handleNavClick(link)}
+                    onClick={(e) => handleNavClick(link, e as unknown as React.MouseEvent)}
                     className="text-white/90 hover:text-[#c9a962] transition-colors duration-300 font-medium tracking-wide"
                     style={{ fontSize: '21px', lineHeight: '1.2' }}
                   >
@@ -224,7 +219,7 @@ export function Header() {
             {navLinks.map((link, index) => (
               <button
                 key={link.label}
-                onClick={() => handleNavClick(link)}
+                onClick={(e) => handleNavClick(link, e as unknown as React.MouseEvent)}
                 className="py-4 text-white/80 hover:text-[#c9a962] transition-colors duration-300 font-medium text-left border-b last:border-0"
                 style={{ 
                   fontSize: '20px',

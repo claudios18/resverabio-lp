@@ -44,33 +44,7 @@ function LandingPage() {
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 1: HEADER (Fixo no topo)
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <Header />   {/* BLOCO HERO - IMPACTO INICIAL */}
-      <Hero />
-
-      {/* BLOCO BENEFÍCIOS - Com correção de altura para Mobile/Desk */}
-      <section id="beneficios" className="scroll-mt-24">
-        <BeautySection />
-        <LongevitySection />
-        <CardiovascularSection />
-        <AntioxidantSection />
-        <NutritionSection />
-        <ScienceSection />
-        <PrebioticSection />
-      </section>
-
-      {/* BLOCO DEPOIMENTOS - Com correção de altura para Mobile/Desk */}
-      <section id="depoimentos" className="scroll-mt-24">
-        <CustomerReviews />
-      </section>
-
-      {/* BLOCO PRODUTOS (VITRINE) - Com correção de altura para Mobile/Desk */}
-      <section id="produtos" className="scroll-mt-24">
-        <PurchaseSection />
-        <TrustCards />
-      </section>
-
-      {/* RODAPÉ FINAL */}
-      <Footer />
+      <Header />
 
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 2: HERO BANNER - IMPACTO INICIAL
@@ -80,9 +54,9 @@ function LandingPage() {
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 3: SEÇÃO BENEFÍCIOS - ANCORAGEM #beneficios
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Scroll margin: scroll-mt-20 (80px) para compensar header mobile
+          • scroll-mt-24: Compensa o header fixo (96px) + margem de respiro
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="beneficios" className="scroll-mt-20 md:scroll-mt-24">
+      <section id="beneficios" className="scroll-mt-24">
         <BeautySection />
         <LongevitySection />
         <CardiovascularSection />
@@ -96,19 +70,19 @@ function LandingPage() {
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 4: DEPOIMENTOS - ANCORAGEM #depoimentos
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Scroll margin: scroll-mt-20 (80px) para compensar header mobile
+          • scroll-mt-24: Compensa o header fixo (96px) + margem de respiro
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="depoimentos" className="scroll-mt-20 md:scroll-mt-24">
+      <section id="depoimentos" className="scroll-mt-24">
         <CustomerReviews />
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 5: PRODUTOS (VITRINE) - ANCORAGEM #produtos
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Scroll margin: scroll-mt-20 (80px) para compensar header mobile
+          • scroll-mt-24: Compensa o header fixo (96px) + margem de respiro
           • Esta é a seção destino dos CTAs de navegação
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="produtos" className="scroll-mt-20 md:scroll-mt-24">
+      <section id="produtos" className="scroll-mt-24">
         <PurchaseSection />
       </section>
 
