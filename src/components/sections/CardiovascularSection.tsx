@@ -181,10 +181,18 @@ export function CardiovascularSection() {
             {/* BOTÃO CTA - MOBILE: Preto com texto dourado (Luxo) */}
             <div className="flex md:hidden justify-center mt-8 px-6">
               <a
-                href="https://mon.net.br/3u6oiu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center"
+                href="#produtos"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector('#produtos');
+                  if (element) {
+                    const headerOffset = window.innerWidth < 768 ? 64 : 96;
+                    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
+                className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center cursor-pointer"
                 style={{
                   backgroundColor: COLORS.black,
                   color: COLORS.gold,
@@ -268,10 +276,18 @@ export function CardiovascularSection() {
                 {/* BOTÃO CTA - DESKTOP: Preto com texto dourado */}
                 <div className="pt-4 flex justify-center">
                   <a
-                    href="https://mon.net.br/3u6oiu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="py-4 px-10 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl text-center"
+                    href="#produtos"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.querySelector('#produtos');
+                      if (element) {
+                        const headerOffset = window.innerWidth < 768 ? 64 : 96;
+                        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerOffset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                      }
+                    }}
+                    className="py-4 px-10 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl text-center cursor-pointer"
                     style={{
                       backgroundColor: COLORS.black,
                       color: COLORS.gold,
