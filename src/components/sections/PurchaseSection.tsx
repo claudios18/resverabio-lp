@@ -59,7 +59,7 @@ export function PurchaseSection() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section id="comprar" className="py-20 md:py-28 bg-black force-visible" style={{ display: 'block', visibility: 'visible', opacity: 1 }}>
+    <section className="py-12 md:py-16 bg-black force-visible" style={{ display: 'block', visibility: 'visible', opacity: 1 }}>
       <Container>
         {/* Header */}
         <div className="text-center mb-16">

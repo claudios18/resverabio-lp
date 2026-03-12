@@ -54,9 +54,10 @@ function LandingPage() {
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 3: SEÇÃO BENEFÍCIOS - ANCORAGEM #beneficios
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • scroll-mt-24: Compensa o header fixo (96px) + margem de respiro
+          • scroll-mt-16 (64px mobile): Header 64px + respiro mínimo
+          • scroll-mt-20 (80px desktop): Header 96px otimizado
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="beneficios" className="scroll-mt-24">
+      <section id="beneficios" className="scroll-mt-16 md:scroll-mt-20">
         <BeautySection />
         <LongevitySection />
         <CardiovascularSection />
@@ -70,19 +71,21 @@ function LandingPage() {
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 4: DEPOIMENTOS - ANCORAGEM #depoimentos
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • scroll-mt-24: Compensa o header fixo (96px) + margem de respiro
+          • scroll-mt-16 (64px mobile): Header 64px + respiro mínimo
+          • scroll-mt-20 (80px desktop): Header 96px otimizado
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="depoimentos" className="scroll-mt-24">
+      <section id="depoimentos" className="scroll-mt-16 md:scroll-mt-20">
         <CustomerReviews />
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 5: PRODUTOS (VITRINE) - ANCORAGEM #produtos
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • scroll-mt-24: Compensa o header fixo (96px) + margem de respiro
-          • Esta é a seção destino dos CTAs de navegação
+          • scroll-mt-16 (64px mobile): Header 64px + respiro mínimo
+          • scroll-mt-20 (80px desktop): Header 96px otimizado
+          • REDUZIDO para mostrar título + produtos + preços na viewport
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="produtos" className="scroll-mt-24">
+      <section id="produtos" className="scroll-mt-16 md:scroll-mt-20">
         <PurchaseSection />
       </section>
 
