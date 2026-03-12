@@ -30,7 +30,7 @@ const products = [
     pixDiscount: 3,
     highlighted: true,
     freeShipping: true,
-    checkoutUrl: 'https://mon.net.br/3u6oo3',
+    checkoutUrl: 'https://app.monetizze.com.br/checkout/KFT457433',
   },
   {
     id: 2,
