@@ -46,7 +46,7 @@ export function Header() {
     { label: 'Depoimentos', href: '#depoimentos', external: false },
     { label: 'Produtos', href: '#produtos', external: false },
     { label: 'Fórmula', href: 'https://resverabio.com/formula', external: true },
-  ];
+];
 
   const handleNavClick = (link: typeof navLinks[0]) => {
     if (link.external) {
