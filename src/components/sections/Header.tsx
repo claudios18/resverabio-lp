@@ -49,23 +49,28 @@ export function Header() {
 ];
 
   const handleNavClick = (link: typeof navLinks[0]) => {
+    // Fecha o menu mobile imediatamente (antes da rolagem)
+    setIsMobileMenuOpen(false);
+    
     if (link.external) {
       window.open(link.href, '_blank', 'noopener,noreferrer');
     } else {
-      const element = document.querySelector(link.href);
-      if (element) {
-        // Calcula offset considerando o header fixo (64px mobile / 96px desktop)
-        const headerOffset = window.innerWidth < 768 ? 64 : 96;
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerOffset;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+      // Pequeno delay para permitir que o menu feche antes do scroll
+      setTimeout(() => {
+        const element = document.querySelector(link.href);
+        if (element) {
+          // Calcula offset considerando o header fixo (64px mobile / 96px desktop)
+          const headerOffset = window.innerWidth < 768 ? 64 : 96;
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 10);
     }
-    setIsMobileMenuOpen(false);
   };
 
   return (

@@ -25,6 +25,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Suporte a smooth scroll em dispositivos touch */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Garantir smooth scroll em todos os elementos scrolláveis */
+  * {
+    scroll-behavior: smooth;
   }
   
   body {

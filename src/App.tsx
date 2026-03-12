@@ -30,7 +30,7 @@ import {
  * ║  - /obrigado            → Página de agradecimento geral                  ║
  * ║  - /obrigado-pix        → Página de pagamento PIX                        ║
  * ║  - /obrigado-boleto     → Página de pagamento Boleto                     ║
- * ║  - /obrigado-aguardando → Página de análise de segurança                 ║
+ * ║  - /obrigado-aguardando → Página análise de segurança                    ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
@@ -42,13 +42,13 @@ function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 1: HEADER
+          BLOCO 1: HEADER (Fixo no topo)
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <Header />   {/* BLOCO HERO - IMPACTO INICIAL */}
       <Hero />
 
-      {/* BLOCO BENEFÍCIOS - ANCORAGEM #beneficios */}
-      <section id="beneficios">
+      {/* BLOCO BENEFÍCIOS - Com correção de altura para Mobile/Desk */}
+      <section id="beneficios" className="scroll-mt-24">
         <BeautySection />
         <LongevitySection />
         <CardiovascularSection />
@@ -58,13 +58,13 @@ function LandingPage() {
         <PrebioticSection />
       </section>
 
-      {/* BLOCO DEPOIMENTOS - ANCORAGEM #depoimentos */}
-      <section id="depoimentos">
+      {/* BLOCO DEPOIMENTOS - Com correção de altura para Mobile/Desk */}
+      <section id="depoimentos" className="scroll-mt-24">
         <CustomerReviews />
       </section>
 
-      {/* BLOCO PRODUTOS (VITRINE) - ANCORAGEM #produtos */}
-      <section id="produtos">
+      {/* BLOCO PRODUTOS (VITRINE) - Com correção de altura para Mobile/Desk */}
+      <section id="produtos" className="scroll-mt-24">
         <PurchaseSection />
         <TrustCards />
       </section>
@@ -73,115 +73,48 @@ function LandingPage() {
       <Footer />
 
       {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 2: HERO BANNER
+          BLOCO 2: HERO BANNER - IMPACTO INICIAL
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <Hero />
 
       {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 3: BEAUTY SECTION (Puravida Inspired)
+          BLOCO 3: SEÇÃO BENEFÍCIOS - ANCORAGEM #beneficios
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • 3 imagens alinhadas horizontalmente
-          • Fundo off-white (#faf9f7)
-          • Título: "BELEZA QUE VEM DE DENTRO"
+          • Scroll margin: scroll-mt-20 (80px) para compensar header mobile
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <BeautySection />
+      <section id="beneficios" className="scroll-mt-20 md:scroll-mt-24">
+        <BeautySection />
+        <LongevitySection />
+        <CardiovascularSection />
+        <AntioxidantSection />
+        <TrustCards />
+        <NutritionSection />
+        <ScienceSection />
+        <PrebioticSection />
+      </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 4: LONGEVITY SECTION (Pele & Antienvelhecimento)
+          BLOCO 4: DEPOIMENTOS - ANCORAGEM #depoimentos
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Layout Puravida: 2 imagens + texto largura total
-          • Título: "UM IMPORTANTE ALIADO DA LONGEVIDADE"
-          • CTA: "QUERO MEU REJUVENESCIMENTO CELULAR"
+          • Scroll margin: scroll-mt-20 (80px) para compensar header mobile
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <LongevitySection />
+      <section id="depoimentos" className="scroll-mt-20 md:scroll-mt-24">
+        <CustomerReviews />
+      </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 5: CARDIOVASCULAR SECTION (Benefícios Adicionais)
+          BLOCO 5: PRODUTOS (VITRINE) - ANCORAGEM #produtos
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Fundo off-white (#faf9f7)
-          • Layout 50/50: Imagem | Texto
-          • Asset: resverabio-cardiovascular.png
-          • Título: "PROTEÇÃO CARDIOVASCULAR" (Azul Premium)
+          • Scroll margin: scroll-mt-20 (80px) para compensar header mobile
+          • Esta é a seção destino dos CTAs de navegação
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <CardiovascularSection />
+      <section id="produtos" className="scroll-mt-20 md:scroll-mt-24">
+        <PurchaseSection />
+      </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 5.5: ANTIOXIDANTE SECTION (Potencialização ao Máximo)
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Fundo off-white (#faf9f7)
-          • Layout INVERSO Desktop: Imagem ESQUERDA | Texto DIREITA
-          • Layout Mobile: Empilhamento vertical (imagem topo → texto)
-          • Asset: resverabio-radicaislivres.png
-          • Título: "ANTIOXIDANTE: POTENCIALIZAÇÃO AO MÁXIMO" (Azul Premium)
+          BLOCO 6: RODAPÉ FINAL
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <AntioxidantSection />
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 5.6: CARDS DE CONFIANÇA
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Grid 4 colunas com fundos em degradê roxo
-          • Ícones dourados e textos brancos
-          • Posição: Entre Antioxidante e Nutrição
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <TrustCards />
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 6: NUTRITION SECTION (Puravida Inspired)
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Layout 50/50: Tabela nutricional | Embalagem
-          • Fundo: Preto absoluto (#000)
-          • Assets: resverabio-tabnutri.png + resverabio-box.png
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <NutritionSection />
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 7: SCIENCE SECTION (Puravida Inspired)
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Fundo off-white (#faf9f7)
-          • Asset: resverabio-RESVERATROL.png
-          • Objetivo: Educação sobre Resveratrol
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <ScienceSection />
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 8: EFEITO PREBIÓTICO E INTESTINO
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Fundo off-white (#faf9f7)
-          • Layout Desktop: Texto ESQUERDA | Imagem DIREITA
-          • Layout Mobile: Empilhamento vertical
-          • Asset: resverabio-intestino.png
-          • CTA: Botão dourado ao final
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <PrebioticSection />
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 9: AVALIAÇÕES DOS CLIENTES
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Fundo branco (#ffffff)
-          • Layout: Sidebar (estatísticas) + Lista de avaliações
-          • Nota média 4.9/5 com gráfico de distribuição
-          • Cards de avaliações com avatar, nome, data e conteúdo
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <CustomerReviews />
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 10: VENDAS (OFERTAS)
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Fundo preto (#000000)
-          • Grid de 4 cards de produtos
-          • Preços, parcelas e desconto PIX
-          • Badge "Campeão de Vendas" no kit 3 potes
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <PurchaseSection />
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          BLOCO 11: FOOTER
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Fundo: Preto absoluto (#000000)
-          • Seção obrigatória: FONTES CIENTÍFICAS CONSULTADAS
-          • Link: resveratrolciencia.com
-          • Design: Padrão de luxo suíço
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <Footer />
     </div>
   );
