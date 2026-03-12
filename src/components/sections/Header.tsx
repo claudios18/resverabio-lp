@@ -44,7 +44,7 @@ export function Header() {
   const navLinks = [
     { label: 'Benefícios', href: '#beneficios', external: false },
     { label: 'Depoimentos', href: '#depoimentos', external: false },
-    { label: 'Produtos', href: '#comprar', external: false },
+    { label: 'Produtos', href: '#produtos', external: false },
     { label: 'Fórmula', href: 'https://resverabio.com/formula', external: true },
   ];
 
@@ -54,7 +54,15 @@ export function Header() {
     } else {
       const element = document.querySelector(link.href);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        // Calcula offset considerando o header fixo (64px mobile / 96px desktop)
+        const headerOffset = window.innerWidth < 768 ? 64 : 96;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     }
     setIsMobileMenuOpen(false);

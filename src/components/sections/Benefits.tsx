@@ -4,7 +4,7 @@ import { benefitSections } from '../../data/product';
 
 export function Benefits() {
   return (
-    <section id="beneficios" className="py-16 md:py-24 bg-white">
+    <section id="beneficios-detalhes" className="py-16 md:py-24 bg-white">
       <Container>
         <div className="space-y-24 md:space-y-32">
           {benefitSections.map((section) => (
