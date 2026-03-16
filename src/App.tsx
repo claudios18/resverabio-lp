@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
 import { BeautySection } from './components/sections/BeautySection';
+import { BioScienceSection } from './components/sections/BioScienceSection';
 import { LongevitySection } from './components/sections/LongevitySection';
 import { CardiovascularSection } from './components/sections/CardiovascularSection';
 import { AntioxidantSection } from './components/sections/AntioxidantSection';
@@ -59,6 +60,16 @@ function LandingPage() {
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="beneficios" className="scroll-mt-16 md:scroll-mt-20">
         <BeautySection />
+        
+        {/* ═══════════════════════════════════════════════════════════════════
+            BLOCO 3.5: BIOCIÊNCIA - CREDENCIAL CIENTÍFICA
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            • Transição emocional → científica
+            • Fundo roxo escuro luxo para imagem bioquímica
+            • Ponte entre beleza visível e proteção celular profunda
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <BioScienceSection />
+        
         <LongevitySection />
         <CardiovascularSection />
         <AntioxidantSection />
