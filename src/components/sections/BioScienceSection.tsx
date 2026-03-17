@@ -124,7 +124,7 @@ export function BioScienceSection() {
             }}
           >
             <img 
-              src="/nivel-1-epicentro-celular.png" 
+              src="nivel-1-epicentro-celular.png?v=2" 
               alt="Nível 1: O Epicentro Celular - Proteção e Renovação do DNA"
               className="w-full h-auto block relative z-10"
               style={{ display: 'block' }}
