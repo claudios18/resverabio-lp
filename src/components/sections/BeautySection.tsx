@@ -179,23 +179,25 @@ export function BeautySection() {
             </span>
           </div>
           {/* ═══════════════════════════════════════════════════════════════════
-              IMAGEM INFOGRÁFICO - RESPONSIVIDADE OTIMIZADA
+              IMAGEM INFOGRÁFICO - DUAL ASSET RESPONSIVE
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Mobile: object-contain para exibir imagem completa sem cortes
-              • Desktop: object-cover para estética de luxo
-              • Fundo preto para harmonização visual
+              • Mobile: Imagem 1:1 otimizada para mobile
+              • Desktop: Imagem 16:9 otimizada para desktop
+              • Estilo de luxo: centralizada, rounded-xl, shadow-2xl
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           <div className="flex justify-center my-8 px-4 sm:px-0">
-            <div 
-              className="w-full max-w-4xl aspect-square lg:aspect-video overflow-hidden rounded-xl shadow-2xl flex items-center justify-center"
-              style={{ backgroundColor: '#0a0a0a' }}
-            >
-              <img 
-                src="/resverabio-belezaquevemdedentro.png" 
-                alt="Infográfico Beleza que vem de dentro" 
-                className="w-full h-full object-contain lg:object-cover"
-              />
-            </div>
+            {/* Mobile Image (1:1) - visível apenas em telas pequenas */}
+            <img 
+              src="/resverabio-belezaquevemdedentromobile.png" 
+              alt="Infográfico Beleza que vem de dentro - Mobile" 
+              className="w-full max-w-4xl rounded-xl shadow-2xl lg:hidden"
+            />
+            {/* Desktop Image (16:9) - visível apenas em telas grandes */}
+            <img 
+              src="/resverabio-belezaquevemdedentro.png" 
+              alt="Infográfico Beleza que vem de dentro" 
+              className="w-full max-w-4xl rounded-xl shadow-2xl hidden lg:block"
+            />
           </div>
 
           {/* Abaixo virá o seu botão "garantir meu resverabio" */}
