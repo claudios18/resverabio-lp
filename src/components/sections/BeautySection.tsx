@@ -177,6 +177,18 @@ export function BeautySection() {
               "Cabelos mais fortes, pele com viço — a beleza que renasce de dentro"
             </span>
           </div>
+             {/* COLOQUE O COMANDO ABAIXO EXATAMENTE AQUI */}
+          <div className="flex justify-center my-8">
+            <img 
+              src="/resverabio-belezaquevemdedentro.png" 
+              alt="Infográfico Beleza que vem de dentro" 
+              style={{ maxWidth: '100%', height: 'auto', display: 'block' }}
+              className="rounded-xl shadow-2xl"
+            />
+          </div>
+          {/* FIM DA INSERÇÃO DA IMAGEM */}
+
+          {/* Abaixo virá o seu botão "garantir meu resverabio" */}
 
           {/* ═══════════════════════════════════════════════════════════════════
               CALL TO ACTION - BOTÃO PRETO COM TEXTO DOURADO (Padrão Luxo)
