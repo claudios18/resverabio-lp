@@ -178,16 +178,22 @@ export function BeautySection() {
               "Cabelos mais fortes, pele com viço — a beleza que renasce de dentro"
             </span>
           </div>
-             {/* COLOQUE O COMANDO ABAIXO EXATAMENTE AQUI */}
-          <div className="flex justify-center my-8">
-            <img 
-              src="/resverabio-belezaquevemdedentro.png" 
-              alt="Infográfico Beleza que vem de dentro" 
-              style={{ maxWidth: '100%', height: 'auto', display: 'block' }}
-              className="rounded-xl shadow-2xl"
-            />
+          {/* ═══════════════════════════════════════════════════════════════════
+              IMAGEM INFOGRÁFICO - RESPONSIVIDADE OTIMIZADA
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              • Mobile: aspect-square (1:1) para máximo espaço vertical
+              • Desktop: aspect-auto para proporção natural
+              • object-cover + object-top: mantém foco no conteúdo principal
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+          <div className="flex justify-center my-8 px-4 sm:px-0">
+            <div className="w-full max-w-4xl aspect-square lg:aspect-auto overflow-hidden rounded-xl shadow-2xl">
+              <img 
+                src="/resverabio-belezaquevemdedentro.png" 
+                alt="Infográfico Beleza que vem de dentro" 
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
           </div>
-          {/* FIM DA INSERÇÃO DA IMAGEM */}
 
           {/* Abaixo virá o seu botão "garantir meu resverabio" */}
 
