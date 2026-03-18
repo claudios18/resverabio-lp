@@ -181,16 +181,19 @@ export function BeautySection() {
           {/* ═══════════════════════════════════════════════════════════════════
               IMAGEM INFOGRÁFICO - RESPONSIVIDADE OTIMIZADA
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Mobile: aspect-square (1:1) para máximo espaço vertical
-              • Desktop: aspect-auto para proporção natural
-              • object-cover + object-top: mantém foco no conteúdo principal
+              • Mobile: object-contain para exibir imagem completa sem cortes
+              • Desktop: object-cover para estética de luxo
+              • Fundo preto para harmonização visual
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           <div className="flex justify-center my-8 px-4 sm:px-0">
-            <div className="w-full max-w-4xl aspect-square lg:aspect-auto overflow-hidden rounded-xl shadow-2xl">
+            <div 
+              className="w-full max-w-4xl aspect-square lg:aspect-video overflow-hidden rounded-xl shadow-2xl flex items-center justify-center"
+              style={{ backgroundColor: '#0a0a0a' }}
+            >
               <img 
                 src="/resverabio-belezaquevemdedentro.png" 
                 alt="Infográfico Beleza que vem de dentro" 
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-contain lg:object-cover"
               />
             </div>
           </div>
