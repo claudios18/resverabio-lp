@@ -2,10 +2,11 @@
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    CART CONTEXT - RESVERABIO®                            ║
  * ║       Gerenciamento global do estado do carrinho de compras              ║
+ * ║       Com persistência em LocalStorage para maximizar conversão          ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 
 export interface CartItem {
   id: string;
@@ -42,9 +43,31 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+// Chave para persistência no localStorage
+const CART_STORAGE_KEY = 'resverabio-cart';
+
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+  // Inicializa o estado a partir do localStorage (se existir)
+  const [items, setItems] = useState<CartItem[]>(() => {
+    if (typeof window !== 'undefined') {
+      const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+      if (savedCart) {
+        try {
+          return JSON.parse(savedCart);
+        } catch {
+          return [];
+        }
+      }
+    }
+    return [];
+  });
+  
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  // Persiste no localStorage sempre que o carrinho mudar
+  useEffect(() => {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+  }, [items]);
 
   const addToCart = useCallback((product: Omit<CartItem, 'quantity'>) => {
     setItems((currentItems) => {

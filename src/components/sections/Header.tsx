@@ -7,7 +7,7 @@ import { useCart } from '../../contexts/CartContext';
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    BLOCO 1: HEADER - RESVERABIO®                         ║
- * ║       VERSÃO 4.0 | Carrinho Funcional | 19 Mar 2026                      ║
+ * ║       VERSÃO 4.1 | Carrinho Luxo + Ícone 50% Maior | 19 Mar 2026         ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  * 
  * ESPECIFICAÇÕES DE LUXO:
@@ -16,11 +16,13 @@ import { useCart } from '../../contexts/CartContext';
  * - Escala Mobile Otimizada: h-16 (64px) → compacto e premium
  * - Escala Desktop: h-24 (md) → h-28 (lg)
  * - Carrinho Mobile: Imagem customizada resverabio-carrinho.png (44x44px)
+ * - Carrinho Desktop: Ícone 50% maior (36px vs 24px original)
  * - Proporções Harmônicas: Logo(40px) | Menu(44px) | Carrinho(44px)
  * 
  * FUNCIONALIDADES:
- * ✓ Carrinho com contador dinâmico
+ * ✓ Carrinho com contador dinâmico persistente (LocalStorage)
  * ✓ Drawer lateral ao clicar no carrinho
+ * ✓ Ícone desktop aumentado em 50% para destaque luxuoso
  * ✓ Animações suaves de transição
  */
 
@@ -151,8 +153,8 @@ export function Header() {
               {/* ═══════════════════════════════════════════════════════════════
                   COLUNA 3: Carrinho (Direita, mobile e desktop)
                   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                  Mobile: Imagem customizada resverabio-carrinho.png
-                  Desktop: Ícone ShoppingBag padrão
+                  Mobile: Imagem customizada resverabio-carrinho.png (tamanho original)
+                  Desktop: Ícone ShoppingBag 50% maior (36px vs 24px) - DESTAQUE LUXUOSO
                   Funcionalidade: Abre drawer ao clicar
                   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
               <div className="flex items-center justify-end">
@@ -161,18 +163,19 @@ export function Header() {
                   className="relative flex items-center justify-center transition-transform duration-300 hover:scale-105"
                   aria-label="Carrinho de compras"
                 >
-                  {/* Mobile: Imagem do carrinho */}
+                  {/* Mobile: Imagem do carrinho (tamanho original) */}
                   <img 
                     src={`/resverabio-carrinho.png?v=${CART_TIMESTAMP}`}
                     alt="Carrinho"
                     className="md:hidden h-10 w-auto object-contain"
                   />
-                  {/* Desktop: Ícone ShoppingBag */}
+                  
+                  {/* Desktop: Ícone ShoppingBag 50% MAIOR (36px vs 24px original) */}
                   <span className="hidden md:block relative">
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
-                      width="24" 
-                      height="24" 
+                      width="36" 
+                      height="36" 
                       viewBox="0 0 24 24" 
                       fill="none" 
                       stroke="currentColor" 
@@ -187,9 +190,9 @@ export function Header() {
                     </svg>
                   </span>
                   
-                  {/* Badge de contagem - animado */}
+                  {/* Badge de contagem - animado e maior no desktop */}
                   <span 
-                    className={`absolute -top-1 -right-1 md:-top-1 md:-right-1 min-w-[20px] h-5 flex items-center justify-center rounded-full text-xs font-bold transition-all duration-300 ${
+                    className={`absolute -top-1 -right-1 md:-top-2 md:-right-2 min-w-[20px] md:min-w-[24px] h-5 md:h-6 flex items-center justify-center rounded-full text-xs md:text-sm font-bold transition-all duration-300 ${
                       totalItems > 0 ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
                     }`}
                     style={{ 
