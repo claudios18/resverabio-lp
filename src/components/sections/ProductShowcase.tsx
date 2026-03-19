@@ -117,7 +117,7 @@ export function ProductShowcase() {
   };
 
   return (
-    <section id="produtos" className="py-20 md:py-28" style={{ backgroundColor: '#6B4E7C' }}>
+    <section id="produtos" className="py-20 md:py-28 scroll-mt-20 md:scroll-mt-28" style={{ backgroundColor: '#6B4E7C' }}>
       <Container>
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
