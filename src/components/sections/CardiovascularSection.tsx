@@ -123,7 +123,7 @@ export function CardiovascularSection() {
             {/* IMAGEM CARDIOPROTETORA - maxHeight 65vh */}
             <div className="relative overflow-hidden" style={{ marginLeft: '-16px', marginRight: '-16px', width: 'calc(100% + 32px)' }}>
               <img
-                src="/resverabio-cardioprotecao.png"
+                src="/resverabio-coracao.png"
                 alt="Resveratrol Cardioprotetor - Proteção Cardiovascular"
                 className="w-full h-auto object-contain"
                 style={{ maxHeight: '65vh' }}
@@ -282,7 +282,7 @@ export function CardiovascularSection() {
               <div className="relative flex items-center justify-center">
                 <div className="relative overflow-hidden rounded-2xl shadow-xl" style={{ maxWidth: '90%' }}>
                   <img
-                    src="/resverabio-cardioprotecao.png"
+                    src="/resverabio-coracao.png"
                     alt="RESVERATROL: Ação Cardioprotetora - O segredo do coração. Benefícios vasculares: combate ao estresse oxidativo, melhora endotelial, equilíbrio de lipídios e vasodilatação."
                     className="w-full h-auto object-contain"
                     loading="lazy"
