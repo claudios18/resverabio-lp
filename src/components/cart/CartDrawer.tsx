@@ -20,6 +20,19 @@ export function CartDrawer() {
     getCheckoutUrl,
   } = useCart();
 
+  // Handler para navegar à vitrine e fechar o drawer
+  const handleGoToProducts = () => {
+    closeCart(); // Fecha o drawer primeiro
+    
+    // Delay para permitir que o drawer feche antes do scroll
+    setTimeout(() => {
+      const element = document.querySelector('#produtos');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 300);
+  };
+
   if (!isCartOpen) return null;
 
   return (
@@ -67,11 +80,12 @@ export function CartDrawer() {
               <p className="text-white/60 mb-6">
                 Escolha um dos nossos kits exclusivos e comece sua jornada de bem-estar.
               </p>
+              {/* BOTÃO ESCOLHER PRODUTO - COM NAVEGAÇÃO FUNCIONAL */}
               <button
-                onClick={closeCart}
+                onClick={handleGoToProducts}
                 className="px-6 py-3 bg-[#c9a962] text-black font-semibold rounded-lg hover:bg-[#d4b876] transition-colors"
               >
-                Ver Produtos
+                ESCOLHER PRODUTO
               </button>
             </div>
           ) : (
