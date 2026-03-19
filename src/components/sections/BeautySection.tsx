@@ -14,7 +14,7 @@
  * - Padding: Generoso para respiração visual
  * 
  * RESPONSIVIDADE DUAL ASSET:
- * - Mobile: /resverabio/belezaquevemdedentromobile.png (block lg:hidden)
+ * - Mobile: /resverabio-belezaquevemdedentromobile.png (block lg:hidden)
  * - Desktop: /resverabio-belezaquevemdedentro.png (hidden lg:block)
  */
 
@@ -185,7 +185,7 @@ export function BeautySection() {
           {/* ═══════════════════════════════════════════════════════════════════
               IMAGEM INFOGRÁFICO - DUAL ASSET RESPONSIVE
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Mobile: /resverabio/belezaquevemdedentromobile.png (block lg:hidden)
+              • Mobile: /resverabio-belezaquevemdedentromobile.png (block lg:hidden)
               • Desktop: /resverabio-belezaquevemdedentro.png (hidden lg:block)
               • Lógica Anti-Desaparecimento: garante que nunca haja espaço vazio
               • Estilo de luxo: centralizada, rounded-xl, shadow-2xl
@@ -193,7 +193,7 @@ export function BeautySection() {
           <div className="flex justify-center my-8 px-4 sm:px-0">
             {/* Mobile Image - visível apenas em telas menores que lg (block lg:hidden) */}
             <img 
-              src="/resverabio/belezaquevemdedentromobile.png" 
+              src="/resverabio-belezaquevemdedentromobile.png" 
               alt="Infográfico Beleza que vem de dentro - Mobile" 
               className="w-full max-w-4xl rounded-xl shadow-2xl block lg:hidden"
             />
