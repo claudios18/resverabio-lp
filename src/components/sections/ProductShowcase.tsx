@@ -3,6 +3,7 @@ import { Container } from '../ui/Container';
 import { SectionLabel } from '../ui/SectionLabel';
 import { scientificSources } from '../../data/scientificData';
 import { ShoppingBag, Check, Truck, Shield, RotateCcw } from 'lucide-react';
+import { useCart } from '../../contexts/CartContext';
 
 const products = [
   {
@@ -62,12 +63,29 @@ const products = [
 export function ProductShowcase() {
   const [selectedProduct, setSelectedProduct] = useState(products[1]);
   const [quantity, setQuantity] = useState(1);
+  
+  // Integração com o contexto do carrinho
+  const { addToCart } = useCart();
 
   const calculateTotal = () => {
     const finalPrice = parseFloat(selectedProduct.price.final.replace('R$ ', '').replace('.', '').replace(',', '.'));
     return (finalPrice * quantity).toLocaleString('pt-BR', {
       style: 'currency',
       currency: 'BRL'
+    });
+  };
+
+  // Handler para adicionar ao carrinho
+  const handleAddToCart = (product: typeof products[0]) => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      image: product.image,
+      price: product.price,
+      installments: product.installments,
+      checkoutUrl: product.checkoutUrl,
+      freeShipping: product.freeShipping,
     });
   };
 
@@ -86,8 +104,108 @@ export function ProductShowcase() {
           </p>
         </div>
 
+        {/* ═══════════════════════════════════════════════════════════════════
+            GRID DE PRODUTOS - 3 CARDS INDEPENDENTES
+            Cada botão adiciona o produto específico ao carrinho
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className={`relative bg-gradient-to-b rounded-2xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.02] ${
+                product.popular || product.bestValue
+                  ? 'from-[#2a2a3a] to-[#1a1a2e] border-2 border-[#c9a962] shadow-[0_0_30px_rgba(201,169,98,0.3)]'
+                  : 'from-white/10 to-white/5 border border-white/20'
+              }`}
+            >
+              {/* Badges */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {product.badge && (
+                  <span className={`text-xs px-3 py-1 rounded-full font-medium ${
+                    product.bestValue
+                      ? 'bg-[#c9a962] text-black'
+                      : product.popular
+                      ? 'bg-[#1a1a2e] text-[#c9a962] border border-[#c9a962]'
+                      : 'bg-white/20 text-white'
+                  }`}>
+                    {product.badge}
+                  </span>
+                )}
+                {product.freeShipping && (
+                  <span className="text-xs px-3 py-1 rounded-full font-semibold bg-green-500 text-white flex items-center gap-1">
+                    <Truck size={12} />
+                    FRETE GRÁTIS
+                  </span>
+                )}
+              </div>
+
+              {/* Imagem do produto */}
+              <div className="relative aspect-square mb-6">
+                {/* Efeito Luz Blur */}
+                <div 
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-32 rounded-full opacity-60"
+                  style={{
+                    background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)',
+                    filter: 'blur(40px)'
+                  }}
+                />
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-contain drop-shadow-xl"
+                  />
+                </div>
+              </div>
+
+              {/* Informações do produto */}
+              <div className="flex-1">
+                <h3 className="font-bold text-white text-xl mb-2">{product.name}</h3>
+                <p className="text-white/70 text-sm mb-4">{product.description}</p>
+                
+                {/* Preço */}
+                <div className="mb-2">
+                  <span className="text-sm text-white/60 line-through block">
+                    {product.price.original}
+                  </span>
+                  <span className="text-3xl font-bold text-white">
+                    {product.price.final}
+                  </span>
+                </div>
+                
+                {product.installments && (
+                  <p className="text-sm text-amber-300 font-medium mb-1">
+                    ou 12x de <span className="font-bold">{product.installments.value}</span>
+                  </p>
+                )}
+                <p className="text-xs text-white/50 mb-6">
+                  {product.perCapsule} por cápsula
+                </p>
+              </div>
+
+              {/* Botão Comprar - CADA PRODUTO TEM SEU PRÓPRIO HANDLER */}
+              <button
+                onClick={() => handleAddToCart(product)}
+                className={`w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-[1.02] ${
+                  product.popular || product.bestValue
+                    ? 'bg-[#c9a962] text-black hover:bg-[#d4b876] shadow-lg shadow-[#c9a962]/30'
+                    : 'bg-white/10 text-white border border-white/30 hover:bg-white/20'
+                }`}
+              >
+                <ShoppingBag size={20} />
+                COMPRAR AGORA
+              </button>
+              
+              {/* Desconto PIX */}
+              <p className="text-center text-xs text-white/60 mt-3">
+                3% de desconto no PIX
+              </p>
+            </div>
+          ))}
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Product Selection */}
+          {/* Product Selection - Layout Original */}
           <div className="space-y-5">
             {products.map((product) => (
               <div
@@ -300,16 +418,14 @@ export function ProductShowcase() {
               </div>
             </div>
 
-            {/* CTA */}
-            <a
-              href={selectedProduct.checkoutUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* CTA - Botão do card lateral também adiciona ao carrinho */}
+            <button
+              onClick={() => handleAddToCart(selectedProduct)}
               className="w-full flex items-center justify-center gap-2 bg-luxury-gold text-white hover:bg-luxury-gold-dark mb-4 py-5 text-lg font-bold rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
             >
               <ShoppingBag size={22} />
               Comprar Agora
-            </a>
+            </button>
 
             <p className="text-base text-center text-white/60">
               Pagamento processado com segurança • Entrega em 2-5 dias úteis

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Container } from '../ui/Container';
+import { CartDrawer } from '../cart/CartDrawer';
+import { useCart } from '../../contexts/CartContext';
 
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    BLOCO 1: HEADER - RESVERABIO®                         ║
- * ║       VERSÃO 3.0 | Refinamento Mobile Final | 28 Fev 2026                ║
+ * ║       VERSÃO 4.0 | Carrinho Funcional | 19 Mar 2026                      ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  * 
  * ESPECIFICAÇÕES DE LUXO:
@@ -16,12 +18,10 @@ import { Container } from '../ui/Container';
  * - Carrinho Mobile: Imagem customizada resverabio-carrinho.png (44x44px)
  * - Proporções Harmônicas: Logo(40px) | Menu(44px) | Carrinho(44px)
  * 
- * REFINAMENTOS APLICADOS:
- * ✓ Header mobile reduzido de 80px para 64px (encurtamento drástico)
- * ✓ Carrinho substituído por asset de imagem dourada (mobile only)
- * ✓ Proporções idênticas: botão menu e carrinho (44x44px)
- * ✓ Alinhamento perfeito à direita no grid 3 colunas
- * ✓ Desktop preservado: ícone SVG padrão + altura original
+ * FUNCIONALIDADES:
+ * ✓ Carrinho com contador dinâmico
+ * ✓ Drawer lateral ao clicar no carrinho
+ * ✓ Animações suaves de transição
  */
 
 // Timestamp para cache-buster da imagem
@@ -32,6 +32,9 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
+  
+  // Integração com o contexto do carrinho
+  const { totalItems, toggleCart } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,7 +74,7 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#6B4E7C] ${isScrolled ? 'shadow-[0_0_40px_rgba(107,78,124,0.6),0_0_60px_rgba(107,78,124,0.4),0_4px_20px_rgba(0,0,0,0.3)]' : 'neon-glow'}`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-[#6B4E7C] ${isScrolled ? 'shadow-[0_0_40px_rgba(107,78,124,0.6),0_0_60px_rgba(107,78,124,0.4),0_4px_20px_rgba(0,0,0,0.3)]' : 'neon-glow'}`}
       >
         {/* Container Principal com Altura Monumental */}
         <div className="h-16 md:h-24 lg:h-28">
@@ -150,9 +153,11 @@ export function Header() {
                   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                   Mobile: Imagem customizada resverabio-carrinho.png
                   Desktop: Ícone ShoppingBag padrão
+                  Funcionalidade: Abre drawer ao clicar
                   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
               <div className="flex items-center justify-end">
                 <button 
+                  onClick={toggleCart}
                   className="relative flex items-center justify-center transition-transform duration-300 hover:scale-105"
                   aria-label="Carrinho de compras"
                 >
@@ -181,15 +186,19 @@ export function Header() {
                       <path d="M16 10a4 4 0 0 1-8 0"/>
                     </svg>
                   </span>
-                  {/* Badge de contagem */}
+                  
+                  {/* Badge de contagem - animado */}
                   <span 
-                    className="absolute -top-1 -right-1 md:-top-1 md:-right-1 w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold"
+                    className={`absolute -top-1 -right-1 md:-top-1 md:-right-1 min-w-[20px] h-5 flex items-center justify-center rounded-full text-xs font-bold transition-all duration-300 ${
+                      totalItems > 0 ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                    }`}
                     style={{ 
                       backgroundColor: '#c9a962',
                       color: '#000000',
+                      padding: totalItems > 9 ? '0 6px' : '0',
                     }}
                   >
-                    0
+                    {totalItems > 9 ? '9+' : totalItems}
                   </span>
                 </button>
               </div>
@@ -203,7 +212,7 @@ export function Header() {
           MENU MOBILE OVERLAY
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <div
-        className={`fixed left-0 right-0 z-40 md:hidden transition-all duration-500 neon-glow ${
+        className={`fixed left-0 right-0 z-30 md:hidden transition-all duration-500 neon-glow ${
           isMobileMenuOpen
             ? 'opacity-100 visible translate-y-0'
             : 'opacity-0 invisible -translate-y-4 pointer-events-none'
@@ -233,6 +242,9 @@ export function Header() {
           </nav>
         </Container>
       </div>
+
+      {/* Cart Drawer - Componente funcional */}
+      <CartDrawer />
 
       {/* Spacer para compensar header fixo */}
       <div className="h-16 md:h-24 lg:h-28" />
