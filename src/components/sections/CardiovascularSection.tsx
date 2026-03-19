@@ -2,9 +2,9 @@
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║           BLOCO 5: CARDIOVASCULAR SECTION - RESVERABIO®                  ║
  * ║                                                                          ║
- *  VERSÃO 9.0 - PADRONIZADO COM BEAUTY SECTION                              ║
- *  • Tipografia alinhada ao padrão Beleza Que Vem de Dentro                 ║
- *  • Layout 50/50 Desktop mantido                                           ║
+ *  VERSÃO 10.0 - CONTEÚDO ATUALIZADO COM TOM SOPHISTICADO                  ║
+ *  • Título: RESVERABIO E AÇÃO CARDIOPROTETORA                              ║
+ *  • Introdução elevada para fidelidade premium                             ║
  *  • Estética suíça premium aplicada                                        ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
@@ -56,7 +56,7 @@ export function CardiovascularSection() {
         >
           {/* 
             ═══════════════════════════════════════════════════════════════════
-            TÍTULO PRINCIPAL - PADRÃO BEAUTY SECTION (linhas 87-97)
+            TÍTULO PRINCIPAL - ATUALIZADO
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           */}
           <div className="mt-6 md:mt-8 lg:mt-10 text-center">
@@ -68,7 +68,7 @@ export function CardiovascularSection() {
                 fontFamily: "'Playfair Display', Georgia, serif"
               }}
             >
-              RESVERATROL E CORAÇÃO
+              RESVERABIO E AÇÃO CARDIOPROTETORA
             </h2>
             
             {/* Linha decorativa dourada abaixo do título */}
@@ -81,7 +81,7 @@ export function CardiovascularSection() {
 
             {/* 
               ═══════════════════════════════════════════════════════════════════
-              PARÁGRAFO DESCRITIVO - PADRÃO BEAUTY SECTION (linhas 116-134)
+              PARÁGRAFO DESCRITIVO - NOVO TEXTO SOPHISTICADO
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             */}
             <p 
@@ -96,9 +96,7 @@ export function CardiovascularSection() {
                 letterSpacing: '0.01em'
               }}
             >
-              O comprometimento da função vascular, além de outros perigos, altera o equilíbrio redox. O resveratrol na ação
-              cardioprotetora por ele demonstrada, foca na eficácia da prevenção e
-              gestão de doenças cardiovasculares.
+              A verdadeira sofisticação reside no equilíbrio do seu sistema circulatório. Além de prevenir o envelhecimento vascular, o RESVERABIO® atua na gestão da saúde cardíaca ao restaurar a integridade das células vasculares. Uma ação cardioprotetora inédita que transcende a suplementação comum, focando na eficácia e na proteção contínua do seu coração.
             </p>
           </div>
 
