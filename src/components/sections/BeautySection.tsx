@@ -2,20 +2,8 @@
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    BLOCO 3: BEAUTY SECTION - RESVERABIO®                 ║
- * ║          VERSÃO 1.2 | Responsivo Mobile/Desktop | 19 Mar 2026            ║
+ * ║          VERSÃO 1.3 | Debug Visual Mobile | 19 Mar 2026                ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
- * 
- * ESPECIFICAÇÕES DE LUXO:
- * - Fundo: Off-white (#faf9f7) - elegância suíça
- * - Grid: 3 colunas simétricas com gap harmonioso
- * - Imagens: Aspect ratio 4:3, bordas arredondadas (rounded-2xl)
- * - Tipografia: Título serif + Parágrafo sans-serif leve (revista premium)
- * - Parágrafo: Largura limitada (~60%), centralizado, espaçamento generoso
- * - Padding: Generoso para respiração visual
- * 
- * RESPONSIVIDADE DUAL ASSET:
- * - Mobile: /resverabio-belezaquevemdedentromobile.png (block lg:hidden)
- * - Desktop: /resverabio-belezaquevemdedentro.png (hidden lg:block)
  */
 
 import { Container } from '../ui/Container';
@@ -46,17 +34,10 @@ export function BeautySection() {
   return (
     <section 
       className="relative w-full py-16 md:py-24 lg:py-32"
-      style={{ backgroundColor: '#faf9f7' }} // Off-white elegante
+      style={{ backgroundColor: '#faf9f7' }}
     >
       <Container>
-        {/* ═══════════════════════════════════════════════════════════════════
-            GRID DE 3 IMAGENS
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            • Layout: 3 colunas em desktop, 1 coluna em mobile
-            • Aspect ratio: 4:3 para uniformidade
-            • Bordas: Arredondadas (rounded-2xl = 16px)
-            • Sombra: Sutil para profundidade
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* GRID DE 3 IMAGENS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {beautyImages.map((image, index) => (
             <div 
@@ -69,7 +50,6 @@ export function BeautySection() {
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 onError={(e) => {
-                  // Fallback caso a imagem não carregue
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                   target.parentElement!.innerHTML = `
@@ -79,21 +59,12 @@ export function BeautySection() {
                   `;
                 }}
               />
-              {/* Overlay sutil no hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
         </div>
 
-        {/* ═══════════════════════════════════════════════════════════════════
-            TÍTULO FULL WIDTH
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            • Fonte: Playfair Display (serif elegante)
-            • Tamanho: Responsivo (32px mobile → 48px desktop)
-            • Cor: Cinza escuro sofisticado (#1a1a1a)
-            • Espaçamento: Margem generosa acima
-            • Alinhamento: Centro
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* CONTEÚDO CENTRAL */}
         <div className="mt-12 md:mt-16 lg:mt-20 text-center">
           <h2 
             className="font-serif font-semibold tracking-tight leading-tight"
@@ -106,7 +77,7 @@ export function BeautySection() {
             BELEZA QUE VEM DE DENTRO
           </h2>
           
-          {/* Linha decorativa dourada abaixo do título */}
+          {/* Linha decorativa */}
           <div className="mt-6 flex justify-center">
             <div 
               className="w-24 h-1 rounded-full"
@@ -114,22 +85,14 @@ export function BeautySection() {
             />
           </div>
 
-          {/* ═══════════════════════════════════════════════════════════════════
-              PARÁGRAFO REESCRITO - LINGUAGEM ACOLHEDORA & BENEFÍCIOS CAPILARES
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Fonte: Sans-serif moderna (Inter), leve e elegante
-              • Largura: ~60% do centro (max-w-3xl = 768px)
-              • Espaçamento: Generoso após o título (mt-8 md:mt-12)
-              • Cor: Preto puro para máxima legibilidade
-              • Estilo: Revista premium, linguagem empática e acolhedora
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+          {/* Parágrafo */}
           <p 
             className="mt-8 md:mt-12 lg:mt-14 mx-auto leading-relaxed"
             style={{ 
               fontFamily: "'Inter', system-ui, sans-serif",
-              fontSize: 'clamp(19px, 2.2vw, 22px)', /* +3px para legibilidade premium */
+              fontSize: 'clamp(19px, 2.2vw, 22px)',
               fontWeight: 300,
-              color: '#000000', /* Preto puro para máxima legibilidade */
+              color: '#000000',
               maxWidth: '768px',
               lineHeight: 1.85,
               letterSpacing: '0.01em'
@@ -146,11 +109,8 @@ export function BeautySection() {
             criada para mulheres que exigem resultados visíveis em cada espelho.
           </p>
 
-          {/* ═══════════════════════════════════════════════════════════════════
-              DESTAQUE CAPILAR - ÍCONE + FRASE
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+          {/* Destaque capilar */}
           <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
-            {/* Ícone de brilho/beleza */}
             <div 
               className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
               style={{ backgroundColor: 'rgba(201, 169, 98, 0.15)' }}
@@ -169,8 +129,6 @@ export function BeautySection() {
                 />
               </svg>
             </div>
-            
-            {/* Frase curta */}
             <span 
               className="text-base md:text-lg font-medium"
               style={{ 
@@ -182,35 +140,35 @@ export function BeautySection() {
               "Cabelos mais fortes, pele com viço — a beleza que renasce de dentro"
             </span>
           </div>
+
           {/* ═══════════════════════════════════════════════════════════════════
-              IMAGEM INFOGRÁFICO - DUAL ASSET RESPONSIVE
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Mobile: /resverabio-belezaquevemdedentromobile.png (block lg:hidden)
-              • Desktop: /resverabio-belezaquevemdedentro.png (hidden lg:block)
-              • Lógica Anti-Desaparecimento: garante que nunca haja espaço vazio
-              • Estilo de luxo: centralizada, rounded-xl, shadow-2xl
+              IMAGEM INFOGRÁFICO - SIMPLIFICADA PARA DEBUG
+              Mobile: Sempre visível em telas pequenas
+              Desktop: Sempre visível em telas grandes
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          <div className="flex justify-center my-8 px-4 sm:px-0">
-            {/* Mobile Image - visível apenas em telas menores que lg (block lg:hidden) */}
-            <img 
-              src="/resverabio-belezaquevemdedentromobile.png" 
-              alt="Infográfico Beleza que vem de dentro - Mobile" 
-              className="w-full max-w-4xl rounded-xl shadow-2xl block lg:hidden"
-            />
-            {/* Desktop Image - visível apenas em telas lg ou maiores (hidden lg:block) */}
-            <img 
-              src="/resverabio-belezaquevemdedentro.png" 
-              alt="Infográfico Beleza que vem de dentro" 
-              className="w-full max-w-4xl rounded-xl shadow-2xl hidden lg:block"
-            />
+          <div className="mt-8 px-4 sm:px-0">
+            {/* Mobile: visível abaixo de 1024px */}
+            <div className="block lg:hidden">
+              <img 
+                src="/resverabio-belezaquevemdedentromobile.png" 
+                alt="Infográfico Beleza que vem de dentro - Mobile" 
+                className="w-full max-w-4xl mx-auto rounded-xl shadow-2xl"
+                style={{ display: 'block' }}
+              />
+            </div>
+            
+            {/* Desktop: visível a partir de 1024px */}
+            <div className="hidden lg:block">
+              <img 
+                src="/resverabio-belezaquevemdedentro.png" 
+                alt="Infográfico Beleza que vem de dentro" 
+                className="w-full max-w-4xl mx-auto rounded-xl shadow-2xl"
+                style={{ display: 'block' }}
+              />
+            </div>
           </div>
 
-          {/* Abaixo virá o seu botão "garantir meu resverabio" */}
-
-          {/* ═══════════════════════════════════════════════════════════════════
-              CALL TO ACTION - BOTÃO PRETO COM TEXTO DOURADO (Padrão Luxo)
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          {/* CTA Button - Scroll nativo com scroll-margin CSS */}
+          {/* CTA */}
           <div className="mt-10 md:mt-12 flex justify-center px-6">
             <a
               href="#produtos"
@@ -226,19 +184,11 @@ export function BeautySection() {
             </a>
           </div>
 
-          {/* ═══════════════════════════════════════════════════════════════════
-              FAIXA DE DESTAQUE - FRETE GRÁTIS & ENTREGA NACIONAL
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Cor: Verde escuro sofisticado (#2d5a3d)
-              • Texto: Branco em uppercase
-              • Ícones: Caminhão + Mapa do Brasil
-              • Separador: Linha vertical branca
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+          {/* Faixa de destaque */}
           <div 
             className="mt-6 w-full py-3 px-4 rounded-lg flex flex-wrap items-center justify-center gap-3 md:gap-4"
             style={{ backgroundColor: '#2d5a3d' }}
           >
-            {/* Ícone Caminhão + Frete Grátis */}
             <div className="flex items-center gap-2">
               <svg 
                 className="w-5 h-5 text-white flex-shrink-0" 
@@ -253,17 +203,11 @@ export function BeautySection() {
                   d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
                 />
               </svg>
-              <span 
-                className="text-white text-xs md:text-sm font-semibold tracking-wide uppercase whitespace-nowrap"
-              >
+              <span className="text-white text-xs md:text-sm font-semibold tracking-wide uppercase whitespace-nowrap">
                 Frete Grátis: Acima de <span className="text-base md:text-lg font-bold">R$ 189</span>
               </span>
             </div>
-
-            {/* Separador vertical */}
             <div className="hidden md:block w-px h-5 bg-white/60" />
-
-            {/* Ícone Mapa + Entrega Brasil */}
             <div className="flex items-center gap-2">
               <svg 
                 className="w-5 h-5 text-white flex-shrink-0" 
@@ -272,20 +216,10 @@ export function BeautySection() {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" 
-                />
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" 
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
               </svg>
-              <span 
-                className="text-white text-xs md:text-sm font-semibold tracking-wide uppercase whitespace-nowrap"
-              >
+              <span className="text-white text-xs md:text-sm font-semibold tracking-wide uppercase whitespace-nowrap">
                 Entregamos em Todo o Brasil
               </span>
             </div>

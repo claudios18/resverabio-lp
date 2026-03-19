@@ -5,7 +5,30 @@ import { scientificSources } from '../../data/scientificData';
 import { ShoppingBag, Check, Truck, Shield, RotateCcw } from 'lucide-react';
 import { useCart } from '../../contexts/CartContext';
 
-const products = [
+// Interface dos produtos
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  price: { 
+    original: string; 
+    final: string; 
+  };
+  installments?: {
+    count: number;
+    value: string;
+  };
+  perCapsule: string;
+  badge: string | null;
+  freeShipping: boolean;
+  popular?: boolean;
+  bestValue?: boolean;
+  checkoutUrl: string;
+}
+
+// Dados dos produtos
+const PRODUCTS: Product[] = [
   {
     id: 'single',
     name: 'Resverabio® Premium',
@@ -61,10 +84,10 @@ const products = [
 ];
 
 export function ProductShowcase() {
-  const [selectedProduct, setSelectedProduct] = useState(products[1]);
+  const [selectedProduct, setSelectedProduct] = useState<Product>(PRODUCTS[1]);
   const [quantity, setQuantity] = useState(1);
   
-  // Integração com o contexto do carrinho
+  // INTEGRAÇÃO COM CARTCONTEXT
   const { addToCart } = useCart();
 
   const calculateTotal = () => {
@@ -75,8 +98,12 @@ export function ProductShowcase() {
     });
   };
 
-  // Handler para adicionar ao carrinho
-  const handleAddToCart = (product: typeof products[0]) => {
+  /**
+   * HANDLER EXPLÍCITO PARA ADICIONAR AO CARRINHO
+   */
+  const handleAddToCart = (product: Product) => {
+    console.log('[CART] Adicionando produto:', product.id);
+    
     addToCart({
       id: product.id,
       name: product.name,
@@ -104,12 +131,9 @@ export function ProductShowcase() {
           </p>
         </div>
 
-        {/* ═══════════════════════════════════════════════════════════════════
-            GRID DE PRODUTOS - 3 CARDS INDEPENDENTES
-            Cada botão adiciona o produto específico ao carrinho
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* GRID DE PRODUTOS - 3 CARDS */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
-          {products.map((product) => (
+          {PRODUCTS.map((product) => (
             <div
               key={product.id}
               className={`relative bg-gradient-to-b rounded-2xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.02] ${
@@ -141,7 +165,6 @@ export function ProductShowcase() {
 
               {/* Imagem do produto */}
               <div className="relative aspect-square mb-6">
-                {/* Efeito Luz Blur */}
                 <div 
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-32 rounded-full opacity-60"
                   style={{
@@ -163,7 +186,6 @@ export function ProductShowcase() {
                 <h3 className="font-bold text-white text-xl mb-2">{product.name}</h3>
                 <p className="text-white/70 text-sm mb-4">{product.description}</p>
                 
-                {/* Preço */}
                 <div className="mb-2">
                   <span className="text-sm text-white/60 line-through block">
                     {product.price.original}
@@ -183,8 +205,9 @@ export function ProductShowcase() {
                 </p>
               </div>
 
-              {/* Botão Comprar - CADA PRODUTO TEM SEU PRÓPRIO HANDLER */}
+              {/* BOTÃO COMPRAR AGORA - COM onClick */}
               <button
+                type="button"
                 onClick={() => handleAddToCart(product)}
                 className={`w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-[1.02] ${
                   product.popular || product.bestValue
@@ -196,7 +219,6 @@ export function ProductShowcase() {
                 COMPRAR AGORA
               </button>
               
-              {/* Desconto PIX */}
               <p className="text-center text-xs text-white/60 mt-3">
                 3% de desconto no PIX
               </p>
@@ -205,9 +227,9 @@ export function ProductShowcase() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Product Selection - Layout Original */}
+          {/* Product Selection */}
           <div className="space-y-5">
-            {products.map((product) => (
+            {PRODUCTS.map((product) => (
               <div
                 key={product.id}
                 onClick={() => setSelectedProduct(product)}
@@ -218,7 +240,6 @@ export function ProductShowcase() {
                 }`}
               >
                 <div className="flex items-start gap-4">
-                  {/* Radio */}
                   <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 mt-1 ${
                     selectedProduct.id === product.id
                       ? 'border-luxury-gold'
@@ -273,9 +294,7 @@ export function ProductShowcase() {
                     </p>
                   </div>
 
-                  {/* Product Image with Blur Light Effect */}
                   <div className="relative w-24 h-24 flex-shrink-0">
-                    {/* Efeito Luz Blur */}
                     <div 
                       className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-full h-16 rounded-full opacity-70"
                       style={{
@@ -317,9 +336,7 @@ export function ProductShowcase() {
 
           {/* Purchase Card */}
           <div className="bg-black/30 backdrop-blur-sm rounded-2xl border border-white/20 p-8 sticky top-28">
-            {/* Main Product Image with Blur Light Effect */}
             <div className="relative aspect-square rounded-xl flex items-center justify-center mb-8 overflow-visible">
-              {/* Efeito Luz Blur */}
               <div 
                 className="absolute bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-40 rounded-full opacity-70"
                 style={{
@@ -347,13 +364,11 @@ export function ProductShowcase() {
               </div>
             </div>
 
-            {/* Selected Product Info */}
             <div className="mb-6">
               <h3 className="font-serif text-2xl text-white mb-2 font-bold">{selectedProduct.name}</h3>
               <p className="text-base text-white/80 text-lg">{selectedProduct.description}</p>
             </div>
 
-            {/* Quantity */}
             <div className="flex items-center justify-between mb-6">
               <span className="text-lg text-white">Quantidade</span>
               <div className="flex items-center gap-3">
@@ -373,7 +388,6 @@ export function ProductShowcase() {
               </div>
             </div>
 
-            {/* Price Summary */}
             <div className="border-t border-white/20 pt-6 mb-6">
               <div className="flex justify-between mb-2">
                 <span className="text-white/80 text-lg">Preço unitário</span>
@@ -418,8 +432,9 @@ export function ProductShowcase() {
               </div>
             </div>
 
-            {/* CTA - Botão do card lateral também adiciona ao carrinho */}
+            {/* BOTÃO COMPRAR AGORA DO CARD LATERAL */}
             <button
+              type="button"
               onClick={() => handleAddToCart(selectedProduct)}
               className="w-full flex items-center justify-center gap-2 bg-luxury-gold text-white hover:bg-luxury-gold-dark mb-4 py-5 text-lg font-bold rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
             >
@@ -431,7 +446,6 @@ export function ProductShowcase() {
               Pagamento processado com segurança • Entrega em 2-5 dias úteis
             </p>
 
-            {/* Benefits List */}
             <div className="mt-6 pt-6 border-t border-white/20 space-y-3">
               {[
                 'Trans-Resveratrol 99% pureza',

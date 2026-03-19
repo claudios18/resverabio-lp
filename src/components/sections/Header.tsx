@@ -7,26 +7,15 @@ import { useCart } from '../../contexts/CartContext';
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    BLOCO 1: HEADER - RESVERABIO®                         ║
- * ║       VERSÃO 4.1 | Carrinho Luxo + Ícone 50% Maior | 19 Mar 2026         ║
+ * ║       VERSÃO 4.2 | Carrinho 100% Funcional | 19 Mar 2026                 ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  * 
- * ESPECIFICAÇÕES DE LUXO:
- * - Fundo: Roxo Médio (#6B4E7C) com glow neon sutil
- * - Logo: 600x200px | Proporção 3:1 preservada
- * - Escala Mobile Otimizada: h-16 (64px) → compacto e premium
- * - Escala Desktop: h-24 (md) → h-28 (lg)
- * - Carrinho Mobile: Imagem customizada resverabio-carrinho.png (44x44px)
- * - Carrinho Desktop: Ícone 50% maior (36px vs 24px original)
- * - Proporções Harmônicas: Logo(40px) | Menu(44px) | Carrinho(44px)
- * 
- * FUNCIONALIDADES:
- * ✓ Carrinho com contador dinâmico persistente (LocalStorage)
- * ✓ Drawer lateral ao clicar no carrinho
- * ✓ Ícone desktop aumentado em 50% para destaque luxuoso
- * ✓ Animações suaves de transição
+ * ESPECIFICAÇÕES:
+ * - Ícone desktop: 36px (50% maior que o original de 24px)
+ * - Container do ícone: sem restrições de largura
+ * - Badge: posicionado absoluto, escala com o ícone
  */
 
-// Timestamp para cache-buster da imagem
 const LOGO_TIMESTAMP = Date.now();
 const CART_TIMESTAMP = Date.now();
 
@@ -35,13 +24,11 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   
-  // Integração com o contexto do carrinho
+  // INTEGRAÇÃO COM CARTCONTEXT
   const { totalItems, toggleCart } = useCart();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -51,24 +38,18 @@ export function Header() {
     { label: 'Depoimentos', href: '#depoimentos', external: false },
     { label: 'Produtos', href: '#produtos', external: false },
     { label: 'Fórmula', href: 'https://resverabio.com/formula', external: true },
-];
+  ];
 
   const handleNavClick = (link: typeof navLinks[0], e?: React.MouseEvent) => {
     if (link.external) {
-      // Links externos abrem em nova aba
       window.open(link.href, '_blank', 'noopener,noreferrer');
       setIsMobileMenuOpen(false);
     } else {
-      // Links internos: fecha menu primeiro, depois deixa o navegador fazer o scroll nativo
       e?.preventDefault();
       setIsMobileMenuOpen(false);
-      
-      // Delay para o menu fechar e recalcular posições
       setTimeout(() => {
         const element = document.querySelector(link.href);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
     }
   };
@@ -76,26 +57,16 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-[#6B4E7C] ${isScrolled ? 'shadow-[0_0_40px_rgba(107,78,124,0.6),0_0_60px_rgba(107,78,124,0.4),0_4px_20px_rgba(0,0,0,0.3)]' : 'neon-glow'}`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-[#6B4E7C] ${
+          isScrolled ? 'shadow-[0_0_40px_rgba(107,78,124,0.6),0_0_60px_rgba(107,78,124,0.4),0_4px_20px_rgba(0,0,0,0.3)]' : 'neon-glow'
+        }`}
       >
-        {/* Container Principal com Altura Monumental */}
         <div className="h-16 md:h-24 lg:h-28">
           <Container className="h-full">
-            {/* ═════════════════════════════════════════════════════════════════
-                LAYOUT HEADER: Grid 3 colunas no mobile, Flex no desktop
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                Mobile:  [LOGO] | [MENU] | [CARRINHO]  (3 pontos)
-                Desktop: [LOGO] + [NAV] ........ [CARRINHO] (flex between)
-                ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
             <div className="grid grid-cols-3 md:flex md:items-center md:justify-between h-full">
               
-              {/* ═══════════════════════════════════════════════════════════════
-                  COLUNA 1: Logo (Esquerda/Mobile e Desktop)
-                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-              <a 
-                href="/" 
-                className="flex items-center justify-start"
-              >
+              {/* LOGO */}
+              <a href="/" className="flex items-center justify-start">
                 {!logoError ? (
                   <img
                     src={`/resverabio-logomarca.png?v=${LOGO_TIMESTAMP}`}
@@ -110,9 +81,7 @@ export function Header() {
                 )}
               </a>
 
-              {/* ═══════════════════════════════════════════════════════════════
-                  COLUNA 2: Menu Mobile (Centro, apenas mobile)
-                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+              {/* MENU MOBILE (centro) */}
               <div className="flex items-center justify-center md:hidden">
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -134,9 +103,7 @@ export function Header() {
                 </button>
               </div>
 
-              {/* ═══════════════════════════════════════════════════════════════
-                  NAVEGAÇÃO DESKTOP (Central, apenas desktop)
-                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+              {/* NAVEGAÇÃO DESKTOP */}
               <nav className="hidden md:flex items-center gap-10 lg:gap-12">
                 {navLinks.map((link) => (
                   <button
@@ -150,27 +117,27 @@ export function Header() {
                 ))}
               </nav>
 
-              {/* ═══════════════════════════════════════════════════════════════
-                  COLUNA 3: Carrinho (Direita, mobile e desktop)
-                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                  Mobile: Imagem customizada resverabio-carrinho.png (tamanho original)
-                  Desktop: Ícone ShoppingBag 50% maior (36px vs 24px) - DESTAQUE LUXUOSO
-                  Funcionalidade: Abre drawer ao clicar
-                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+              {/* ═══════════════════════════════════════════════════════════════════
+                  CARRINHO - INTEGRAÇÃO COM CARTCONTEXT
+                  Desktop: Ícone 36px (50% maior) em container sem restrições
+                  Mobile: Imagem original
+                  Badge: Posicionado absolutamente, aparece quando totalItems > 0
+                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
               <div className="flex items-center justify-end">
                 <button 
                   onClick={toggleCart}
-                  className="relative flex items-center justify-center transition-transform duration-300 hover:scale-105"
+                  className="relative flex items-center justify-center p-2 transition-transform duration-300 hover:scale-105"
                   aria-label="Carrinho de compras"
+                  type="button"
                 >
-                  {/* Mobile: Imagem do carrinho (tamanho original) */}
+                  {/* Mobile: Imagem do carrinho */}
                   <img 
                     src={`/resverabio-carrinho.png?v=${CART_TIMESTAMP}`}
                     alt="Carrinho"
                     className="md:hidden h-10 w-auto object-contain"
                   />
                   
-                  {/* Desktop: Ícone ShoppingBag 50% MAIOR (36px vs 24px original) */}
+                  {/* Desktop: Ícone 36px (50% maior que 24px) */}
                   <span className="hidden md:block relative">
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
@@ -190,16 +157,14 @@ export function Header() {
                     </svg>
                   </span>
                   
-                  {/* Badge de contagem - animado e maior no desktop */}
+                  {/* Badge de contagem - aparece quando há itens */}
                   <span 
-                    className={`absolute -top-1 -right-1 md:-top-2 md:-right-2 min-w-[20px] md:min-w-[24px] h-5 md:h-6 flex items-center justify-center rounded-full text-xs md:text-sm font-bold transition-all duration-300 ${
-                      totalItems > 0 ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-                    }`}
-                    style={{ 
-                      backgroundColor: '#c9a962',
-                      color: '#000000',
-                      padding: totalItems > 9 ? '0 6px' : '0',
-                    }}
+                    className={`absolute flex items-center justify-center rounded-full font-bold transition-all duration-300 bg-[#c9a962] text-black
+                      md:-top-1 md:-right-1 md:min-w-[24px] md:h-6 md:text-sm
+                      -top-1 -right-1 min-w-[20px] h-5 text-xs
+                      ${totalItems > 0 ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
+                    `}
+                    style={{ padding: totalItems > 9 ? '0 6px' : '0' }}
                   >
                     {totalItems > 9 ? '9+' : totalItems}
                   </span>
@@ -211,9 +176,7 @@ export function Header() {
         </div>
       </header>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          MENU MOBILE OVERLAY
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      {/* MENU MOBILE OVERLAY */}
       <div
         className={`fixed left-0 right-0 z-30 md:hidden transition-all duration-500 neon-glow ${
           isMobileMenuOpen
@@ -246,10 +209,10 @@ export function Header() {
         </Container>
       </div>
 
-      {/* Cart Drawer - Componente funcional */}
+      {/* Cart Drawer */}
       <CartDrawer />
 
-      {/* Spacer para compensar header fixo */}
+      {/* Spacer */}
       <div className="h-16 md:h-24 lg:h-28" />
     </>
   );
