@@ -2,7 +2,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    BLOCO 3: BEAUTY SECTION - RESVERABIO®                 ║
- * ║          VERSÃO 1.1 | +Autoridade Científica | 26 Fev 2026               ║
+ * ║          VERSÃO 1.2 | Responsivo Mobile/Desktop | 19 Mar 2026            ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  * 
  * ESPECIFICAÇÕES DE LUXO:
@@ -12,6 +12,10 @@
  * - Tipografia: Título serif + Parágrafo sans-serif leve (revista premium)
  * - Parágrafo: Largura limitada (~60%), centralizado, espaçamento generoso
  * - Padding: Generoso para respiração visual
+ * 
+ * RESPONSIVIDADE DUAL ASSET:
+ * - Mobile: /resverabio/belezaquevemdedentromobile.png (block lg:hidden)
+ * - Desktop: /resverabio-belezaquevemdedentro.png (hidden lg:block)
  */
 
 import { Container } from '../ui/Container';
@@ -181,18 +185,19 @@ export function BeautySection() {
           {/* ═══════════════════════════════════════════════════════════════════
               IMAGEM INFOGRÁFICO - DUAL ASSET RESPONSIVE
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Mobile: Imagem 1:1 otimizada para mobile
-              • Desktop: Imagem 16:9 otimizada para desktop
+              • Mobile: /resverabio/belezaquevemdedentromobile.png (block lg:hidden)
+              • Desktop: /resverabio-belezaquevemdedentro.png (hidden lg:block)
+              • Lógica Anti-Desaparecimento: garante que nunca haja espaço vazio
               • Estilo de luxo: centralizada, rounded-xl, shadow-2xl
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           <div className="flex justify-center my-8 px-4 sm:px-0">
-            {/* Mobile Image (1:1) - visível apenas em telas pequenas */}
+            {/* Mobile Image - visível apenas em telas menores que lg (block lg:hidden) */}
             <img 
-              src="/resverabio-belezaquevemdedentromobile.png" 
+              src="/resverabio/belezaquevemdedentromobile.png" 
               alt="Infográfico Beleza que vem de dentro - Mobile" 
-              className="w-full max-w-4xl rounded-xl shadow-2xl lg:hidden"
+              className="w-full max-w-4xl rounded-xl shadow-2xl block lg:hidden"
             />
-            {/* Desktop Image (16:9) - visível apenas em telas grandes */}
+            {/* Desktop Image - visível apenas em telas lg ou maiores (hidden lg:block) */}
             <img 
               src="/resverabio-belezaquevemdedentro.png" 
               alt="Infográfico Beleza que vem de dentro" 
