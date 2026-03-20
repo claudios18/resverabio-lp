@@ -40,7 +40,7 @@ import {
  */
 function LandingPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* ═══════════════════════════════════════════════════════════════════
           BLOCO 1: HEADER (Fixo no topo)
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
@@ -57,7 +57,7 @@ function LandingPage() {
           • scroll-mt-16 (64px mobile): Header 64px + respiro mínimo
           • scroll-mt-20 (80px desktop): Header 96px otimizado
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="beneficios" className="scroll-mt-16 md:scroll-mt-20">
+      <section id="beneficios" className="scroll-mt-16 md:scroll-mt-20 bg-white">
         <BeautySection />
         
         <LongevitySection />
@@ -75,7 +75,7 @@ function LandingPage() {
           • scroll-mt-16 (64px mobile): Header 64px + respiro mínimo
           • scroll-mt-20 (80px desktop): Header 96px otimizado
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="depoimentos" className="scroll-mt-16 md:scroll-mt-20">
+      <section id="depoimentos" className="scroll-mt-16 md:scroll-mt-20 bg-gray-50">
         <CustomerReviews />
       </section>
 
@@ -86,7 +86,7 @@ function LandingPage() {
           • scroll-mt-20 (80px desktop): Header 96px otimizado
           • REDUZIDO para mostrar título + produtos + preços na viewport
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="produtos" className="scroll-mt-16 md:scroll-mt-20">
+      <section id="produtos" className="scroll-mt-16 md:scroll-mt-20 bg-white">
         <PurchaseSection />
       </section>
 
@@ -101,6 +101,8 @@ function LandingPage() {
 /**
  * Componente Principal com React Router
  * Define todas as rotas da aplicação
+ * 
+ * NOTA: O CartProvider está em main.tsx, envolvendo todo o App
  */
 function App() {
   return (

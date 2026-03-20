@@ -2,11 +2,10 @@
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    CART CONTEXT - RESVERABIO®                            ║
  * ║       Gerenciamento global do estado do carrinho de compras              ║
- * ║       Com persistência em LocalStorage para maximizar conversão          ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
-import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
 
 export interface CartItem {
   id: string;
@@ -41,40 +40,23 @@ interface CartContextType {
   getCheckoutUrl: () => string;
 }
 
+// Criar o contexto com valor inicial undefined
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-// Chave para persistência no localStorage
-const CART_STORAGE_KEY = 'resverabio-cart';
-
+/**
+ * CartProvider - Envolve a aplicação para disponibilizar o contexto do carrinho
+ * DEVE ser usado em src/main.tsx envolvendo o <App />
+ */
 export function CartProvider({ children }: { children: ReactNode }) {
-  // Inicializa o estado a partir do localStorage (se existir)
-  const [items, setItems] = useState<CartItem[]>(() => {
-    if (typeof window !== 'undefined') {
-      const savedCart = localStorage.getItem(CART_STORAGE_KEY);
-      if (savedCart) {
-        try {
-          return JSON.parse(savedCart);
-        } catch {
-          return [];
-        }
-      }
-    }
-    return [];
-  });
-  
+  // Estado inicial vazio (sem localStorage para evitar problemas de hidratação)
+  const [items, setItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
-
-  // Persiste no localStorage sempre que o carrinho mudar
-  useEffect(() => {
-    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
-  }, [items]);
 
   const addToCart = useCallback((product: Omit<CartItem, 'quantity'>) => {
     setItems((currentItems) => {
       const existingItem = currentItems.find((item) => item.id === product.id);
       
       if (existingItem) {
-        // Se o produto já existe, incrementa a quantidade
         return currentItems.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
@@ -82,11 +64,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
         );
       }
       
-      // Adiciona novo produto
       return [...currentItems, { ...product, quantity: 1 }];
     });
     
-    // Abre o drawer automaticamente
     setIsCartOpen(true);
   }, []);
 
@@ -98,7 +78,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const updateQuantity = useCallback((productId: string, quantity: number) => {
     if (quantity <= 0) {
-      removeFromCart(productId);
+      setItems((currentItems) =>
+        currentItems.filter((item) => item.id !== productId)
+      );
       return;
     }
     
@@ -107,7 +89,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         item.id === productId ? { ...item, quantity } : item
       )
     );
-  }, [removeFromCart]);
+  }, []);
 
   const clearCart = useCallback(() => {
     setItems([]);
@@ -139,38 +121,51 @@ export function CartProvider({ children }: { children: ReactNode }) {
     currency: 'BRL'
   });
 
-  // Retorna a URL de checkout do primeiro item (assumindo carrinho com um único produto)
   const getCheckoutUrl = useCallback(() => {
     if (items.length === 0) return '#';
     return items[0].checkoutUrl;
   }, [items]);
 
+  const value: CartContextType = {
+    items,
+    isCartOpen,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    clearCart,
+    openCart,
+    closeCart,
+    toggleCart,
+    totalItems,
+    totalPrice,
+    getCheckoutUrl,
+  };
+
   return (
-    <CartContext.Provider
-      value={{
-        items,
-        isCartOpen,
-        addToCart,
-        removeFromCart,
-        updateQuantity,
-        clearCart,
-        openCart,
-        closeCart,
-        toggleCart,
-        totalItems,
-        totalPrice,
-        getCheckoutUrl,
-      }}
-    >
+    <CartContext.Provider value={value}>
       {children}
     </CartContext.Provider>
   );
 }
 
-export function useCart() {
+/**
+ * useCart - Hook para acessar o contexto do carrinho
+ * DEVE ser usado dentro de um componente que está dentro do CartProvider
+ * 
+ * @throws Error se usado fora do CartProvider
+ */
+export function useCart(): CartContextType {
   const context = useContext(CartContext);
+  
   if (context === undefined) {
-    throw new Error('useCart must be used within a CartProvider');
+    throw new Error(
+      'useCart must be used within a CartProvider. ' +
+      'Certifique-se de que o componente está dentro da árvore do CartProvider em main.tsx'
+    );
   }
+  
   return context;
 }
+
+// Exportar o contexto para casos avançados (não recomendado para uso direto)
+export { CartContext };

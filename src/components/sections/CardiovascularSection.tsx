@@ -2,18 +2,16 @@
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║           BLOCO 5: CARDIOVASCULAR SECTION - RESVERABIO®                  ║
  * ║                                                                          ║
- *  VERSÃO 10.0 - CONTEÚDO ATUALIZADO COM TOM SOPHISTICADO                  ║
- *  • Título: RESVERABIO E AÇÃO CARDIOPROTETORA                              ║
- *  • Introdução elevada para fidelidade premium                             ║
- *  • Estética suíça premium aplicada                                        ║
+ *  VERSÃO 11.0 - ROTEIRO ESTRATÉGICO COMPLETO                               ║
+ *  • Layout luxo com animações scroll-triggered                             ║
+ *  • Imagens responsivas: mobile e desktop                                  ║
+ *  • Tabela de benefícios vascular                                          ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
 import { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
 
-
-// Cores padronizadas
 const COLORS = {
   gold: '#c9a962',
   black: '#1a1a1a',
@@ -41,6 +39,25 @@ export function CardiovascularSection() {
     return () => observer.disconnect();
   }, []);
 
+  const beneficios = [
+    {
+      titulo: 'Combate ao Estresse Oxidativo',
+      descricao: 'Redução da carga inflamatória crônica e proteção celular.',
+    },
+    {
+      titulo: 'Melhora Endotelial',
+      descricao: 'Otimização da função vascular interna para um fluxo superior.',
+    },
+    {
+      titulo: 'Equilíbrio de Lipídios',
+      descricao: 'Harmonização lipídica para um perfil cardiovascular resiliente.',
+    },
+    {
+      titulo: 'Vasodilatação e Flexibilidade',
+      descricao: 'Maleabilidade dos vasos e maleabilidade circulatória otimizada.',
+    },
+  ];
+
   return (
     <section
       ref={sectionRef}
@@ -48,18 +65,14 @@ export function CardiovascularSection() {
       className="relative w-full overflow-hidden"
       style={{ backgroundColor: '#faf9f7' }}
     >
-      <Container className="py-10 md:py-12 lg:py-14">
+      <Container className="py-16 md:py-20 lg:py-24">
         <div
           className={`transition-all duration-700 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          {/* 
-            ═══════════════════════════════════════════════════════════════════
-            TÍTULO PRINCIPAL - ATUALIZADO
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          */}
-          <div className="mt-6 md:mt-8 lg:mt-10 text-center">
+          {/* HEADER */}
+          <div className="text-center mb-12 md:mb-16">
             <h2 
               className="font-serif font-semibold tracking-tight leading-tight"
               style={{ 
@@ -71,7 +84,6 @@ export function CardiovascularSection() {
               RESVERABIO E AÇÃO CARDIOPROTETORA
             </h2>
             
-            {/* Linha decorativa dourada abaixo do título */}
             <div className="mt-6 flex justify-center">
               <div 
                 className="w-24 h-1 rounded-full"
@@ -79,212 +91,131 @@ export function CardiovascularSection() {
               />
             </div>
 
-            {/* 
-              ═══════════════════════════════════════════════════════════════════
-              PARÁGRAFO DESCRITIVO - NOVO TEXTO SOPHISTICADO
-              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            */}
             <p 
-              className="mt-8 md:mt-12 lg:mt-14 mx-auto leading-relaxed"
+              className="mt-8 md:mt-10 mx-auto leading-relaxed max-w-3xl"
               style={{ 
                 fontFamily: "'Inter', system-ui, sans-serif",
-                fontSize: 'clamp(19px, 2.2vw, 22px)',
+                fontSize: 'clamp(17px, 2vw, 20px)',
                 fontWeight: 300,
                 color: '#000000',
-                maxWidth: '768px',
-                lineHeight: 1.85,
-                letterSpacing: '0.01em'
+                lineHeight: 1.8,
               }}
             >
-              A verdadeira sofisticação reside no equilíbrio do seu sistema circulatório. Além de prevenir o envelhecimento vascular, o RESVERABIO® atua na gestão da saúde cardíaca ao restaurar a integridade das células vasculares. Uma ação cardioprotetora inédita que transcende a suplementação comum, focando na eficácia e na proteção contínua do seu coração.
+              A verdadeira sofisticação reside no equilíbrio do seu sistema circulatório. 
+              Além de prevenir o envelhecimento vascular, o RESVERABIO® atua na gestão da 
+              saúde cardíaca ao restaurar a integridade das células vasculares. 
+              <span style={{ color: '#c9a962', fontWeight: 500 }}>
+                Uma ação cardioprotetora inédita que transcende a suplementação comum, 
+                focando na eficácia e na proteção contínua do seu coração.
+              </span>
             </p>
           </div>
 
-          {/* 
-            ═══════════════════════════════════════════════════════════════════
-            MOBILE (< md): LAYOUT VERTICAL
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          */}
-          <div className="flex flex-col md:hidden mt-8 md:mt-12 space-y-6">
-            {/* SUBTÍTULO DOURADO - Mobile */}
-            <p
-              className="font-serif text-center px-4"
-              style={{
-                fontSize: 'clamp(20px, 5vw, 28px)',
-                color: COLORS.gold,
-                fontFamily: "'Playfair Display', Georgia, serif",
-                fontWeight: 400,
-                fontStyle: 'italic',
-              }}
-            >
-              Ação Cardioprotetora
-            </p>
-
-            {/* IMAGEM CARDIOPROTETORA - maxHeight 65vh */}
-            <div className="relative overflow-hidden" style={{ marginLeft: '-16px', marginRight: '-16px', width: 'calc(100% + 32px)' }}>
-              <img
-                src="/resverabio-coracao.png"
-                alt="Resveratrol Cardioprotetor - Proteção Cardiovascular"
-                className="w-full h-auto object-contain"
-                style={{ maxHeight: '65vh' }}
-                loading="lazy"
-              />
-            </div>
-
-            {/* BENEFÍCIOS - Fontes nítidas */}
-            <div className="px-4 pb-4">
-              <h3
-                className="font-bold text-center mb-5"
+          {/* CONTEÚDO PRINCIPAL */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            
+            {/* COLUNA ESQUERDA: Tabela de Benefícios */}
+            <div className="order-2 lg:order-1">
+              <p
+                className="font-serif text-center lg:text-left mb-8"
                 style={{
-                  fontSize: 'clamp(18px, 4.5vw, 22px)',
-                  color: '#000000',
-                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontSize: 'clamp(22px, 3vw, 28px)',
+                  color: COLORS.gold,
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontStyle: 'italic',
                 }}
               >
-                Benefícios Vasculares Diretos
-              </h3>
+                Ação Cardioprotetora
+              </p>
 
-              <ul className="space-y-4">
-                {[
-                  'Combate ao Estresse Oxidativo e Inflamação',
-                  'Melhora da Função Endotelial',
-                  'Equilíbrio dos Lipídios no Sangue',
-                  'Vasodilatação e Flexibilidade',
-                ].map((item, index) => (
-                  <li
+              {/* Tabela de Benefícios Vascular */}
+              <div className="space-y-4 mb-8">
+                <h3
+                  className="font-bold text-center lg:text-left mb-6"
+                  style={{
+                    fontSize: '18px',
+                    color: '#000000',
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                  }}
+                >
+                  Benefícios Vasculares Diretos
+                </h3>
+
+                {beneficios.map((item, index) => (
+                  <div
                     key={index}
-                    className="flex items-center gap-4"
+                    className="flex gap-4 p-4 rounded-xl transition-all duration-300 hover:shadow-lg"
                     style={{
-                      fontFamily: "'Inter', system-ui, sans-serif",
-                      fontSize: 'clamp(16px, 4vw, 18px)',
-                      fontWeight: 400,
-                      color: COLORS.black,
+                      backgroundColor: 'rgba(201, 169, 98, 0.08)',
+                      border: '1px solid rgba(201, 169, 98, 0.2)',
                     }}
                   >
                     <span
-                      className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold"
-                      style={{ 
-                        backgroundColor: COLORS.gold,
-                        fontSize: '14px',
-                      }}
+                      className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                      style={{ backgroundColor: COLORS.gold }}
                     >
                       {index + 1}
                     </span>
-                    <span>{item}</span>
-                  </li>
+                    <div>
+                      <h4 className="font-semibold text-black mb-1">
+                        {item.titulo}
+                      </h4>
+                      <p className="text-sm text-black/70">
+                        {item.descricao}
+                      </p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
-            </div>
+              </div>
 
-            {/* BOTÃO CTA - MOBILE: Preto com texto dourado (Luxo) - Scroll nativo */}
-            <div className="flex md:hidden justify-center mt-8 px-6">
-              <a
-                href="#produtos"
-                className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center cursor-pointer"
-                style={{
-                  backgroundColor: COLORS.black,
-                  color: COLORS.gold,
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-                  letterSpacing: '0.05em',
-                }}
-              >
-                GARANTIR MEU RESVERABIO®
-              </a>
-            </div>
-          </div>
-
-          {/* 
-            ═══════════════════════════════════════════════════════════════════
-            DESKTOP (md+): LAYOUT 50/50 - TEXTO (ESQ) | IMAGEM (DIR)
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          */}
-          <div className="hidden md:block mt-8 md:mt-12">
-            <div className="grid grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* COLUNA ESQUERDA: TEXTO + BENEFÍCIOS + BOTÃO */}
-              <div className="space-y-6 lg:space-y-8">
-                {/* SUBTÍTULO DOURADO - Desktop */}
-                <p
-                  className="font-serif text-center"
+              {/* CTA */}
+              <div className="flex justify-center lg:justify-start">
+                <a
+                  href="#produtos"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                   style={{
-                    fontSize: 'clamp(24px, 2.5vw, 32px)',
+                    backgroundColor: COLORS.black,
                     color: COLORS.gold,
-                    fontFamily: "'Playfair Display', Georgia, serif",
-                    fontWeight: 400,
-                    fontStyle: 'italic',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+                    letterSpacing: '0.05em',
+                    minWidth: '280px',
                   }}
                 >
-                  Ação Cardioprotetora
-                </p>
+                  GARANTIR MEU RESVERABIO®
+                </a>
+              </div>
+            </div>
 
-                {/* BENEFÍCIOS */}
-                <div>
-                  <h3
-                    className="font-bold mb-4 text-center"
-                    style={{
-                      fontSize: 'clamp(18px, 1.8vw, 22px)',
-                      color: '#000000',
-                      fontFamily: "'Inter', system-ui, sans-serif",
-                    }}
-                  >
-                    Benefícios Vasculares Diretos
-                  </h3>
-
-                  <ul className="space-y-3">
-                    {[
-                      'Combate ao Estresse Oxidativo e Inflamação',
-                      'Melhora da Função Endotelial',
-                      'Equilíbrio dos Lipídios no Sangue',
-                      'Vasodilatação e Flexibilidade',
-                    ].map((item, index) => (
-                      <li
-                        key={index}
-                        className="flex items-center gap-3"
-                        style={{
-                          fontFamily: "'Inter', system-ui, sans-serif",
-                          fontSize: 'clamp(15px, 1.3vw, 17px)',
-                          fontWeight: 400,
-                          color: COLORS.black,
-                        }}
-                      >
-                        <span
-                          className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-white font-bold"
-                          style={{ 
-                            backgroundColor: COLORS.gold,
-                            fontSize: '12px',
-                          }}
-                        >
-                          {index + 1}
-                        </span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* BOTÃO CTA - DESKTOP: Preto com texto dourado - Scroll nativo */}
-                <div className="pt-4 flex justify-center">
-                  <a
-                    href="#produtos"
-                    className="py-4 px-10 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl text-center cursor-pointer"
-                    style={{
-                      backgroundColor: COLORS.black,
-                      color: COLORS.gold,
-                      boxShadow: '0 12px 40px rgba(0, 0, 0, 0.25)',
-                      letterSpacing: '0.08em',
-                    }}
-                  >
-                    GARANTIR MEU RESVERABIO®
-                  </a>
+            {/* COLUNA DIREITA: Imagem Responsiva */}
+            <div className="order-1 lg:order-2">
+              {/* Desktop Image */}
+              <div className="hidden lg:block">
+                <div 
+                  className="relative rounded-2xl overflow-hidden shadow-2xl"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(201, 169, 98, 0.1) 0%, transparent 100%)',
+                  }}
+                >
+                  <img
+                    src="/resverabio-coracao.png"
+                    alt="Ação Cardioprotetora Resverabio®"
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                  />
                 </div>
               </div>
 
-              {/* COLUNA DIREITA: IMAGEM */}
-              <div className="relative flex items-center justify-center">
-                <div className="relative overflow-hidden rounded-2xl shadow-xl" style={{ maxWidth: '90%' }}>
+              {/* Mobile Image */}
+              <div className="block lg:hidden">
+                <div 
+                  className="relative rounded-xl overflow-hidden shadow-xl"
+                  style={{ marginLeft: '-16px', marginRight: '-16px' }}
+                >
                   <img
-                    src="/resverabio-coracao.png"
-                    alt="RESVERATROL: Ação Cardioprotetora - O segredo do coração. Benefícios vasculares: combate ao estresse oxidativo, melhora endotelial, equilíbrio de lipídios e vasodilatação."
+                    src="/resverabio-coracao-mobile.png"
+                    alt="Ação Cardioprotetora Resverabio® - Mobile"
                     className="w-full h-auto object-contain"
+                    style={{ maxHeight: '60vh' }}
                     loading="lazy"
                   />
                 </div>

@@ -1,101 +1,115 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Sparkles, Atom, Dna, Droplets, Shield } from 'lucide-react';
+import { ArrowRight, Sparkles, Star, Shield, Brain, Heart, Sparkle } from 'lucide-react';
 import { Container } from '../ui/Container';
 
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    BLOCO 2: HERO BANNER - RESVERABIO®                    ║
- * ║         VERSÃO 2.1 | Mobile Fix - Cards Contained | 26 Fev 2026          ║
+ * ║         NOVO LAYOUT | Premium Dark Theme | 20 Mar 2026                  ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
- * 
- * CORREÇÕES APLICADAS:
- * - Imagem: /resverabio-hero.png (caminho raiz)
- * - Layout 50/50: Texto (esq) | Imagem (dir)
- * - Altura: 100vh total
- * - Imagem: object-contain para não cortar
- * - Fundo: PRETO ABSOLUTO (#000000)
  */
-
-
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const pillars = [
-    { icon: Atom, title: 'RESVERATROL', description: 'o poder Antioxidante' },
-    { icon: Dna, title: 'COLÁGENO', description: 'o construtor de novas células' },
-    { icon: Droplets, title: 'ÁC HIALURÔNICO', description: 'combate rugas e o envelhecimento da pele' },
-    { icon: Shield, title: 'NIACINA', description: 'pele com saúde e cor homogenia' },
+  const benefits = [
+    { icon: Sparkle, text: 'Poder antioxidante' },
+    { icon: Shield, text: 'Pele mais lisa' },
+    { icon: Brain, text: 'Intestino e Cérebro limpos' },
+    { icon: Heart, text: 'Proteção Cardiovascular' },
   ];
 
   return (
     <section 
-      className="relative w-full bg-black overflow-hidden"
-      style={{ 
-        minHeight: '100vh',
-        height: 'auto',
-      }}
+      className="relative w-full min-h-screen bg-black overflow-hidden"
     >
-      {/* ═══════════════════════════════════════════════════════════════════
-          BACKGROUND: PRETO ABSOLUTO (#000000)
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="absolute inset-0 bg-[#000000]" />
+      {/* Background Gradient Roxo/Preto */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(135deg, #1a0f1f 0%, #0d0d0d 50%, #000000 100%)',
+        }}
+      />
+      
+      {/* Glow Effect Roxo */}
+      <div 
+        className="absolute top-0 left-1/4 w-[600px] h-[600px] blur-[150px] opacity-30"
+        style={{ background: '#6B4E7C' }}
+      />
+      <div 
+        className="absolute bottom-0 right-1/4 w-[400px] h-[400px] blur-[120px] opacity-20"
+        style={{ background: '#c9a962' }}
+      />
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          CONTEÚDO PRINCIPAL: Grid 2 colunas 50/50
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <div className="relative z-10 h-full flex flex-col">
-        
-        {/* Área Principal: Texto + Imagem */}
-        <Container className="flex-1 flex items-center pt-4 md:pt-0">
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center py-4 md:py-0">
+      {/* Conteúdo Principal */}
+      <Container className="relative z-10 h-full">
+        <div className="min-h-screen flex items-center py-20 lg:py-0">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             
-            {/* COLUNA ESQUERDA: Texto Hero - 50% */}
+            {/* ═══════════════════════════════════════════════════════════
+                COLUNA ESQUERDA: Texto e CTA
+            ═══════════════════════════════════════════════════════════ */}
             <div 
-              className={`w-full text-center lg:text-left transition-all duration-1000 ${
+              className={`text-center lg:text-left transition-all duration-1000 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              {/* Label Superior */}
+              {/* Badge Superior */}
               <div 
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
                 style={{ 
-                  backgroundColor: 'rgba(201, 169, 98, 0.15)',
-                  border: '1px solid rgba(201, 169, 98, 0.3)',
+                  backgroundColor: 'rgba(107, 78, 124, 0.3)',
+                  border: '1px solid rgba(107, 78, 124, 0.5)',
                 }}
               >
                 <Sparkles size={16} style={{ color: '#c9a962' }} />
-                <span className="text-sm font-medium tracking-wider uppercase" style={{ color: '#c9a962' }}>
+                <span 
+                  className="text-sm font-semibold tracking-wider uppercase"
+                  style={{ color: '#c9a962' }}
+                >
                   Resveratrol Premium
                 </span>
               </div>
 
               {/* Título Principal */}
               <h1 
-                className="font-serif mb-4 leading-none tracking-tight"
+                className="font-serif mb-2 leading-none"
                 style={{ 
-                  fontSize: 'clamp(32px, 6vw, 56px)',
+                  fontSize: 'clamp(48px, 8vw, 80px)',
                   color: '#ffffff',
                   fontWeight: 700,
                   letterSpacing: '-0.02em',
+                  fontFamily: "'Playfair Display', Georgia, serif",
                 }}
               >
                 RESVERABIO
-                <span style={{ color: '#ffffff', verticalAlign: 'super', fontSize: '0.4em', fontWeight: 400 }}>®</span>
+                <span 
+                  style={{ 
+                    color: '#c9a962', 
+                    verticalAlign: 'super', 
+                    fontSize: '0.35em', 
+                    fontWeight: 400,
+                    marginLeft: '4px'
+                  }}
+                >
+                  ®
+                </span>
               </h1>
 
-              {/* Subtítulo Dourado */}
+              {/* Subtítulo */}
               <p 
-                className="mb-6 italic"
+                className="mb-6"
                 style={{ 
                   fontSize: 'clamp(20px, 3vw, 32px)',
                   color: '#c9a962',
                   fontWeight: 400,
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontStyle: 'italic',
                 }}
               >
                 A Molécula da Longevidade
@@ -103,158 +117,188 @@ export function Hero() {
 
               {/* Descrição */}
               <p 
-                className="mb-8 max-w-md mx-auto lg:mx-0"
+                className="mb-8 max-w-lg mx-auto lg:mx-0"
                 style={{ 
-                  fontSize: 'clamp(16px, 2vw, 18px)',
-                  color: 'rgba(255, 255, 255, 0.85)',
-                  lineHeight: 1.6,
+                  fontSize: 'clamp(16px, 1.8vw, 18px)',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  lineHeight: 1.7,
                 }}
               >
-                Trans-Resveratrol 99% de pureza. Aumente a longevidade celular, 
-                proteja seu coração e desperte sua mente com a ciência da vida.
+                A verdadeira sofisticação não é um atributo externo; ela reside no 
+                epicentro da vida celular. Bem-vindo à nova fronteira da performance 
+                humana e do rejuvenescimento sistêmico.
               </p>
 
-              {/* CTA Button - Scroll nativo com scroll-margin CSS */}
+              {/* Botão CTA */}
               <a
                 href="#produtos"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer"
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
                 style={{ 
-                  backgroundColor: '#c9a962',
+                  background: 'linear-gradient(135deg, #c9a962 0%, #a88b4a 100%)',
                   color: '#000000',
                   boxShadow: '0 8px 32px rgba(201, 169, 98, 0.4)',
                 }}
               >
                 Quero Experimentar
-                <ArrowRight size={22} />
+                <ArrowRight 
+                  size={22} 
+                  className="transition-transform duration-300 group-hover:translate-x-1" 
+                />
               </a>
             </div>
 
-            {/* COLUNA DIREITA: Imagem Hero - 50% */}
+            {/* ═══════════════════════════════════════════════════════════
+                COLUNA DIREITA: Card do Produto
+            ═══════════════════════════════════════════════════════════ */}
             <div 
-              className={`relative w-full h-full flex items-center justify-center lg:justify-end transition-all duration-1000 delay-300 ${
+              className={`relative flex items-center justify-center lg:justify-end transition-all duration-1000 delay-300 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              {/* Glow Effect dourado sutil */}
+              {/* Card do Produto */}
               <div 
-                className="absolute inset-0 blur-3xl opacity-30"
+                className="relative w-full max-w-md rounded-3xl overflow-hidden"
                 style={{
-                  background: 'radial-gradient(ellipse at center, rgba(201, 169, 98, 0.4) 0%, transparent 60%)',
-                  transform: 'scale(1.2)',
+                  background: 'linear-gradient(145deg, rgba(107, 78, 124, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%)',
+                  border: '1px solid rgba(107, 78, 124, 0.4)',
+                  backdropFilter: 'blur(10px)',
+                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5), 0 0 60px rgba(107, 78, 124, 0.2)',
                 }}
-              />
-
-              {/* Container da Imagem */}
-              <div className="relative w-full h-[50vh] lg:h-[80vh] flex items-center justify-center lg:justify-end">
-                {!imageError ? (
-                  <img
-                    src="/resverabio-hero2.png"
-                    alt="Resverabio®"
-                    className="relative z-10 max-w-full max-h-full w-auto h-auto object-contain"
-                    style={{
-                      filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8))',
-                    }}
-                    onError={() => setImageError(true)}
-                  />
-                ) : (
+              >
+                {/* Imagem do Produto */}
+                <div className="relative p-6 pb-0">
                   <div 
-                    className="relative z-10 flex items-center justify-center rounded-xl border-2 border-dashed"
+                    className="relative aspect-square rounded-2xl overflow-hidden"
                     style={{
-                      width: '100%',
-                      height: '40vh',
-                      borderColor: 'rgba(201, 169, 98, 0.3)',
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      background: 'linear-gradient(135deg, rgba(107, 78, 124, 0.2) 0%, transparent 100%)',
                     }}
                   >
-                    <div className="text-center">
-                      <p className="text-white/40 text-lg font-medium">resverabio-hero.png</p>
-                      <p className="text-white/30 text-sm mt-2">Imagem não encontrada</p>
-                    </div>
+                    {!imageLoaded && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div 
+                          className="w-12 h-12 rounded-full border-2 border-t-transparent animate-spin"
+                          style={{ borderColor: '#c9a962', borderTopColor: 'transparent' }}
+                        />
+                      </div>
+                    )}
+                    <img
+                      src="/resverabio-novohero.png"
+                      alt="Resverabio® - Resveratrol Premium"
+                      className="w-full h-full object-cover"
+                      onLoad={() => setImageLoaded(true)}
+                      style={{ 
+                        opacity: imageLoaded ? 1 : 0,
+                        transition: 'opacity 0.5s ease'
+                      }}
+                    />
+                    
+                    {/* Glow na imagem */}
+                    <div 
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background: 'radial-gradient(ellipse at center bottom, rgba(201, 169, 98, 0.15) 0%, transparent 70%)',
+                      }}
+                    />
                   </div>
-                )}
+                </div>
 
-                {/* Badge de Preço Flutuante */}
-                <div 
-                  className="absolute top-0 right-0 md:top-4 md:right-4 z-20 px-5 py-3 rounded-xl animate-bounce"
-                  style={{
-                    backgroundColor: '#c9a962',
-                    boxShadow: '0 8px 32px rgba(201, 169, 98, 0.5)',
-                  }}
-                >
-                  <p className="text-xs font-bold text-black uppercase tracking-wider">Apenas</p>
-                  <p className="text-3xl font-bold text-black">R$ 187,00</p>
+                {/* Informações do Produto */}
+                <div className="p-6 pt-4">
+                  {/* Preço */}
+                  <div className="text-center mb-5">
+                    <p 
+                      className="text-sm font-medium uppercase tracking-wider mb-1"
+                      style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                    >
+                      Apenas
+                    </p>
+                    <p 
+                      className="font-bold"
+                      style={{ 
+                        fontSize: 'clamp(36px, 5vw, 48px)',
+                        color: '#c9a962',
+                        fontFamily: "'Playfair Display', Georgia, serif",
+                      }}
+                    >
+                      R$ 187,00
+                    </p>
+                  </div>
+
+                  {/* Lista de Benefícios */}
+                  <div className="space-y-3 mb-5">
+                    {benefits.map((benefit, index) => (
+                      <div 
+                        key={index}
+                        className="flex items-center gap-3"
+                        style={{
+                          opacity: isVisible ? 1 : 0,
+                          transform: isVisible ? 'translateX(0)' : 'translateX(-20px)',
+                          transition: `all 0.5s ease ${0.5 + index * 0.1}s`,
+                        }}
+                      >
+                        <div 
+                          className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                          style={{ backgroundColor: 'rgba(201, 169, 98, 0.15)' }}
+                        >
+                          <benefit.icon size={16} style={{ color: '#c9a962' }} />
+                        </div>
+                        <span 
+                          className="text-sm font-medium"
+                          style={{ color: 'rgba(255, 255, 255, 0.9)' }}
+                        >
+                          {benefit.text}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Avaliação */}
+                  <div className="flex items-center justify-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        size={18} 
+                        fill="#c9a962" 
+                        color="#c9a962" 
+                      />
+                    ))}
+                    <span 
+                      className="ml-2 text-sm font-medium"
+                      style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                    >
+                      (4.9/5)
+                    </span>
+                  </div>
                 </div>
               </div>
+
+              {/* Elementos Decorativos Flutuantes */}
+              <div 
+                className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-60"
+                style={{
+                  background: 'radial-gradient(circle, rgba(201, 169, 98, 0.3) 0%, transparent 70%)',
+                  animation: 'pulse 3s ease-in-out infinite',
+                }}
+              />
+              <div 
+                className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full opacity-40"
+                style={{
+                  background: 'radial-gradient(circle, rgba(107, 78, 124, 0.4) 0%, transparent 70%)',
+                  animation: 'pulse 4s ease-in-out infinite 1s',
+                }}
+              />
             </div>
           </div>
-        </Container>
-
-        {/* ═══════════════════════════════════════════════════════════════════
-            PILARES DE ATIVOS - 4 Cards Pretos (Mobile Contained)
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <div className="relative z-10 pb-8 md:pb-6 mt-4 md:mt-0">
-          <Container>
-            <div 
-              className={`transition-all duration-1000 delay-500 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-                  {pillars.map((pillar, index) => {
-                    const Icon = pillar.icon;
-                    return (
-                      <div
-                        key={pillar.title}
-                        className="card-hover-glow group relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/10 p-8 md:p-10 text-center min-h-[280px] md:min-h-[320px] justify-center"
-                        style={{ animationDelay: `${600 + index * 100}ms` }}
-                      >
-                        {/* Efeito de luz blur no hover */}
-                        <div 
-                          className="absolute -inset-1 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
-                          style={{
-                            background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 70%)',
-                            filter: 'blur(20px)',
-                          }}
-                        />
-                        {/* Ícone */}
-                        <div className="mb-4 flex h-20 w-20 md:h-24 md:w-24 items-center justify-center rounded-full bg-[#c9a962]/20 transition-transform duration-300 ease-out group-hover:scale-110">
-                          <Icon size={40} style={{ color: '#c9a962' }} />
-                        </div>
-                        {/* Título */}
-                        <h3 
-                          className="mb-2"
-                          style={{
-                            fontFamily: "'Playfair Display', Georgia, serif",
-                            fontSize: 'clamp(16px, 2.5vw, 22px)',
-                            fontWeight: 600,
-                            color: '#ffffff',
-                            letterSpacing: '0.02em',
-                          }}
-                        >
-                          {pillar.title}
-                        </h3>
-                        {/* Descrição */}
-                        <p 
-                          style={{
-                            fontFamily: "'Inter', system-ui, sans-serif",
-                            fontSize: 'clamp(13px, 1.8vw, 17px)',
-                            fontWeight: 300,
-                            color: 'rgba(255, 255, 255, 0.8)',
-                            lineHeight: 1.4,
-                          }}
-                        >
-                          {pillar.description}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </Container>
         </div>
-      </div>
+      </Container>
+
+      {/* Keyframes para animações */}
+      <style>{`
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 0.6; }
+          50% { transform: scale(1.1); opacity: 0.3; }
+        }
+      `}</style>
     </section>
   );
 }
