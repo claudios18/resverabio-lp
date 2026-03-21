@@ -51,7 +51,7 @@ import {
  * Todas as secoes da pagina inicial em uma unica rota
  */
 function LandingPage() {
-   return <MaintenancePage />;
+   //return <MaintenancePage />;
   return (
     <div className="min-h-screen bg-black">
       {/* =========================================================================
