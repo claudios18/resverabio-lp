@@ -13,7 +13,7 @@ import { PurchaseSection } from './components/sections/PurchaseSection';
 import { Footer } from './components/sections/Footer';
 import { TrustCards } from './components/sections/TrustCards';
 
-const MaintenancePage = () => (
+/*const MaintenancePage = () => (
   <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white px-6 text-center">
     <h1 className="text-4xl md:text-6xl font-serif mb-4 tracking-tighter">RESVERABIO®</h1>
     <div className="w-20 h-px bg-[#bfa67a] mb-8"></div>
@@ -23,7 +23,7 @@ const MaintenancePage = () => (
       Retornaremos em breve.
     </p>
   </div>
-);
+);*/
 
 // Paginas de Obrigado
 import {
