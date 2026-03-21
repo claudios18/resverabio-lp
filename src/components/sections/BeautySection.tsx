@@ -8,7 +8,7 @@
 import { useRef } from 'react';
 import { Container } from '../ui/Container';
 
-const COLORS = {
+//const COLORS = {
   black: '#1a1a1a',
   gold: '#c9a962',
 } as const;
