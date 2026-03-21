@@ -1,12 +1,11 @@
-
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    BLOCO 3: BEAUTY SECTION - RESVERABIO®                 ║
- * ║          VERSÃO 2.0 | Sinergia do Blend Premium | 19 Mar 2026           ║
+ * ║                    Layout Corrigido | Consistência Premium               ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Container } from '../ui/Container';
 
 const COLORS = {
@@ -16,36 +15,8 @@ const COLORS = {
 
 export function BeautySection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [visibleItems, setVisibleItems] = useState<boolean[]>([false, false, false]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          // Stagger animation para os itens da sinergia
-          sinergiaItems.forEach((_, index) => {
-            setTimeout(() => {
-              setVisibleItems(prev => {
-                const newState = [...prev];
-                newState[index] = true;
-                return newState;
-              });
-            }, 150 * index);
-          });
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  // Animacao de scroll removida temporariamente para resolver tela preta
+  // const [isVisible, setIsVisible] = useState(true);
 
   const sinergiaItems = [
     {
@@ -68,15 +39,11 @@ export function BeautySection() {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full py-16 md:py-24 lg:py-32"
+      className="relative w-full py-16 md:py-24 lg:py-32 overflow-x-hidden"
       style={{ backgroundColor: '#faf9f7' }}
     >
       <Container>
-        <div 
-          className={`transition-all duration-700 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
+        <div>
           {/* TÍTULO PRINCIPAL */}
           <div className="text-center mb-12 md:mb-16">
             <h2 
@@ -111,39 +78,36 @@ export function BeautySection() {
           </div>
 
           {/* CONTEÚDO: IMAGEM + TEXTO */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
-            {/* IMAGEM - COM VERSÃO MOBILE */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
+            {/* IMAGEM - Desktop: Esquerda, Mobile: Depois do texto */}
             <div className="relative order-2 md:order-1">
-              {/* Glow effect sutil atrás da imagem */}
-              <div 
-                className="absolute inset-0 rounded-2xl blur-3xl opacity-40 scale-95 -z-10"
-                style={{
-                  background: 'radial-gradient(ellipse at center, rgba(201, 169, 98, 0.4) 0%, transparent 70%)',
-                }}
-              />
-              
               {/* Desktop Image - 16:9 */}
-              <div className="hidden md:block aspect-video overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+              <div className="hidden md:block rounded-2xl shadow-2xl overflow-hidden">
                 <img 
                   src="/resverabio-belezaquevemdedentro.png" 
                   alt="Sinergia do Blend Resverabio®" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto"
                   loading="eager"
                 />
               </div>
               
-              {/* Mobile Image - 1:1 */}
-              <div className="block md:hidden aspect-square overflow-hidden rounded-xl shadow-xl transition-transform duration-500 hover:scale-[1.02]">
+              {/* Mobile Image - 1:1 com fundo integrado */}
+              <div 
+                className="block md:hidden rounded-xl shadow-xl overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #2d1f3d 0%, #1a0f1f 100%)',
+                }}
+              >
                 <img 
                   src="/resverabio-lm1.png" 
-                  alt="Sinergia do Blend Resverabio® - Mobile" 
-                  className="w-full h-full object-cover"
+                  alt="Sinergia do Blend Resverabio®" 
+                  className="w-full h-auto"
                   loading="lazy"
                 />
               </div>
             </div>
 
-            {/* TEXTO EXPLICATIVO */}
+            {/* TEXTO EXPLICATIVO - Desktop: Direita, Mobile: Primeiro */}
             <div className="order-1 md:order-2">
               <p 
                 className="leading-relaxed mb-6"
@@ -164,9 +128,7 @@ export function BeautySection() {
                 {sinergiaItems.map((item, index) => (
                   <div 
                     key={index}
-                    className={`flex gap-4 p-4 rounded-xl transition-all duration-500 ease-out hover:bg-white hover:shadow-xl hover:-translate-y-1 ${
-                      visibleItems[index] ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-                    }`}
+                    className="flex gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-lg"
                     style={{ 
                       backgroundColor: 'rgba(201, 169, 98, 0.05)',
                       border: '1px solid rgba(201, 169, 98, 0.2)',
@@ -207,27 +169,19 @@ export function BeautySection() {
             </div>
           </div>
 
-          {/* SEÇÃO DE INVESTIMENTO - CENTRALIZADA E DESTACADA */}
+          {/* SEÇÃO DE INVESTIMENTO - SEM overflow-hidden para evitar corte */}
           <div 
-            className="relative rounded-3xl overflow-hidden mx-auto max-w-4xl"
+            className="relative rounded-3xl mx-auto max-w-4xl"
             style={{
               background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(201, 169, 98, 0.1)',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
             }}
           >
-            {/* Glow dourado superior - mais intenso */}
+            {/* Glow dourado */}
             <div 
               className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none"
               style={{
-                background: 'radial-gradient(ellipse at top, rgba(201, 169, 98, 0.35) 0%, transparent 55%)',
-              }}
-            />
-            
-            {/* Glow dourado inferior sutil */}
-            <div 
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2 pointer-events-none opacity-30"
-              style={{
-                background: 'radial-gradient(ellipse at bottom, rgba(201, 169, 98, 0.2) 0%, transparent 60%)',
+                background: 'radial-gradient(ellipse at top, rgba(201, 169, 98, 0.3) 0%, transparent 60%)',
               }}
             />
 
@@ -282,53 +236,32 @@ export function BeautySection() {
                 <p className="text-white/60 text-sm mt-2">ou 12x de R$ 18,87</p>
               </div>
 
-              {/* BOTÕES CTA - CENTRALIZADOS NO MOBILE */}
+              {/* BOTÕES CTA */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
                   href="#produtos"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105 text-center group relative overflow-hidden"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 text-center"
                   style={{
                     backgroundColor: '#c9a962',
                     color: '#000000',
                     boxShadow: '0 8px 32px rgba(201, 169, 98, 0.4)',
                     letterSpacing: '0.05em',
-                    minWidth: 'unset',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = '0 12px 40px rgba(201, 169, 98, 0.6), 0 0 30px rgba(201, 169, 98, 0.3)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = '0 8px 32px rgba(201, 169, 98, 0.4)';
+                    minWidth: '260px',
                   }}
                 >
-                  <span className="relative z-10">QUERO EXPERIMENTAR</span>
-                  {/* Glow interno no hover */}
-                  <div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{
-                      background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3) 0%, transparent 70%)',
-                    }}
-                  />
+                  QUERO EXPERIMENTAR
                 </a>
                 <a
                   href="#produtos"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-4 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 hover:scale-105 text-center border-2 group relative overflow-hidden"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 text-center border-2"
                   style={{
                     borderColor: '#c9a962',
                     color: '#c9a962',
                     letterSpacing: '0.05em',
-                    minWidth: 'unset',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(201, 169, 98, 0.1)';
-                    e.currentTarget.style.boxShadow = '0 8px 32px rgba(201, 169, 98, 0.2), inset 0 0 20px rgba(201, 169, 98, 0.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.boxShadow = 'none';
+                    minWidth: '260px',
                   }}
                 >
-                  <span className="relative z-10">GARANTIR MEU BLEND RESVERABIO®</span>
+                  GARANTIR MEU BLEND RESVERABIO®
                 </a>
               </div>
 

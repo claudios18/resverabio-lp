@@ -1,41 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
 
-@import "tailwindcss";
-
-@theme {
-  /* Cores de Luxo */
-  --color-luxury-gold: #c9a962;
-  --color-luxury-gold-light: #e8d5a3;
-  --color-luxury-gold-dark: #bf9b30;
-  --color-luxury-dark: #1a1a1a;
-  --color-luxury-cream: #f5f0e8;
-  --color-luxury-sage: #7d8471;
-  
-  /* Identidade Visual Resverabio® */
-  --color-purple-medium: #6B4E7C;
-  --color-purple-dark: #4A3B5C;
-  --color-purple-light: #8B6FA0;
-  --color-blur-white: rgba(255, 255, 255, 0.15);
-  
-  --font-family-serif: 'Playfair Display', Georgia, serif;
-  --font-family-sans: 'Inter', system-ui, sans-serif;
-  --font-family-logo: 'Montserrat', 'Futura PT', 'Century Gothic', 'Avant Garde', sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Suporte a smooth scroll em dispositivos touch */
     -webkit-overflow-scrolling: touch;
   }
   
-  /* Garantir smooth scroll em todos os elementos scrolláveis */
   * {
     scroll-behavior: smooth;
+    border-color: inherit;
   }
   
   body {
-    font-family: var(--font-family-sans);
+    font-family: 'Inter', system-ui, sans-serif;
     color: #1f2937;
     background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
@@ -45,7 +26,7 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family-serif);
+    font-family: 'Playfair Display', Georgia, serif;
   }
   
   p {
@@ -53,121 +34,53 @@
     line-height: 1.7;
   }
   
-  /* Reset e Isolamento de cores para evitar tons esverdeados */
-  .bg-white {
-    background-color: #ffffff !important;
-  }
-  
-  .bg-black {
-    background-color: #000000 !important;
+  ::selection {
+    background-color: #c9a962;
+    color: #ffffff;
   }
 }
 
 @layer components {
   .btn-primary {
-    background-color: var(--color-luxury-gold);
-    color: #ffffff;
+    @apply bg-luxury-gold text-white font-semibold uppercase tracking-wider transition-all duration-300 rounded-lg;
     padding: 1.25rem 2.5rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
     font-size: 16px;
-    transition: all 0.3s ease;
-    border-radius: 8px;
   }
   
   .btn-primary:hover {
-    background-color: var(--color-luxury-gold-dark);
+    @apply bg-luxury-gold-dark;
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
   }
   
   .section-padding {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  @media (min-width: 640px) {
-    .section-padding {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .section-padding {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-  }
-  
-  @media (min-width: 1280px) {
-    .section-padding {
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12;
   }
   
   .heading-xl {
-    font-family: var(--font-family-serif);
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 600;
     line-height: 1.15;
-    font-size: 52px;
-  }
-  
-  @media (min-width: 768px) {
-    .heading-xl {
-      font-size: 64px;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .heading-xl {
-      font-size: 80px;
-    }
+    font-size: clamp(36px, 8vw, 80px);
   }
   
   .heading-lg {
-    font-family: var(--font-family-serif);
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 600;
     line-height: 1.2;
-    font-size: 42px;
-  }
-  
-  @media (min-width: 768px) {
-    .heading-lg {
-      font-size: 52px;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .heading-lg {
-      font-size: 64px;
-    }
+    font-size: clamp(32px, 5vw, 64px);
   }
   
   .heading-md {
-    font-family: var(--font-family-serif);
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 600;
-    font-size: 36px;
-  }
-  
-  @media (min-width: 768px) {
-    .heading-md {
-      font-size: 42px;
-    }
+    font-size: clamp(28px, 4vw, 42px);
   }
   
   .text-body {
-    font-size: 20px;
+    font-size: clamp(16px, 2vw, 20px);
     line-height: 1.7;
     color: #4b5563;
-  }
-  
-  @media (min-width: 768px) {
-    .text-body {
-      font-size: 22px;
-    }
   }
   
   .label-tag {
@@ -177,7 +90,6 @@
     font-weight: 600;
   }
   
-  /* Textos de navegação */
   .nav-text {
     font-size: 16px;
     font-weight: 500;
@@ -212,49 +124,24 @@
     z-index: 1;
   }
   
-  /* Background Roxo Médio */
-  .bg-purple-medium {
-    background-color: var(--color-purple-medium);
-  }
-  
-  /* Gradiente Roxo */
-  .bg-gradient-purple {
-    background: linear-gradient(135deg, var(--color-purple-medium) 0%, var(--color-purple-dark) 100%);
-  }
-  
-  /* Seções alternadas - Branco */
-  .section-white {
-    background-color: #ffffff;
-  }
-  
-  /* Garantir fundo branco global */
-  .bg-white {
-    background-color: #ffffff !important;
-  }
-  
-  /* Preto absoluto - Isolamento de cores */
-  .bg-black {
-    background-color: #000000 !important;
-  }
-  
-  /* ===== BOTÕES DE LUXO - CARDS DO PRODUTO ===== */
+  /* Botões de Luxo */
   .btn-compra-luxo {
-    background: linear-gradient(135deg, #c9a962 0%, #e8d5a3 50%, #c9a962 100%) !important;
-    color: #000000 !important;
-    padding: 1rem 2rem !important;
-    font-weight: 700 !important;
-    font-size: 16px !important;
-    letter-spacing: 0.1em !important;
-    text-transform: uppercase !important;
-    border-radius: 12px !important;
-    border: none !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 4px 15px rgba(201, 169, 98, 0.4) !important;
-    width: 100% !important;
-    position: relative !important;
-    overflow: hidden !important;
-    display: block !important;
+    background: linear-gradient(135deg, #c9a962 0%, #e8d5a3 50%, #c9a962 100%);
+    color: #000000;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(201, 169, 98, 0.4);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: block;
   }
   
   .btn-compra-luxo::before {
@@ -273,50 +160,13 @@
   }
   
   .btn-compra-luxo:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 25px rgba(201, 169, 98, 0.6) !important;
-    background: linear-gradient(135deg, #e8d5a3 0%, #c9a962 50%, #e8d5a3 100%) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(201, 169, 98, 0.6);
+    background: linear-gradient(135deg, #e8d5a3 0%, #c9a962 50%, #e8d5a3 100%);
   }
   
   .btn-compra-luxo:active {
-    transform: translateY(-1px) !important;
-  }
-  
-  /* Botão Destaque (Card central) */
-  .btn-compra-luxo-destaque {
-    background: linear-gradient(135deg, #c9a962 0%, #f0e68c 50%, #c9a962 100%) !important;
-    box-shadow: 0 6px 20px rgba(201, 169, 98, 0.5), 0 0 30px rgba(201, 169, 98, 0.3) !important;
-    animation: pulse-luxo 2s infinite !important;
-  }
-  
-  @keyframes pulse-luxo {
-    0%, 100% { box-shadow: 0 6px 20px rgba(201, 169, 98, 0.5), 0 0 30px rgba(201, 169, 98, 0.3); }
-    50% { box-shadow: 0 6px 25px rgba(201, 169, 98, 0.7), 0 0 40px rgba(201, 169, 98, 0.5); }
-  }
-  
-  /* ===== WRAPPER DOS CARDS - VISIBILIDADE MOBILE ===== */
-  .cards-produto-wrapper {
-    display: grid !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  
-  @media (max-width: 768px) {
-    .cards-produto-wrapper {
-      grid-template-columns: 1fr !important;
-      gap: 1.5rem !important;
-    }
-    
-    .cards-produto-wrapper > * {
-      display: flex !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-    
-    .btn-compra-luxo {
-      font-size: 14px !important;
-      padding: 0.875rem 1.5rem !important;
-    }
+    transform: translateY(-1px);
   }
 }
 
@@ -328,7 +178,7 @@
                 inset 0 0 30px rgba(139, 111, 160, 0.1);
   }
   
-  /* Efeito hover blur branco nos cards (Refinado) */
+  /* Efeito hover blur branco nos cards */
   .card-hover-glow {
     transition: all 0.3s ease-in-out;
   }
@@ -346,15 +196,4 @@
     visibility: visible !important;
     opacity: 1 !important;
   }
-}
-
-/* Reset de cores esverdeadas */
-* {
-  border-color: inherit;
-}
-
-/* Remover qualquer tint verde */
-::selection {
-  background-color: var(--color-luxury-gold);
-  color: #ffffff;
 }
