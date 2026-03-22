@@ -1,158 +1,88 @@
-import { useEffect, useState } from 'react';
+/**
+ * =============================================================================
+ * SEÇÃO SINERGIA - AÇÃO SINERGÉTICA DOS ATIVOS
+ * =============================================================================
+ * 
+ * Especificações:
+ * - Sem imagens
+ * - Texto centralizado sobre Ação Sinergética
+ * - 3 cards horizontais: Ácido Hialurônico, Colágeno, Niacina + Complexo Vitamínico
+ * - Grid de 3 colunas no desktop
+ * =============================================================================
+ */
 
-const Synergy = () => {
-  const [isVisible, setIsVisible] = useState(false);
+const ingredients = [
+  {
+    name: 'Ácido Hialurônico',
+    description: 'Hidratação profunda e preenchimento celular para uma pele visivelmente mais jovem e revitalizada.',
+  },
+  {
+    name: 'Colágeno',
+    description: 'Estrutura proteica essencial para firmeza, elasticidade e resistência da pele e articulações.',
+  },
+  {
+    name: 'Niacina + Complexo Vitamínico',
+    description: 'Sinergia potente de vitaminas que energiza, protege e revitaliza cada célula do seu corpo.',
+  },
+];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    const element = document.getElementById('synergy-section');
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const ativos = [
-    {
-      nome: 'Ácido Hialurônico',
-      descricao: 'Hidratação profunda e preenchimento celular para uma pele visivelmente mais jovem e radiante.',
-      icone: '✦'
-    },
-    {
-      nome: 'Colágeno',
-      descricao: 'Estrutura e firmeza para a pele, fortalecendo a matriz celular e combatendo a flacidez.',
-      icone: '◈'
-    },
-    {
-      nome: 'Niacina + Complexo Vitamínico',
-      descricao: 'Proteção antioxidante e revitalização celular completa para o organismo.',
-      icone: '✹'
-    }
-  ];
-
+export default function Synergy() {
   return (
-    <section 
-      id="synergy-section"
-      className="relative w-full py-24 md:py-32 bg-gradient-to-b from-[#0f0f1a] via-[#1a1a2e] to-[#0f0f1a] overflow-hidden"
-    >
-      {/* Subtle background pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(201, 169, 98, 0.3) 1px, transparent 0)`,
-          backgroundSize: '40px 40px',
-        }}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        
-        {/* Header Section */}
-        <div 
-          className={`text-center mb-16 md:mb-20 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          {/* Label */}
-          <div className="inline-flex items-center gap-2 mb-6">
-            <span className="h-px w-8 bg-[#c9a962]/60"></span>
-            <span className="text-[#c9a962] text-xs font-semibold uppercase tracking-[0.3em]">
-              Ação Sinérgica
-            </span>
-            <span className="h-px w-8 bg-[#c9a962]/60"></span>
-          </div>
-
-          {/* Main Title */}
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight">
-            Sinergia <span className="text-[#c9a962]">Perfeita</span>
+    <section className="bg-white py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Título da Seção - Texto Centralizado Luxuoso */}
+        <div className="text-center mb-16 md:mb-20">
+          <span className="inline-block text-sm md:text-base tracking-[0.3em] uppercase text-[#4A6B8F] font-medium mb-4">
+            Sinergia Perfeita
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#1E3A5F] tracking-tight mb-8">
+            Ação Sinergética
           </h2>
-
-          {/* Subtitle */}
-          <p className="text-[#c9a962] text-lg md:text-xl font-light italic tracking-wide mb-10">
-            Quando a ciência encontra a natureza
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+            A combinação exclusiva de ativos de alta performance trabalha em harmonia 
+            para potencializar seus resultados. Cada ingrediente foi cuidadosamente 
+            selecionado para complementar e amplificar os efeitos dos demais, 
+            criando uma sinergia que transforma sua beleza de dentro para fora.
           </p>
         </div>
 
-        {/* Main Text - Centralized and Larger */}
-        <div 
-          className={`max-w-4xl mx-auto text-center mb-16 md:mb-24 transition-all duration-1000 delay-200 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <p className="text-xl md:text-2xl lg:text-[26px] leading-relaxed text-gray-200 font-light">
-            A fórmula exclusiva do <span className="text-[#c9a962] font-medium">Resverabio®</span> combina ativos premium que 
-            trabalham em <span className="text-white font-normal">harmonia biológica</span>. Cada ingrediente potencializa o outro, 
-            criando um efeito sinérgico que multiplica os benefícios para sua pele, coração e mente. 
-            Uma sinfonia molecular de rejuvenescimento celular.
-          </p>
-        </div>
-
-        {/* Three Active Components - Side by Side */}
-        <div 
-          className={`grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 transition-all duration-1000 delay-400 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          {ativos.map((ativo, index) => (
+        {/* Grid de 3 Cards Horizontais */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {ingredients.map((ingredient, index) => (
             <div
-              key={ativo.nome}
-              className="group relative"
-              style={{ transitionDelay: `${600 + index * 150}ms` }}
+              key={index}
+              className="group bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-2xl p-8 lg:p-10 transition-all duration-300 hover:shadow-xl hover:border-[#1E3A5F]/20 hover:-translate-y-1"
             >
-              {/* Card */}
-              <div className="relative h-full p-8 md:p-10 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-500 hover:border-[#c9a962]/30 hover:bg-white/[0.06]">
-                
-                {/* Icon */}
-                <div className="mb-6 flex justify-center">
-                  <div className="w-16 h-16 rounded-full border border-[#c9a962]/30 bg-[#c9a962]/10 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                    <span className="text-[#c9a962] text-2xl">{ativo.icone}</span>
-                  </div>
-                </div>
-
-                {/* Name */}
-                <h3 className="font-serif text-xl md:text-2xl font-semibold text-white text-center mb-4 tracking-wide">
-                  {ativo.nome}
-                </h3>
-
-                {/* Divider */}
-                <div className="w-12 h-px bg-[#c9a962]/40 mx-auto mb-4"></div>
-
-                {/* Description */}
-                <p className="text-gray-400 text-center text-sm md:text-base leading-relaxed">
-                  {ativo.descricao}
-                </p>
+              {/* Número do Card */}
+              <div className="w-12 h-12 rounded-full bg-[#1E3A5F] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-semibold text-lg">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
               </div>
 
-              {/* Decorative corner accents */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-[#c9a962]/20 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-[#c9a962]/20 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Título do Ativo */}
+              <h3 className="text-xl md:text-2xl font-semibold text-[#1E3A5F] mb-4 tracking-tight">
+                {ingredient.name}
+              </h3>
+
+              {/* Descrição */}
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                {ingredient.description}
+              </p>
+
+              {/* Linha decorativa no hover */}
+              <div className="mt-6 h-0.5 w-0 bg-[#1E3A5F] group-hover:w-full transition-all duration-500 ease-out" />
             </div>
           ))}
         </div>
 
-        {/* Bottom decorative line */}
-        <div 
-          className={`mt-20 flex justify-center transition-all duration-1000 delay-700 ${
-            isVisible ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <div className="flex items-center gap-4">
-            <span className="h-px w-16 bg-gradient-to-r from-transparent to-[#c9a962]/40"></span>
-            <span className="text-[#c9a962]/40 text-lg">◆</span>
-            <span className="h-px w-16 bg-gradient-to-l from-transparent to-[#c9a962]/40"></span>
-          </div>
+        {/* Call to Action sutil */}
+        <div className="text-center mt-16">
+          <p className="text-sm md:text-base text-[#4A6B8F] tracking-wide">
+            Tecnologia avançada em cada cápsula
+          </p>
         </div>
       </div>
     </section>
   );
-};
-
-export default Synergy;
+}

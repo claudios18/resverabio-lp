@@ -12,6 +12,7 @@ import { CustomerReviews } from './components/sections/CustomerReviews';
 import { PurchaseSection } from './components/sections/PurchaseSection';
 import { Footer } from './components/sections/Footer';
 import { TrustCards } from './components/sections/TrustCards';
+import Synergy from './components/sections/Synergy';
 
 /*const MaintenancePage = () => (
   <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white px-6 text-center">
@@ -65,7 +66,12 @@ function LandingPage() {
       <Hero />
 
       {/* =========================================================================
-          BLOCO 3: SECAO BENEFICIOS - ANCORAGEM #beneficios
+          BLOCO 3: SINERGIA - ACAO DOS ATIVOS
+      ========================================================================= */}
+      <Synergy />
+
+      {/* =========================================================================
+          BLOCO 4: SECAO BENEFICIOS - ANCORAGEM #beneficios
           
           - scroll-mt-16 (64px mobile): Header 64px + respiro minimo
           - scroll-mt-20 (80px desktop): Header 96px otimizado
@@ -82,7 +88,7 @@ function LandingPage() {
       </section>
 
       {/* =========================================================================
-          BLOCO 4: DEPOIMENTOS - ANCORAGEM #depoimentos
+          BLOCO 5: DEPOIMENTOS - ANCORAGEM #depoimentos
           
           - scroll-mt-16 (64px mobile): Header 64px + respiro minimo
           - scroll-mt-20 (80px desktop): Header 96px otimizado
@@ -92,7 +98,7 @@ function LandingPage() {
       </section>
 
       {/* =========================================================================
-          BLOCO 5: PRODUTOS (VITRINE) - ANCORAGEM #produtos
+          BLOCO 6: PRODUTOS (VITRINE) - ANCORAGEM #produtos
           
           - scroll-mt-16 (64px mobile): Header 64px + respiro minimo
           - scroll-mt-20 (80px desktop): Header 96px otimizado
@@ -102,7 +108,7 @@ function LandingPage() {
       </section>
 
       {/* =========================================================================
-          BLOCO 6: RODAPE FINAL
+          BLOCO 7: RODAPE FINAL
       ========================================================================= */}
       <Footer />
     </div>
