@@ -51,6 +51,28 @@ export function PrebioticSection() {
         >
           {/* 
             ═══════════════════════════════════════════════════════════════════
+            BANNER PARADIGMA - TRANSIÇÃO VISUAL
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            • Posicionamento: Antes do título, como transição do bloco anterior
+            • Estilo: Full width, elegante
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+          <div className="w-full mb-8 md:mb-12">
+            <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/resverabio-paradigma.jpg"
+                alt="Resverabio - O Paradigma do Rejuvenescimento"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+            </div>
+          </div>
+
+          {/* 
+            ═══════════════════════════════════════════════════════════════════
             MOBILE (< md): EMPILHAMENTO VERTICAL
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             • Imagem no topo
