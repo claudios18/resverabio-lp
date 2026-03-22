@@ -233,13 +233,14 @@ export function NutritionSection() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            BANNER PARADIGMA - IMAGEM FULL WIDTH
+            BANNER PARADIGMA - TRANSIÇÃO VISUAL PREMIUM
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             • Estilo: Banner página inteira (full width)
-            • Posicionamento: Entre cards e próxima seção (Prebiotic/Intestino)
+            • Posicionamento: Final do bloco, transição para Próxima Seção
+            • Respiro: Margens simétricas para elegância
             • Responsividade: Desktop e Mobile
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <div className="mt-8 md:mt-12 lg:mt-16 w-full">
+        <div className="mt-10 md:mt-14 lg:mt-16 mb-4 md:mb-6 w-full px-4 sm:px-0">
           <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
             <img
               src="/resverabio-paradigma.jpg"
