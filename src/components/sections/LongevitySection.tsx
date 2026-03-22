@@ -252,15 +252,15 @@ export function LongevitySection() {
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════════
-              IMAGEM DESKTOP - Beleza que vem de dentro
+              IMAGEM - Beleza que vem de dentro
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Exibe apenas em Desktop (hidden em mobile)
+              • Visível em todas as telas (Mobile e Desktop)
               • Centralizada e elegante
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          <div className="hidden md:flex justify-center mt-8 mb-8">
+          <div className="flex justify-center mt-8 mb-8">
             <div className="relative w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/assets/types/resverabio-belezaquevemdedentro.png"
+                src="/resverabio-belezaquevemdedentro.png"
                 alt="Beleza que vem de dentro - RESVERABIO®"
                 className="w-full h-auto object-cover"
                 loading="lazy"
