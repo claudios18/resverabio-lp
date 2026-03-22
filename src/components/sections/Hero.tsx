@@ -1,45 +1,83 @@
+import { useEffect, useState } from 'react';
 
 export const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
-    <section className="relative min-h-[80vh] bg-black flex flex-col md:flex-row items-center justify-between px-6 py-12 md:px-20 overflow-hidden text-white font-sans">
-      {/* Lado Esquerdo - Texto de Luxo */}
-      <div className="w-full md:w-1/2 z-10 text-left space-y-6">
-        <div className="inline-block px-4 py-1 border border-[#bfa67a]/30 rounded-full">
-          <span className="text-[#bfa67a] text-xs tracking-[0.3em] uppercase font-light">
-            ✨ Resveratrol Premium
-          </span>
-        </div>
-        
-        <h1 className="text-4xl md:text-7xl font-serif tracking-tighter leading-tight uppercase">
-          RESVERABIO®
-        </h1>
-        
-        <p className="text-[#bfa67a] text-xl md:text-2xl font-light italic tracking-wide">
-          A Molécula da Longevidade
-        </p>
-        
-        <p className="text-gray-400 text-lg max-w-md leading-relaxed font-light">
-          Trans-Resveratrol 99% de pureza. Aumente a longevidade celular, proteja seu coração e desperte sua mente com a ciência da vida.
-        </p>
+    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[#1a1a2e] via-[#16162a] to-[#0f0f1a]">
+      {/* Subtle Grid Pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(201, 169, 98, 0.5) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(201, 169, 98, 0.5) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px',
+        }}
+      />
 
-        <button className="bg-[#bfa67a] hover:bg-[#a68d5f] text-black px-8 py-4 rounded-sm flex items-center gap-3 transition-all duration-500 group">
-          <span className="uppercase tracking-[0.2em] text-sm font-bold">Quero Experimentar</span>
-          <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </button>
-      </div>
+      {/* Main Content Container */}
+      <div className="relative z-10 flex min-h-screen flex-col">
+        {/* Hero Main Content */}
+        <div className="flex flex-1 items-center px-4 sm:px-8 lg:px-16 xl:px-24 pt-24 pb-12">
+          <div className="mx-auto w-full max-w-7xl">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+              
+              {/* Left Column - Text Content */}
+              <div 
+                className={`flex flex-col items-center text-center lg:items-center lg:text-center transition-all duration-1000 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+              >
+                {/* Badge Premium */}
+                <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-[#c9a962]/40 bg-[#c9a962]/10 px-5 py-2.5 backdrop-blur-sm">
+                  <span className="text-[#c9a962] text-sm">✨</span>
+                  <span className="text-sm font-semibold uppercase tracking-[0.25em] text-[#c9a962]">
+                    Resveratrol Premium
+                  </span>
+                </div>
 
-      {/* Lado Direito - Imagem Hero */}
-      <div className="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center relative">
-        <div className="relative group">
-          <div className="absolute inset-0 bg-[#bfa67a]/10 blur-[100px] rounded-full"></div>
-          <img 
-            src="/resverabio-hero2.png" 
-            alt="Resverabio Premium" 
-            className="relative w-full h-auto max-w-[500px] object-contain drop-shadow-2xl"
-          />
-          <div className="absolute top-0 right-0 bg-[#bfa67a] p-4 shadow-xl translate-x-4 -translate-y-4">
-            <p className="text-[10px] uppercase tracking-tighter text-black font-bold">Apenas</p>
-            <p className="text-xl text-black font-serif">R$ 187</p>
+                {/* Main Title - Massivo e Luxuoso */}
+                <h1 className="mb-4 font-serif text-6xl font-bold leading-[0.95] text-white sm:text-7xl md:text-8xl lg:text-[110px] xl:text-[130px] tracking-tight">
+                  RESVERABIO<span className="text-[#c9a962]">®</span>
+                </h1>
+
+                {/* Subtitle - Elegante e Destacado */}
+                <p className="mb-8 text-2xl font-light italic text-[#c9a962] sm:text-3xl md:text-4xl lg:text-[42px] tracking-wide">
+                  A Molécula da Longevidade
+                </p>
+
+                {/* Description - Tamanho Aumentado */}
+                <p className="mb-10 max-w-xl text-lg leading-relaxed text-gray-300 sm:text-xl md:text-[22px]">
+                  A verdadeira sofisticação não é um atributo externo; ela reside no epicentro da vida celular. Bem-vindo à nova fronteira da performance humana e do rejuvenescimento sistêmico.
+                </p>
+              </div>
+
+              {/* Right Column - Hero Image */}
+              <div 
+                className={`flex items-center justify-center transition-all duration-1000 delay-300 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+              >
+                <div className="relative">
+                  {/* Glow Effect Behind Image */}
+                  <div className="absolute inset-0 -m-12 rounded-full bg-[#c9a962]/10 blur-[100px]" />
+                  
+                  {/* Image Container */}
+                  <div className="relative">
+                    <img
+                      src="/resverabio-hero2.png"
+                      alt="Resverabio Premium - Resveratrol de Alta Potência"
+                      className="relative z-10 w-full max-w-[520px] object-contain drop-shadow-2xl"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+            </div>
           </div>
         </div>
       </div>
