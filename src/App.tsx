@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
 import { LongevitySection } from './components/sections/LongevitySection';
+import TripleGridSection from './components/sections/TripleGridSection';
 import { CardiovascularSection } from './components/sections/CardiovascularSection';
 import { AntioxidantSection } from './components/sections/AntioxidantSection';
 import { NutritionSection } from './components/sections/NutritionSection';
@@ -64,6 +65,7 @@ function LandingPage() {
       ========================================================================= */}
       <section id="beneficios" className="scroll-mt-16 md:scroll-mt-20 bg-white">
         <LongevitySection />
+        <TripleGridSection />
         <CardiovascularSection />
         <AntioxidantSection />
         <TrustCards />
