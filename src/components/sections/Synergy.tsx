@@ -3,13 +3,12 @@
  * SEÇÃO SINERGIA - AÇÃO SINERGÉTICA DOS ATIVOS
  * =============================================================================
  * 
- * Especificações de Luxo:
- * - Cores douradas (#bfa67a) em bordas e detalhes
- * - Fundo com leve contraste, texto em preto
- * - Sombreamento discreto (efeito relevo)
+ * Design Premium:
+ * - Fundo das janelas: preto profundo
+ * - Efeito blur lilás/roxo suave para profundidade tecnológica
+ * - Tipografia branca com números em dourado
  * - Interatividade hover com elevação
  * - Layout horizontal 3 colunas
- * - Sem imagens
  * =============================================================================
  */
 
@@ -48,55 +47,57 @@ export default function Synergy() {
           </p>
         </div>
 
-        {/* Grid de 3 Cards Horizontais - Estilo Luxo */}
+        {/* Grid de 3 Cards Horizontais - Estilo Luxo Tecnológico */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {ingredients.map((ingredient, index) => (
             <div
               key={index}
-              className="group relative bg-gradient-to-b from-[#faf9f7] to-[#f5f3ef] rounded-xl p-8 lg:p-10 transition-all duration-500 ease-out hover:scale-[1.03] hover:-translate-y-2 cursor-pointer"
+              className="group relative bg-black rounded-2xl p-8 lg:p-10 transition-all duration-500 ease-out hover:scale-[1.03] hover:-translate-y-3 cursor-pointer overflow-hidden"
               style={{
-                boxShadow: 'inset 0 2px 4px rgba(255,255,255,0.8), inset 0 -2px 4px rgba(0,0,0,0.03), 0 4px 20px rgba(0,0,0,0.06), 0 1px 3px rgba(191,166,122,0.1)',
-                border: '1px solid rgba(191,166,122,0.4)',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1)',
               }}
             >
-              {/* Borda dourada superior decorativa */}
+              {/* Efeito de blur lilás/roxo suave - profundidade tecnológica */}
               <div 
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[3px] bg-gradient-to-r from-transparent via-[#bfa67a] to-transparent rounded-full opacity-60 group-hover:opacity-100 group-hover:w-3/4 transition-all duration-500"
+                className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-40 blur-3xl pointer-events-none transition-opacity duration-500 group-hover:opacity-60"
+                style={{
+                  background: 'radial-gradient(circle, rgba(168, 130, 220, 0.5) 0%, rgba(139, 92, 246, 0.3) 40%, transparent 70%)',
+                }}
+              />
+              <div 
+                className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full opacity-30 blur-3xl pointer-events-none transition-opacity duration-500 group-hover:opacity-50"
+                style={{
+                  background: 'radial-gradient(circle, rgba(196, 181, 253, 0.4) 0%, rgba(167, 139, 250, 0.2) 40%, transparent 70%)',
+                }}
               />
 
-              {/* Número do Card - Dourado */}
+              {/* Borda sutil dourada no hover */}
               <div 
-                className="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500"
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
-                  boxShadow: '0 4px 15px rgba(191,166,122,0.25), inset 0 2px 4px rgba(255,255,255,0.8)',
-                  border: '2px solid #bfa67a',
+                  border: '1px solid rgba(191, 166, 122, 0.5)',
                 }}
-              >
+              />
+
+              {/* Número do Card - Dourado (#bfa67a) */}
+              <div className="relative w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-[#bfa67a]/30">
                 <span className="text-[#bfa67a] font-bold text-xl">
                   {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
 
-              {/* Título do Ativo - Preto puro */}
-              <h3 className="text-xl md:text-2xl font-semibold text-black mb-4 tracking-tight group-hover:text-[#1a1a1a] transition-colors duration-300">
+              {/* Título do Ativo - Branco */}
+              <h3 className="relative text-xl md:text-2xl font-semibold text-white mb-4 tracking-tight group-hover:text-[#f5f5f5] transition-colors duration-300">
                 {ingredient.name}
               </h3>
 
               {/* Divisória dourada sutil */}
-              <div className="w-12 h-[2px] bg-gradient-to-r from-[#bfa67a] to-transparent mb-4 rounded-full group-hover:w-20 transition-all duration-500" />
+              <div className="relative w-12 h-[2px] bg-gradient-to-r from-[#bfa67a] to-transparent mb-4 rounded-full group-hover:w-20 transition-all duration-500" />
 
-              {/* Descrição - Preto/Cinza escuro para legibilidade */}
-              <p className="text-base md:text-lg text-gray-900 leading-relaxed font-normal">
+              {/* Descrição - Branco/cinza claro para legibilidade */}
+              <p className="relative text-base md:text-lg text-gray-200 leading-relaxed font-light">
                 {ingredient.description}
               </p>
-
-              {/* Sombra interna sutil no hover */}
-              <div 
-                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{
-                  boxShadow: 'inset 0 0 30px rgba(191,166,122,0.08)',
-                }}
-              />
             </div>
           ))}
         </div>
