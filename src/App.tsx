@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
-import { BeautySection } from './components/sections/BeautySection';
 import { LongevitySection } from './components/sections/LongevitySection';
 import { CardiovascularSection } from './components/sections/CardiovascularSection';
 import { AntioxidantSection } from './components/sections/AntioxidantSection';
@@ -13,18 +12,6 @@ import { PurchaseSection } from './components/sections/PurchaseSection';
 import { Footer } from './components/sections/Footer';
 import { TrustCards } from './components/sections/TrustCards';
 import Synergy from './components/sections/Synergy';
-
-/*const MaintenancePage = () => (
-  <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white px-6 text-center">
-    <h1 className="text-4xl md:text-6xl font-serif mb-4 tracking-tighter">RESVERABIO®</h1>
-    <div className="w-20 h-px bg-[#bfa67a] mb-8"></div>
-    <h2 className="text-xl md:text-2xl font-light tracking-[0.2em] uppercase mb-6">Site em Manutenção</h2>
-    <p className="text-gray-400 max-w-lg leading-relaxed">
-      Estamos aprimorando nossa plataforma para oferecer a melhor experiência em longevidade celular. 
-      Retornaremos em breve.
-    </p>
-  </div>
-);*/
 
 // Paginas de Obrigado
 import {
@@ -52,7 +39,6 @@ import {
  * Todas as secoes da pagina inicial em uma unica rota
  */
 function LandingPage() {
-   //return <MaintenancePage />;
   return (
     <div className="min-h-screen bg-black">
       {/* =========================================================================
@@ -77,7 +63,6 @@ function LandingPage() {
           - scroll-mt-20 (80px desktop): Header 96px otimizado
       ========================================================================= */}
       <section id="beneficios" className="scroll-mt-16 md:scroll-mt-20 bg-white">
-        <BeautySection />
         <LongevitySection />
         <CardiovascularSection />
         <AntioxidantSection />
@@ -108,7 +93,7 @@ function LandingPage() {
       </section>
 
       {/* =========================================================================
-          BLOCO 7: RODAPE FINAL
+          BLOCO 6: RODAPE FINAL
       ========================================================================= */}
       <Footer />
     </div>
