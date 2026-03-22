@@ -252,12 +252,31 @@ export function LongevitySection() {
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════════
-              IMAGEM - Beleza que vem de dentro
+              IMAGENS RESPONSIVAS - Beleza que vem de dentro
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-              • Visível em todas as telas (Mobile e Desktop)
-              • Centralizada e elegante
+              • Mobile: resverabio-lm01.png (block md:hidden)
+              • Desktop: resverabio-belezaquevemdedentro.png (hidden md:block)
+              • Ambas ocupam largura total e mantêm proporção
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          <div className="flex justify-center mt-8 mb-8 px-4 sm:px-6 lg:px-8">
+          
+          {/* Imagem Mobile */}
+          <div className="block md:hidden mt-8 mb-8 px-4">
+            <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/resverabio-lm01.png"
+                alt="Beleza que vem de dentro - RESVERABIO®"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Imagem Desktop */}
+          <div className="hidden md:block mt-8 mb-8 px-4 sm:px-6 lg:px-8">
             <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="/resverabio-belezaquevemdedentro.png"
