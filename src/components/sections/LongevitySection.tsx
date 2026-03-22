@@ -78,11 +78,11 @@ export function LongevitySection() {
       {/* ═══════════════════════════════════════════════════════════════════
           GRID DE 2 IMAGENS - PADRÃO BEAUTYSECTION
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          • Gap superior MÍNIMO (pt-4 md:pt-5) para conexão harmoniosa com o badge acima
+          • Gap superior SIMÉTRICO (pt-6 md:pt-8) para alinhamento perfeito com o botão acima
           • Aspect ratio: 4/3 (igual BeautySection)
           • Bordas: rounded-2xl (16px) - padrão luxo
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <Container className="pt-4 md:pt-5">
+      <Container className="pt-6 md:pt-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {longevityImages.map((image, index) => (
             <div
