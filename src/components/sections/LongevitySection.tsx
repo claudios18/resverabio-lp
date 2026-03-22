@@ -252,10 +252,31 @@ export function LongevitySection() {
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════════
+              IMAGEM DESKTOP - Beleza que vem de dentro
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              • Exibe apenas em Desktop (hidden em mobile)
+              • Centralizada e elegante
+              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+          <div className="hidden md:flex justify-center mt-8 mb-8">
+            <div className="relative w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/assets/resverabio-belezaquevemdedentro.png"
+                alt="Beleza que vem de dentro - RESVERABIO®"
+                className="w-full h-auto object-cover"
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+            </div>
+          </div>
+
+          {/* ═══════════════════════════════════════════════════════════════════
               CALL TO ACTION - BOTÃO PRETO COM TEXTO DOURADO (Padrão Luxo)
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           {/* CTA Button - Scroll nativo com scroll-margin CSS */}
-          <div className="mt-10 md:mt-12 flex justify-center px-6">
+          <div className="mt-8 md:mt-10 flex justify-center px-6">
             <a
               href="#produtos"
               className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center cursor-pointer"
