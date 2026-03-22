@@ -260,7 +260,7 @@ export function LongevitySection() {
           <div className="hidden md:flex justify-center mt-8 mb-8">
             <div className="relative w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/assets/resverabio-belezaquevemdedentro.png"
+                src="/assets/types/resverabio-belezaquevemdedentro.png"
                 alt="Beleza que vem de dentro - RESVERABIO®"
                 className="w-full h-auto object-cover"
                 loading="lazy"
