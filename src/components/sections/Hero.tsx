@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-[80vh] bg-black flex flex-col md:flex-row items-center justify-between px-6 py-12 md:px-20 overflow-hidden text-white">
+    <section className="relative min-h-[80vh] bg-black flex flex-col md:flex-row items-center justify-between px-6 py-12 md:px-20 overflow-hidden text-white font-sans">
       {/* Lado Esquerdo - Texto de Luxo */}
       <div className="w-full md:w-1/2 z-10 text-left space-y-6">
         <div className="inline-block px-4 py-1 border border-[#bfa67a]/30 rounded-full">
