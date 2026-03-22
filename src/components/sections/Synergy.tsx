@@ -102,13 +102,14 @@ export default function Synergy() {
           ))}
         </div>
 
-        {/* Badge de Luxo - Tecnologia */}
-        <div className="flex justify-center my-5 md:my-6">
-          <div className="inline-flex items-center px-6 md:px-8 py-3 bg-[#bfa67a] rounded-lg shadow-lg shadow-[#bfa67a]/20">
-            <p className="text-base md:text-lg text-white tracking-[0.15em] uppercase font-semibold text-center">
-              Tecnologia avançada em cada cápsula
-            </p>
-          </div>
+        {/* Botão CTA - Comprar Agora */}
+        <div className="flex justify-center my-6 md:my-8">
+          <a
+            href="#produtos"
+            className="inline-flex items-center px-10 md:px-12 py-4 md:py-5 bg-black text-[#bfa67a] text-base md:text-lg font-semibold tracking-[0.2em] uppercase rounded-xl border border-[#bfa67a]/30 shadow-lg shadow-black/20 transition-all duration-300 hover:bg-[#1a1a1a] hover:scale-105 hover:shadow-xl hover:shadow-black/30 hover:border-[#bfa67a]/60"
+          >
+            Compre Agora
+          </a>
         </div>
       </div>
     </section>
