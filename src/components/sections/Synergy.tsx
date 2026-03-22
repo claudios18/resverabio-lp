@@ -102,11 +102,13 @@ export default function Synergy() {
           ))}
         </div>
 
-        {/* Call to Action sutil - Dourado */}
-        <div className="text-center mt-16">
-          <p className="text-sm md:text-base text-[#bfa67a] tracking-[0.2em] uppercase font-medium">
-            Tecnologia avançada em cada cápsula
-          </p>
+        {/* Badge de Luxo - Tecnologia */}
+        <div className="flex justify-center mt-16">
+          <div className="inline-flex items-center px-8 py-3 bg-[#bfa67a] rounded-lg shadow-lg shadow-[#bfa67a]/20">
+            <p className="text-base md:text-lg text-white tracking-[0.15em] uppercase font-semibold">
+              Tecnologia avançada em cada cápsula
+            </p>
+          </div>
         </div>
       </div>
     </section>
