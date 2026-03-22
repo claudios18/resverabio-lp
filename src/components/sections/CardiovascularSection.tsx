@@ -186,39 +186,24 @@ export function CardiovascularSection() {
               </div>
             </div>
 
-            {/* COLUNA DIREITA: Imagem Responsiva */}
-            <div className="order-1 lg:order-2">
-              {/* Desktop Image */}
-              <div className="hidden lg:block">
-                <div 
-                  className="relative rounded-2xl overflow-hidden shadow-2xl"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(201, 169, 98, 0.1) 0%, transparent 100%)',
+            {/* COLUNA DIREITA: Imagem Cardioprotetora */}
+            <div className="order-1 lg:order-2 flex items-center justify-center">
+              <div 
+                className="relative w-full rounded-2xl overflow-hidden shadow-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(201, 169, 98, 0.1) 0%, transparent 100%)',
+                }}
+              >
+                <img
+                  src="/resverabio-blococoraçao.png"
+                  alt="Ação Cardioprotetora Resverabio®"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
                   }}
-                >
-                  <img
-                    src="/resverabio-coracao.png"
-                    alt="Ação Cardioprotetora Resverabio®"
-                    className="w-full h-auto object-contain"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              {/* Mobile Image */}
-              <div className="block lg:hidden">
-                <div 
-                  className="relative rounded-xl overflow-hidden shadow-xl"
-                  style={{ marginLeft: '-16px', marginRight: '-16px' }}
-                >
-                  <img
-                    src="/resverabio-coracao-mobile.png"
-                    alt="Ação Cardioprotetora Resverabio® - Mobile"
-                    className="w-full h-auto object-contain"
-                    style={{ maxHeight: '60vh' }}
-                    loading="lazy"
-                  />
-                </div>
+                />
               </div>
             </div>
           </div>
