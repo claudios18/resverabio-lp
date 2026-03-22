@@ -103,9 +103,9 @@ export default function Synergy() {
         </div>
 
         {/* Badge de Luxo - Tecnologia */}
-        <div className="flex justify-center mt-16">
-          <div className="inline-flex items-center px-8 py-3 bg-[#bfa67a] rounded-lg shadow-lg shadow-[#bfa67a]/20">
-            <p className="text-base md:text-lg text-white tracking-[0.15em] uppercase font-semibold">
+        <div className="flex justify-center mt-10 md:mt-8">
+          <div className="inline-flex items-center px-6 md:px-8 py-3 bg-[#bfa67a] rounded-lg shadow-lg shadow-[#bfa67a]/20">
+            <p className="text-base md:text-lg text-white tracking-[0.15em] uppercase font-semibold text-center">
               Tecnologia avançada em cada cápsula
             </p>
           </div>
