@@ -231,6 +231,28 @@ export function NutritionSection() {
           </div>
 
         </div>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            BANNER PARADIGMA - IMAGEM FULL WIDTH
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            • Estilo: Banner página inteira (full width)
+            • Posicionamento: Entre cards e próxima seção (Prebiotic/Intestino)
+            • Responsividade: Desktop e Mobile
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <div className="mt-8 md:mt-12 lg:mt-16 w-full">
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src="/resverabio-paradigma.jpg"
+              alt="Resverabio - O Paradigma do Rejuvenescimento"
+              className="w-full h-auto object-contain"
+              loading="lazy"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
+          </div>
+        </div>
       </Container>
     </section>
   );
