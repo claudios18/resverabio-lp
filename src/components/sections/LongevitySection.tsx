@@ -257,12 +257,12 @@ export function LongevitySection() {
               • Visível em todas as telas (Mobile e Desktop)
               • Centralizada e elegante
               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          <div className="flex justify-center mt-8 mb-8">
-            <div className="relative w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl">
+          <div className="flex justify-center mt-8 mb-8 px-4 sm:px-6 lg:px-8">
+            <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="/resverabio-belezaquevemdedentro.png"
                 alt="Beleza que vem de dentro - RESVERABIO®"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-contain"
                 loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
