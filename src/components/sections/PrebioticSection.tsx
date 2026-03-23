@@ -54,11 +54,10 @@ export function PrebioticSection() {
             BANNER PARADIGMA - TRANSIÇÃO VISUAL
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             • Desktop: Imagem horizontal (resverabio-paradigma.jpg)
-            • Mobile: Imagem vertical (resverabio-paradigma-mobile.jpg) ou 
-                     ajuste com aspect-ratio e object-cover
+            • Mobile: Imagem vertical (resverabio-paradigmamobile.png)
             • Estilo: Full width, elegante, transição limpa entre blocos
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          <div className="w-full mb-6 md:mb-10 lg:mb-12">
+          <div className="w-full mb-8 md:mb-10 lg:mb-12">
             {/* DESKTOP: Imagem horizontal padrão */}
             <div className="relative w-full rounded-xl md:rounded-2xl overflow-hidden shadow-2xl hidden md:block">
               <img
@@ -73,38 +72,18 @@ export function PrebioticSection() {
               />
             </div>
             
-            {/* MOBILE: Imagem vertical ou ajustada com aspect-ratio */}
+            {/* MOBILE: Imagem vertical específica */}
             <div className="relative w-full rounded-xl overflow-hidden shadow-xl block md:hidden">
-              {/* Opção 1: Usar imagem mobile específica (descomente quando disponível) */}
-              {/*
               <img
-                src="/resverabio-paradigma-mobile.jpg"
+                src="/resverabio-paradigmamobile.png"
                 alt="Resverabio - O Paradigma do Rejuvenescimento"
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-contain"
                 loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
                 }}
               />
-              */}
-              
-              {/* Opção 2: Ajuste da imagem horizontal com aspect-ratio e object-position */}
-              <div className="relative w-full aspect-[4/5] overflow-hidden">
-                <img
-                  src="/resverabio-paradigma.jpg"
-                  alt="Resverabio - O Paradigma do Rejuvenescimento"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                  style={{ objectPosition: 'center 30%' }}
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                  }}
-                />
-                {/* Overlay sutil para garantir legibilidade se necessário */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
-              </div>
             </div>
           </div>
 
@@ -117,10 +96,10 @@ export function PrebioticSection() {
             • Largura total do viewport
             • Margens refinadas para respiro visual elegante
           */}
-          <div className="flex flex-col md:hidden space-y-5 pt-2">
+          <div className="flex flex-col md:hidden space-y-6 pt-4">
             {/* TÍTULO - PADRÃO BEAUTYSECTION com margem superior refinada */}
             <h2
-              className="font-serif font-semibold tracking-tight leading-tight text-center px-4 mt-4"
+              className="font-serif font-semibold tracking-tight leading-tight text-center px-4 mt-2"
               style={{
                 fontSize: 'clamp(30px, 8vw, 40px)',
                 color: '#000000',
