@@ -113,7 +113,7 @@ export function ScienceSection() {
         </p>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            IMAGEM PARADIGMA DA SUPLEMENTAÇÃO
+            IMAGEM PARADIGMA DA SUPLEMENTAÇÃO (ÚNICA INSTÂNCIA)
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             Posicionada entre o texto introdutório e as janelas de ação
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
@@ -148,7 +148,7 @@ export function ScienceSection() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            AÇÕES EM MOLDURAS DOURADAS 
+            AÇÕES EM MOLDURAS DOURADAS (APÓS A IMAGEM)
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             Mobile: Empilhado vertical (space-y)
             Desktop: Horizontal (grid-cols-2) - lado a lado
@@ -198,7 +198,7 @@ export function ScienceSection() {
               </h4>
             </div>
             
-            {/* Conteúdo - Texto extraído da imagem */}
+            {/* Conteúdo */}
             <div className="px-6 py-5 md:px-8 md:py-6">
               <p 
                 className="text-center lg:text-left leading-relaxed"
@@ -260,7 +260,7 @@ export function ScienceSection() {
               </h4>
             </div>
             
-            {/* Conteúdo - Texto extraído da imagem */}
+            {/* Conteúdo */}
             <div className="px-6 py-5 md:px-8 md:py-6">
               <p 
                 className="text-center lg:text-left leading-relaxed"
