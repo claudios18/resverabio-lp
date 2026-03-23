@@ -13,7 +13,7 @@ import { Container } from '../ui/Container';
 
 export function PrebioticSection() {
   return (
-    <section id="prebiotico" className="relative w-full overflow-hidden bg-[#faf9f7]">
+    <section id="prebiotico" className="relative w-full overflow-hidden bg-white">
       
       {/* ==========================================
           PARTE 1: INTESTINO (NEWBRAIN)
@@ -22,7 +22,7 @@ export function PrebioticSection() {
         {/* Mobile */}
         <div className="flex flex-col lg:hidden">
           <div className="w-full px-4 py-6">
-            <div className="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-b from-[#faf9f7] to-[#f5f4f2]">
+            <div className="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-b from-white to-gray-50">
               <img
                 src="/resverabio-newbrain.png"
                 alt="Intestino - Nosso Segundo Cérebro"
@@ -68,7 +68,7 @@ export function PrebioticSection() {
 
         {/* Desktop */}
         <div className="hidden lg:grid lg:grid-cols-2 min-h-[600px] xl:min-h-[700px]">
-          <div className="flex flex-col justify-center px-8 xl:px-16 py-12 bg-[#faf9f7]">
+          <div className="flex flex-col justify-center px-8 xl:px-16 py-12 bg-white">
             <div className="max-w-xl">
               <h2 
                 className="font-serif font-semibold text-[#000000] mb-6" 
@@ -101,7 +101,7 @@ export function PrebioticSection() {
             </div>
           </div>
 
-          <div className="relative flex items-center justify-center p-8 xl:p-12 bg-gradient-to-br from-[#f5f4f2] to-[#faf9f7]">
+          <div className="relative flex items-center justify-center p-8 xl:p-12 bg-gradient-to-br from-gray-50 to-white">
             <img
               src="/resverabio-newbrain.png"
               alt="Intestino - Nosso Segundo Cérebro"
@@ -133,7 +133,7 @@ export function PrebioticSection() {
               {/* IMAGEM DA MULHER */}
               <div className="w-full lg:w-2/5 relative">
                 <img
-                  src="/banner-mulher.jpg"
+                  src="/resverabio-bannerend.jpg"
                   alt="Mulher segurando Resverabio"
                   className="w-full h-64 lg:h-full object-cover object-top lg:object-center"
                   style={{ minHeight: '300px' }}
