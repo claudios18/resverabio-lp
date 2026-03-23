@@ -43,7 +43,7 @@ export function PrebioticSection() {
       className="relative w-full overflow-hidden"
       style={{ backgroundColor: '#faf9f7' }}
     >
-      <Container className="py-10 md:py-12 lg:py-14">
+      <Container className="py-8 md:py-12 lg:py-14">
         <div
           className={`transition-all duration-700 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -53,11 +53,14 @@ export function PrebioticSection() {
             ═══════════════════════════════════════════════════════════════════
             BANNER PARADIGMA - TRANSIÇÃO VISUAL
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            • Posicionamento: Antes do título, como transição do bloco anterior
-            • Estilo: Full width, elegante
+            • Desktop: Imagem horizontal (resverabio-paradigma.jpg)
+            • Mobile: Imagem vertical (resverabio-paradigma-mobile.jpg) ou 
+                     ajuste com aspect-ratio e object-cover
+            • Estilo: Full width, elegante, transição limpa entre blocos
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-          <div className="w-full mb-8 md:mb-12">
-            <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
+          <div className="w-full mb-6 md:mb-10 lg:mb-12">
+            {/* DESKTOP: Imagem horizontal padrão */}
+            <div className="relative w-full rounded-xl md:rounded-2xl overflow-hidden shadow-2xl hidden md:block">
               <img
                 src="/resverabio-paradigma.jpg"
                 alt="Resverabio - O Paradigma do Rejuvenescimento"
@@ -69,6 +72,40 @@ export function PrebioticSection() {
                 }}
               />
             </div>
+            
+            {/* MOBILE: Imagem vertical ou ajustada com aspect-ratio */}
+            <div className="relative w-full rounded-xl overflow-hidden shadow-xl block md:hidden">
+              {/* Opção 1: Usar imagem mobile específica (descomente quando disponível) */}
+              {/*
+              <img
+                src="/resverabio-paradigma-mobile.jpg"
+                alt="Resverabio - O Paradigma do Rejuvenescimento"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
+              />
+              */}
+              
+              {/* Opção 2: Ajuste da imagem horizontal com aspect-ratio e object-position */}
+              <div className="relative w-full aspect-[4/5] overflow-hidden">
+                <img
+                  src="/resverabio-paradigma.jpg"
+                  alt="Resverabio - O Paradigma do Rejuvenescimento"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  style={{ objectPosition: 'center 30%' }}
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
+                />
+                {/* Overlay sutil para garantir legibilidade se necessário */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
           </div>
 
           {/* 
@@ -78,13 +115,14 @@ export function PrebioticSection() {
             • Imagem no topo
             • Texto abaixo
             • Largura total do viewport
+            • Margens refinadas para respiro visual elegante
           */}
-          <div className="flex flex-col md:hidden space-y-6">
-            {/* TÍTULO - PADRÃO BEAUTYSECTION */}
+          <div className="flex flex-col md:hidden space-y-5 pt-2">
+            {/* TÍTULO - PADRÃO BEAUTYSECTION com margem superior refinada */}
             <h2
-              className="font-serif font-semibold tracking-tight leading-tight text-center px-4"
+              className="font-serif font-semibold tracking-tight leading-tight text-center px-4 mt-4"
               style={{
-                fontSize: 'clamp(32px, 5vw, 48px)',
+                fontSize: 'clamp(30px, 8vw, 40px)',
                 color: '#000000',
                 fontFamily: "'Playfair Display', Georgia, serif",
               }}
@@ -95,7 +133,7 @@ export function PrebioticSection() {
             {/* Linha decorativa - PADRÃO BEAUTYSECTION */}
             <div className="flex justify-center px-4">
               <div 
-                className="w-24 h-1 rounded-full mt-6" 
+                className="w-20 h-1 rounded-full mt-2" 
                 style={{ backgroundColor: '#c9a962' }} 
               />
             </div>
