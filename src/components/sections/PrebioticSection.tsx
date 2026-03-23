@@ -2,10 +2,11 @@
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║       BLOCO: INTESTINO - NOSSO SEGUNDO CÉREBRO                          ║
  * ║                                                                          ║
- *  VERSÃO 2.0 - LAYOUT SPLIT SECTION:                                       ║
+ *  VERSÃO 3.0 - LAYOUT SPLIT SECTION:                                       ║
  *  • DESKTOP (md+): Layout 50/50 - Texto ESQUERDA | Imagem DIREITA          ║
  *  • MOBILE (< md): Empilhamento vertical - Imagem TOPO → Texto BAIXO       ║
  *  • Asset: resverabio-newbrain.png                                         ║
+ *  • Banner Final: banner-mulher.jpg                                        ║
  *  • Fundo: Off-white (#faf9f7)                                             ║
  *  • Tipografia: Padrão BeautySection                                       ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
@@ -14,30 +15,8 @@
 import { Container } from '../ui/Container';
 
 export function PrebioticSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id="prebiotico"
       className="relative w-full overflow-hidden"
       style={{ backgroundColor: '#faf9f7' }}
@@ -167,6 +146,23 @@ export function PrebioticSection() {
               </div>
             </div>
           </Container>
+
+          {/* BANNER MULHER - MOBILE (com moldura dourada) */}
+          <div className="px-4 pb-8">
+            <div 
+              className="relative rounded-xl overflow-hidden shadow-xl"
+              style={{
+                border: '2px solid #c9a962',
+              }}
+            >
+              <img
+                src="/banner-mulher.jpg"
+                alt="Banner Mulher - Resverabio"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
 
         {/* DESKTOP: Layout Split 50/50 */}
@@ -289,6 +285,25 @@ export function PrebioticSection() {
                 style={{ backgroundColor: '#c9a962' }}
               />
             </div>
+          </div>
+
+          {/* BANNER MULHER - DESKTOP (com moldura dourada, após o split) */}
+          <div className="w-full py-12 lg:py-16">
+            <Container>
+              <div 
+                className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto"
+                style={{
+                  border: '2px solid #c9a962',
+                }}
+              >
+                <img
+                  src="/banner-mulher.jpg"
+                  alt="Banner Mulher - Resverabio"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
+            </Container>
           </div>
         </div>
       </div>
