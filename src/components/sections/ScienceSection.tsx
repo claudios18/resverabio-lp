@@ -1,7 +1,7 @@
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
  * ║                    BLOCO 5: SCIENCE SECTION - RESVERABIO®                ║
- * ║          Reconstrução 100% Código - Sem Imagem Conflitante              ║
+ * ║          Reconstrução 100% Código - Com Imagem Paradigma               ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  * 
  * ESPECIFICAÇÕES:
@@ -9,7 +9,7 @@
  * - Layout: Mobile=Vertical | Desktop=Horizontal (2 colunas)
  * - Tipografia: Playfair Display + Inter (padrão BeautySection)
  * - Molduras douradas: Títulos das ações em containers elegantes
- * - Asset removido: resverabio-RESVERATROL.png (conteúdo reconstruído via código)
+ * - Imagem Paradigma: Posicionada entre texto introdutório e janelas de ação
  */
 
 import { Container } from '../ui/Container';
@@ -94,9 +94,9 @@ export function ScienceSection() {
           </div>
         </div>
 
-        {/* TEXTO INTRODUTÓRIO - Extraído da imagem via OCR */}
+        {/* TEXTO INTRODUTÓRIO */}
         <p 
-          className="leading-relaxed text-center mb-12 md:mb-16 max-w-4xl mx-auto"
+          className="leading-relaxed text-center mb-10 md:mb-12 max-w-4xl mx-auto"
           style={{ 
             fontFamily: "'Inter', system-ui, sans-serif",
             fontSize: 'clamp(19px, 2.2vw, 22px)',
@@ -111,6 +111,41 @@ export function ScienceSection() {
           resveratrol para pele, a dermatologia divide sua atuação em duas frentes de batalha: a 
           Defesa (contra o que vem de fora) e a Reestruturação (contra o desgaste de dentro).
         </p>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            IMAGEM PARADIGMA DA SUPLEMENTAÇÃO
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            Posicionada entre o texto introdutório e as janelas de ação
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <div className="w-full mb-12 md:mb-16">
+          {/* Desktop: Imagem horizontal */}
+          <div className="relative w-full rounded-xl md:rounded-2xl overflow-hidden shadow-2xl hidden md:block max-w-4xl mx-auto">
+            <img
+              src="/resverabio-paradigma.jpg"
+              alt="Paradigma da Suplementação - Resverabio"
+              className="w-full h-auto object-contain"
+              loading="lazy"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
+          </div>
+          
+          {/* Mobile: Imagem vertical */}
+          <div className="relative w-full rounded-xl overflow-hidden shadow-xl block md:hidden max-w-md mx-auto">
+            <img
+              src="/resverabio-paradigmamobile.png"
+              alt="Paradigma da Suplementação - Resverabio"
+              className="w-full h-auto object-contain"
+              loading="lazy"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
+          </div>
+        </div>
 
         {/* ═══════════════════════════════════════════════════════════════════
             AÇÕES EM MOLDURAS DOURADAS 
