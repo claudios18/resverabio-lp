@@ -11,12 +11,11 @@
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
 
-import { useEffect, useRef, useState } from 'react';
 import { Container } from '../ui/Container';
 
 export function PrebioticSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver(
