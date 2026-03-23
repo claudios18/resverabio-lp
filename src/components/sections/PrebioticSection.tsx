@@ -1,11 +1,10 @@
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
- * ║       BLOCO: INTESTINO - NOSSO SEGUNDO CÉREBRO                          ║
+ * ║       BLOCO: INTESTINO - NOSSO SEGUNDO CÉREBRO + BANNER RESVERABIO®     ║
  * ║                                                                          ║
- *  VERSÃO 5.0 - TAILWIND PURO, SEM HOOKS:                                   ║
+ *  VERSÃO 6.0 - TAILWIND CSS PURO, SEM HOOKS:                               ║
  *  • Mobile: flex-col (pilha vertical)                                      ║
  *  • Desktop: lg:flex-row (horizontal)                                      ║
- *  • Asset: resverabio-newbrain.png + banner-mulher.jpg                     ║
  *  • Moldura dourada: border-2 border-[#c9a962]                             ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
@@ -17,14 +16,11 @@ export function PrebioticSection() {
     <section id="prebiotico" className="relative w-full overflow-hidden bg-[#faf9f7]">
       
       {/* ==========================================
-          SEÇÃO 1: INTESTINO (NEWBRAIN)
-          Mobile: Imagem topo → Texto → Botão
-          Desktop: Texto esquerda | Imagem direita
+          PARTE 1: INTESTINO (NEWBRAIN)
       ========================================== */}
       <div className="w-full">
         {/* Mobile */}
         <div className="flex flex-col lg:hidden">
-          {/* Imagem Newbrain */}
           <div className="w-full px-4 py-6">
             <div className="rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-b from-[#faf9f7] to-[#f5f4f2]">
               <img
@@ -36,10 +32,12 @@ export function PrebioticSection() {
             </div>
           </div>
 
-          {/* Texto */}
           <Container className="py-8">
             <div className="flex flex-col items-center space-y-6">
-              <h2 className="font-serif font-semibold text-center text-[#000000]" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(32px, 8vw, 42px)' }}>
+              <h2 
+                className="font-serif font-semibold text-center text-[#000000]" 
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(32px, 8vw, 42px)' }}
+              >
                 O intestino <span className="text-[#c9a962]">—</span> Nosso "Segundo Cérebro"
               </h2>
 
@@ -70,10 +68,12 @@ export function PrebioticSection() {
 
         {/* Desktop */}
         <div className="hidden lg:grid lg:grid-cols-2 min-h-[600px] xl:min-h-[700px]">
-          {/* Texto */}
           <div className="flex flex-col justify-center px-8 xl:px-16 py-12 bg-[#faf9f7]">
             <div className="max-w-xl">
-              <h2 className="font-serif font-semibold text-[#000000] mb-6" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(36px, 4vw, 52px)' }}>
+              <h2 
+                className="font-serif font-semibold text-[#000000] mb-6" 
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(36px, 4vw, 52px)' }}
+              >
                 O intestino <span className="text-[#c9a962]">—</span><br />Nosso "Segundo Cérebro"
               </h2>
 
@@ -101,7 +101,6 @@ export function PrebioticSection() {
             </div>
           </div>
 
-          {/* Imagem */}
           <div className="relative flex items-center justify-center p-8 xl:p-12 bg-gradient-to-br from-[#f5f4f2] to-[#faf9f7]">
             <img
               src="/resverabio-newbrain.png"
@@ -115,106 +114,117 @@ export function PrebioticSection() {
       </div>
 
       {/* ==========================================
-          SEÇÃO 2: BANNER MULHER (RESVERABIO®)
-          Moldura dourada + Conteúdo responsivo
+          PARTE 2: BANNER RESVERABIO®
+          Mobile-First: flex-col (pilha)
+          Desktop: lg:flex-row (lado a lado)
       ========================================== */}
       <div className="w-full py-8 lg:py-16 px-4 lg:px-8">
         <Container>
+          {/* Container principal com moldura dourada */}
           <div className="max-w-6xl mx-auto rounded-xl lg:rounded-2xl overflow-hidden border-2 border-[#c9a962] bg-white shadow-xl">
             
-            {/* Mobile: Flex-col (pilha) */}
-            <div className="flex flex-col lg:hidden">
-              {/* Imagem */}
-              <div className="w-full">
+            {/* 
+              REGRA DE OURO DA RESPONSIVIDADE:
+              • Mobile: flex-col (pilha vertical - imagem em cima, texto embaixo)
+              • Desktop: lg:flex-row (horizontal - imagem esquerda, texto direita)
+            */}
+            <div className="flex flex-col lg:flex-row">
+              
+              {/* IMAGEM DA MULHER */}
+              <div className="w-full lg:w-2/5 relative">
                 <img
                   src="/banner-mulher.jpg"
                   alt="Mulher segurando Resverabio"
-                  className="w-full h-64 object-cover object-top"
+                  className="w-full h-64 lg:h-full object-cover object-top lg:object-center"
+                  style={{ minHeight: '300px' }}
                   loading="lazy"
                 />
               </div>
               
-              {/* Conteúdo */}
-              <div className="p-5 space-y-4">
-                <h3 className="font-serif font-semibold text-2xl text-[#000000] text-center" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-                  RESVERABIO<sup className="text-sm">®</sup>
+              {/* CONTEÚDO TEXTUAL */}
+              <div className="w-full lg:w-3/5 p-6 lg:p-10 xl:p-14 flex flex-col justify-center">
+                
+                {/* Título RESVERABIO® */}
+                <h3 
+                  className="font-serif font-semibold text-[#000000] text-center lg:text-left mb-4 lg:mb-6" 
+                  style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 'clamp(28px, 4vw, 42px)' }}
+                >
+                  RESVERABIO<sup className="text-base lg:text-lg">®</sup>
                 </h3>
                 
-                <div className="space-y-3 text-sm text-[#4a4a4a] text-center" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-                  <p className="leading-relaxed">
-                    ATRAVÉS DO TRANS-RESVERATROL, O RESVERABIO<sup>®</sup> TRANSCENDE A SUPLEMENTAÇÃO COMUM PARA ATUAR DIRETAMENTE NA RENOVAÇÃO DOS TELÔMEROS E NA PRESERVAÇÃO DA INTEGRIDADE DO SEU DNA.
+                {/* Textos descritivos */}
+                <div className="space-y-3 lg:space-y-4 mb-6 lg:mb-8">
+                  <p 
+                    className="text-[#4a4a4a] text-sm lg:text-base leading-relaxed text-center lg:text-left" 
+                    style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                  >
+                    ATRAVÉS DO TRANS-RESVERATROL O RESVERABIO<sup>®</sup> TRANSCENDE A SUPLEMENTAÇÃO COMUM PARA ATUAR DIRETAMENTE NA RENOVAÇÃO DOS TELÔMEROS E NA PRESERVAÇÃO DA INTEGRIDADE DO SEU DNA.
                   </p>
-                  <p className="leading-relaxed">
-                    NOSSA FÓRMULA PREMIUM FUNDE O PODER ANTIOXIDANTE E A BIOTECNOLOGIA DE REJUVENESCIMENTO CELULAR, PROTEGENDO SUA SAÚDE.
+                  <p 
+                    className="text-[#4a4a4a] text-sm lg:text-base leading-relaxed text-center lg:text-left" 
+                    style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                  >
+                    NOSSA FÓRMULA PREMIUM FUNDE O PODER ANTIOXIDANTE À BIOTECNOLOGIA DE REJUVENESCIMENTO CELULAR, PROTEGENDO SUA SAÚDE.
                   </p>
-                  <p className="font-medium text-[#000000]">
+                  <p 
+                    className="text-[#000000] font-medium text-sm lg:text-base text-center lg:text-left" 
+                    style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                  >
                     REJUVENESCIMENTO E BELEZA SÃO BÔNUS.
                   </p>
                 </div>
 
-                {/* 3 Pilares */}
-                <div className="grid grid-cols-3 gap-2 pt-4 border-t border-gray-200">
-                  <div className="text-center">
-                    <h4 className="font-semibold text-[10px] text-[#000000] mb-1 tracking-wide" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>EXPERIÊNCIA</h4>
-                    <p className="text-[9px] text-[#666666] leading-tight">SAIA DA TRANSFORMAÇÃO EM CADA DOSE. ELEVAMOS SUA ROTINA.</p>
+                {/* 3 PILARES */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 pt-4 lg:pt-6 border-t border-gray-200">
+                  
+                  {/* EXPERIÊNCIA */}
+                  <div className="text-center lg:text-left">
+                    <h4 
+                      className="font-semibold text-[#000000] mb-1 lg:mb-2 text-sm lg:text-xs tracking-wider" 
+                      style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                    >
+                      EXPERIÊNCIA
+                    </h4>
+                    <p 
+                      className="text-[#666666] text-xs lg:text-[11px] leading-relaxed lg:leading-snug" 
+                      style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                    >
+                      SINTA A TRANSFORMAÇÃO EM CADA DOSE. ELEVAMOS SUA ROTINA DE AUTOCUIDADO A UM NOVO PATAMAR DE SOFISTICAÇÃO E BEM-ESTAR CELULAR.
+                    </p>
                   </div>
-                  <div className="text-center">
-                    <h4 className="font-semibold text-[10px] text-[#000000] mb-1 tracking-wide" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>QUALIDADE</h4>
-                    <p className="text-[9px] text-[#666666] leading-tight">PUREZA ABSOLUTA EM CADA CÁPSULA. POTÊNCIA MÁXIMA.</p>
-                  </div>
-                  <div className="text-center">
-                    <h4 className="font-semibold text-[10px] text-[#000000] mb-1 tracking-wide" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>ATENDIMENTO</h4>
-                    <p className="text-[9px] text-[#666666] leading-tight">EXCLUSIVIDADE EM CADA DETALHE. SUPORTE DEDICADO.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            {/* Desktop: Flex-row (horizontal) */}
-            <div className="hidden lg:flex lg:flex-row">
-              {/* Imagem - Esquerda */}
-              <div className="w-2/5 relative">
-                <img
-                  src="/banner-mulher.jpg"
-                  alt="Mulher segurando Resverabio"
-                  className="w-full h-full object-cover"
-                  style={{ minHeight: '450px' }}
-                  loading="lazy"
-                />
-              </div>
-              
-              {/* Conteúdo - Direita */}
-              <div className="w-3/5 p-10 xl:p-14 flex flex-col justify-center">
-                <h3 className="font-serif font-semibold text-3xl xl:text-4xl text-[#000000] mb-6" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-                  RESVERABIO<sup className="text-lg">®</sup>
-                </h3>
-                
-                <div className="space-y-4 mb-8 text-sm xl:text-base text-[#4a4a4a]" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
-                  <p className="leading-relaxed">
-                    ATRAVÉS DO TRANS-RESVERATROL, O RESVERABIO<sup>®</sup> TRANSCENDE A SUPLEMENTAÇÃO COMUM PARA ATUAR DIRETAMENTE NA RENOVAÇÃO DOS TELÔMEROS E NA PRESERVAÇÃO DA INTEGRIDADE DO SEU DNA.
-                  </p>
-                  <p className="leading-relaxed">
-                    NOSSA FÓRMULA PREMIUM FUNDE O PODER ANTIOXIDANTE E A BIOTECNOLOGIA DE REJUVENESCIMENTO CELULAR, PROTEGENDO SUA SAÚDE.
-                  </p>
-                  <p className="font-medium text-[#000000]">
-                    REJUVENESCIMENTO E BELEZA SÃO BÔNUS.
-                  </p>
-                </div>
+                  {/* QUALIDADE */}
+                  <div className="text-center lg:text-left">
+                    <h4 
+                      className="font-semibold text-[#000000] mb-1 lg:mb-2 text-sm lg:text-xs tracking-wider" 
+                      style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                    >
+                      QUALIDADE
+                    </h4>
+                    <p 
+                      className="text-[#666666] text-xs lg:text-[11px] leading-relaxed lg:leading-snug" 
+                      style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                    >
+                      PUREZA ABSOLUTA EM CADA CÁPSULA. UTILIZAMOS TRANS-RESVERATROL 99% PURO, DESENVOLVIDO SOB OS MAIS RIGOROSOS PADRÕES CIENTÍFICOS INTERNACIONAIS
+                    </p>
+                  </div>
 
-                {/* 3 Pilares */}
-                <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200">
-                  <div className="text-center">
-                    <h4 className="font-semibold text-xs text-[#000000] mb-2 tracking-wider" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>EXPERIÊNCIA</h4>
-                    <p className="text-xs text-[#666666] leading-snug">SAIA DA TRANSFORMAÇÃO EM CADA DOSE. ELEVAMOS SUA ROTINA DE AUTOCUIDADO.</p>
+                  {/* ATENDIMENTO */}
+                  <div className="text-center lg:text-left">
+                    <h4 
+                      className="font-semibold text-[#000000] mb-1 lg:mb-2 text-sm lg:text-xs tracking-wider" 
+                      style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                    >
+                      ATENDIMENTO
+                    </h4>
+                    <p 
+                      className="text-[#666666] text-xs lg:text-[11px] leading-relaxed lg:leading-snug" 
+                      style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                    >
+                      EXCLUSIVIDADE EM CADA DETALHE. NOSSA EQUIPE ESTÁ PRONTA PARA OFERECER UM SUPORTE DEDICADO, GARANTINDO QUE SUA JORNADA DE LONGEVIDADE SEJA IMPECÁVEL
+                    </p>
                   </div>
-                  <div className="text-center">
-                    <h4 className="font-semibold text-xs text-[#000000] mb-2 tracking-wider" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>QUALIDADE</h4>
-                    <p className="text-xs text-[#666666] leading-snug">PUREZA ABSOLUTA EM CADA CÁPSULA. POTÊNCIA MÁXIMA COM TRANS-RESVERATROL.</p>
-                  </div>
-                  <div className="text-center">
-                    <h4 className="font-semibold text-xs text-[#000000] mb-2 tracking-wider" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>ATENDIMENTO</h4>
-                    <p className="text-xs text-[#666666] leading-snug">EXCLUSIVIDADE EM CADA DETALHE. EQUIPE PRONTA PARA OFERECER SUPORTE.</p>
-                  </div>
+
                 </div>
               </div>
             </div>
