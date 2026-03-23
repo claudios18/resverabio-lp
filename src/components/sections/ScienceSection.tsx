@@ -113,7 +113,7 @@ export function ScienceSection() {
         </p>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            IMAGEM PARADIGMA DA SUPLEMENTAÇÃO (ÚNICA INSTÂNCIA)
+            IMAGEM PARADIGMA DA SUPLEMENTAÇÃO
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             Posicionada entre o texto introdutório e as janelas de ação
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
@@ -148,7 +148,7 @@ export function ScienceSection() {
         </div>
 
         {/* ═══════════════════════════════════════════════════════════════════
-            AÇÕES EM MOLDURAS DOURADAS (APÓS A IMAGEM)
+            AÇÕES EM MOLDURAS DOURADAS
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             Mobile: Empilhado vertical (space-y)
             Desktop: Horizontal (grid-cols-2) - lado a lado
@@ -280,6 +280,54 @@ export function ScienceSection() {
             </div>
           </div>
 
+        </div>
+
+        {/* ═══════════════════════════════════════════════════════════════════
+            BOTÃO CTA - COMPRE AGORA
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            Estilo dourado/luxo, centralizado, após as janelas de ação
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <div className="flex justify-center mt-12 md:mt-16">
+          <a
+            href="#produtos"
+            className="group relative inline-flex items-center justify-center gap-3 py-4 px-10 md:px-12 rounded-xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 cursor-pointer overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, #c9a962 0%, #b8944f 50%, #c9a962 100%)',
+              color: '#000000',
+              boxShadow: '0 8px 32px rgba(201, 169, 98, 0.4), inset 0 1px 0 rgba(255,255,255,0.3)',
+              letterSpacing: '0.08em',
+              fontFamily: "'Inter', system-ui, sans-serif",
+            }}
+          >
+            {/* Efeito de brilho no hover */}
+            <span 
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{
+                background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)',
+                transform: 'translateX(-100%)',
+                animation: 'shimmer 2s infinite',
+              }}
+            />
+            
+            {/* Texto do botão */}
+            <span className="relative z-10">COMPRE AGORA</span>
+            
+            {/* Seta/Arrow */}
+            <svg 
+              className="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+              style={{ color: '#000000' }}
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2.5} 
+                d="M17 8l4 4m0 0l-4 4m4-4H3" 
+              />
+            </svg>
+          </a>
         </div>
       </Container>
     </section>
