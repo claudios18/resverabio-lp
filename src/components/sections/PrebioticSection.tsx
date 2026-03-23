@@ -5,7 +5,7 @@
  *  VERSÃO 1.0 - LAYOUT:                                                     ║
  *  • DESKTOP (md+): Texto ESQUERDA | Imagem DIREITA (layout 50/50)          ║
  *  • MOBILE (< md): Empilhamento vertical (imagem topo → texto abaixo)      ║
- *  • Asset: resverabio-intestino.png                                        ║
+ *  • Asset: resverabio-segundocerebro.png                                   ║
  *  • Fundo: Off-white (#faf9f7)                                             ║
  *  • Tipografia: Padrão BeautySection                                       ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
@@ -117,11 +117,11 @@ export function PrebioticSection() {
               />
             </div>
 
-            {/* IMAGEM DO INTESTINO - MOBILE */}
+            {/* IMAGEM SEGUNDO CÉREBRO - MOBILE */}
             <div className="relative overflow-hidden" style={{ marginLeft: '-16px', marginRight: '-16px', width: 'calc(100% + 32px)' }}>
               <img
-                src="/resverabio-intestino.png"
-                alt="Efeito Prebiótico do Resveratrol - Saúde Intestinal"
+                src="/resverabio-segundocerebro.png"
+                alt="Intestino - Nosso Segundo Cérebro"
                 className="w-full h-auto object-contain"
                 style={{ maxHeight: '50vh' }}
                 loading="lazy"
@@ -296,11 +296,11 @@ export function PrebioticSection() {
                 </div>
               </div>
 
-              {/* COLUNA DIREITA - IMAGEM */}
+              {/* COLUNA DIREITA - IMAGEM SEGUNDO CÉREBRO */}
               <div className="relative overflow-hidden rounded-2xl shadow-xl">
                 <img
-                  src="/resverabio-intestino.png"
-                  alt="Efeito Prebiótico do Resveratrol - Saúde Intestinal"
+                  src="/resverabio-segundocerebro.png"
+                  alt="Intestino - Nosso Segundo Cérebro"
                   className="w-full h-auto object-contain"
                   loading="lazy"
                 />
