@@ -1,11 +1,11 @@
 /**
  * ╔══════════════════════════════════════════════════════════════════════════╗
- * ║       BLOCO: EFEITO PREBIÓTICO DO RESVERATROL E INTESTINO               ║
+ * ║       BLOCO: INTESTINO - NOSSO SEGUNDO CÉREBRO                          ║
  * ║                                                                          ║
- *  VERSÃO 1.0 - LAYOUT:                                                     ║
- *  • DESKTOP (md+): Texto ESQUERDA | Imagem DIREITA (layout 50/50)          ║
- *  • MOBILE (< md): Empilhamento vertical (imagem topo → texto abaixo)      ║
- *  • Asset: resverabio-segundocerebro.png                                   ║
+ *  VERSÃO 2.0 - LAYOUT SPLIT SECTION:                                       ║
+ *  • DESKTOP (md+): Layout 50/50 - Texto ESQUERDA | Imagem DIREITA          ║
+ *  • MOBILE (< md): Empilhamento vertical - Imagem TOPO → Texto BAIXO       ║
+ *  • Asset: resverabio-newbrain.png                                         ║
  *  • Fundo: Off-white (#faf9f7)                                             ║
  *  • Tipografia: Padrão BeautySection                                       ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
@@ -43,20 +43,20 @@ export function PrebioticSection() {
       className="relative w-full overflow-hidden"
       style={{ backgroundColor: '#faf9f7' }}
     >
-      <Container className="py-8 md:py-12 lg:py-14">
+      {/* 
+        ═══════════════════════════════════════════════════════════════════
+        BANNER PARADIGMA - TRANSIÇÃO VISUAL
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        • Desktop: Imagem horizontal (resverabio-paradigma.jpg)
+        • Mobile: Imagem vertical (resverabio-paradigmamobile.png)
+        • Estilo: Full width, elegante, transição limpa entre blocos
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <Container className="pt-8 md:pt-12 lg:pt-14 pb-0">
         <div
           className={`transition-all duration-700 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          {/* 
-            ═══════════════════════════════════════════════════════════════════
-            BANNER PARADIGMA - TRANSIÇÃO VISUAL
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            • Desktop: Imagem horizontal (resverabio-paradigma.jpg)
-            • Mobile: Imagem vertical (resverabio-paradigmamobile.png)
-            • Estilo: Full width, elegante, transição limpa entre blocos
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
           <div className="w-full mb-8 md:mb-10 lg:mb-12">
             {/* DESKTOP: Imagem horizontal padrão */}
             <div className="relative w-full rounded-xl md:rounded-2xl overflow-hidden shadow-2xl hidden md:block">
@@ -86,204 +86,220 @@ export function PrebioticSection() {
               />
             </div>
           </div>
+        </div>
+      </Container>
 
-          {/* 
-            ═══════════════════════════════════════════════════════════════════
-            MOBILE (< md): EMPILHAMENTO VERTICAL
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            • Imagem no topo
-            • Texto abaixo
-            • Largura total do viewport
-            • Margens refinadas para respiro visual elegante
-          */}
-          <div className="flex flex-col md:hidden space-y-6 pt-4">
-            {/* TÍTULO - PADRÃO BEAUTYSECTION com margem superior refinada */}
-            <h2
-              className="font-serif font-semibold tracking-tight leading-tight text-center px-4 mt-2"
-              style={{
-                fontSize: 'clamp(30px, 8vw, 40px)',
-                color: '#000000',
-                fontFamily: "'Playfair Display', Georgia, serif",
-              }}
-            >
-              O intestino - Nosso "Segundo Cérebro"
-            </h2>
-
-            {/* Linha decorativa - PADRÃO BEAUTYSECTION */}
-            <div className="flex justify-center px-4">
-              <div 
-                className="w-20 h-1 rounded-full mt-2" 
-                style={{ backgroundColor: '#c9a962' }} 
-              />
-            </div>
-
-            {/* IMAGEM SEGUNDO CÉREBRO - MOBILE */}
-            <div className="relative overflow-hidden" style={{ marginLeft: '-16px', marginRight: '-16px', width: 'calc(100% + 32px)' }}>
-              <img
-                src="/resverabio-segundocerebro.png"
-                alt="Intestino - Nosso Segundo Cérebro"
-                className="w-full h-auto object-contain"
-                style={{ maxHeight: '50vh' }}
-                loading="lazy"
-              />
-            </div>
-
-            {/* TEXTO DESCRITIVO - PADRÃO BEAUTYSECTION */}
-            <div className="px-4 space-y-6">
-              <p
-                className="text-center mx-auto"
-                style={{
-                  fontFamily: "'Inter', system-ui, sans-serif",
-                  fontSize: 'clamp(19px, 2.2vw, 22px)',
-                  fontWeight: 300,
-                  color: '#000000',
-                  maxWidth: '768px',
-                  lineHeight: 1.85,
-                  letterSpacing: '0.01em',
-                }}
-              >
-                Estudos recentes mostram que o Trans-Resveratrol atua como um Probiótico de luxo. 
-                Ele não é apenas digerido; ele <strong>alimenta as bactérias boas</strong> e inibe as 
-                bactérias patogênicas.
-              </p>
-
-              <p
-                className="text-center mx-auto"
-                style={{
-                  fontFamily: "'Inter', system-ui, sans-serif",
-                  fontSize: 'clamp(19px, 2.2vw, 22px)',
-                  fontWeight: 300,
-                  color: '#000000',
-                  maxWidth: '768px',
-                  lineHeight: 1.85,
-                  letterSpacing: '0.01em',
-                }}
-              >
-                Um dos maiores vilões do envelhecimento moderno é o <strong>Leaky Gut (Intestino Permeável)</strong>. 
-                Devido ao estresse e má alimentação, a parede do intestino fica "esburacada", 
-                permitindo que toxinas vazem para o sangue.
-              </p>
-
-              <p
-                className="text-center mx-auto"
-                style={{
-                  fontFamily: "'Inter', system-ui, sans-serif",
-                  fontSize: 'clamp(19px, 2.2vw, 22px)',
-                  fontWeight: 300,
-                  color: '#000000',
-                  maxWidth: '768px',
-                  lineHeight: 1.85,
-                  letterSpacing: '0.01em',
-                }}
-              >
-                O RSV regula a <strong>integridade da barreira intestinal</strong> e afeta a microbiota. 
-                Com o intestino "blindado" e a flora equilibrada pelo resveratrol, a sinalização 
-                que sobe pelo <strong>Nervo Vago</strong> muda. Em vez de sinais de estresse, 
-                o cérebro recebe sinais de equilíbrio.
-              </p>
-            </div>
-
-            {/* BOTÃO CTA - MOBILE - Scroll nativo */}
-            <div className="flex justify-center mt-8 px-6">
-              <a
-                href="#produtos"
-                className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center cursor-pointer"
-                style={{
-                  backgroundColor: '#1a1a1a',
-                  color: '#c9a962',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-                  letterSpacing: '0.05em',
-                }}
-              >
-                QUERO INTESTINO SAUDÁVEL
-              </a>
+      {/* 
+        ═══════════════════════════════════════════════════════════════════
+        SPLIT SECTION: INTESTINO - NOSSO SEGUNDO CÉREBRO
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        • Layout janela dividida (50/50)
+        • Desktop: Texto ESQUERDA | Imagem DIREITA
+        • Mobile: Imagem TOPO → Texto BAIXO (estética de luxo)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <div className="relative w-full">
+        {/* MOBILE: Layout empilhado - Imagem primeiro para impacto visual */}
+        <div className="block md:hidden">
+          {/* IMAGEM - FULL WIDTH NO MOBILE */}
+          <div 
+            className="relative w-full overflow-hidden"
+            style={{ 
+              background: 'linear-gradient(180deg, #faf9f7 0%, #f5f4f2 100%)'
+            }}
+          >
+            <div className="px-4 py-6">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/resverabio-newbrain.png"
+                  alt="Intestino - Nosso Segundo Cérebro"
+                  className="w-full h-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
 
-          {/* 
-            ═══════════════════════════════════════════════════════════════════
-            DESKTOP (md+): LAYOUT - TEXTO ESQUERDA | IMAGEM DIREITA
-            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            • Grid 50/50
-            • Texto à esquerda
-            • Imagem à direita
-          */}
-          <div className="hidden md:block">
-            <div className="grid grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* COLUNA ESQUERDA - TEXTO */}
-              <div className="flex flex-col space-y-6">
-                {/* TÍTULO - PADRÃO BEAUTYSECTION */}
-                <h2
-                  className="font-serif font-semibold tracking-tight leading-tight text-left"
+          {/* TEXTO - ABAIXO DA IMAGEM */}
+          <Container className="py-8">
+            <div className="flex flex-col space-y-6">
+              {/* TÍTULO */}
+              <h2
+                className="font-serif font-semibold tracking-tight leading-tight text-center"
+                style={{
+                  fontSize: 'clamp(32px, 8vw, 42px)',
+                  color: '#000000',
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                }}
+              >
+                O intestino{" "}
+                <span style={{ color: '#c9a962' }}>—</span>{" "}
+                Nosso "Segundo Cérebro"
+              </h2>
+
+              {/* Linha decorativa */}
+              <div className="flex justify-center">
+                <div 
+                  className="w-24 h-1 rounded-full" 
+                  style={{ backgroundColor: '#c9a962' }} 
+                />
+              </div>
+
+              {/* TEXTOS */}
+              <div className="space-y-5 pt-2">
+                <p
+                  className="text-center mx-auto"
                   style={{
-                    fontSize: 'clamp(32px, 5vw, 48px)',
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 300,
+                    color: '#1a1a1a',
+                    lineHeight: 1.8,
+                    letterSpacing: '0.01em',
+                  }}
+                >
+                  Estudos recentes mostram que o Trans-Resveratrol atua como um{" "}
+                  <strong>Probiótico de luxo</strong>. Ele não é apenas digerido; ele{" "}
+                  <strong>alimenta as bactérias boas</strong> e inibe as bactérias patogênicas.
+                </p>
+
+                <p
+                  className="text-center mx-auto"
+                  style={{
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 300,
+                    color: '#1a1a1a',
+                    lineHeight: 1.8,
+                    letterSpacing: '0.01em',
+                  }}
+                >
+                  Um dos maiores vilões do envelhecimento moderno é o{" "}
+                  <strong>Leaky Gut (Intestino Permeável)</strong>. Devido ao estresse 
+                  e má alimentação, a parede do intestino fica "esburacada", 
+                  permitindo que toxinas vazem para o sangue.
+                </p>
+
+                <p
+                  className="text-center mx-auto"
+                  style={{
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 300,
+                    color: '#1a1a1a',
+                    lineHeight: 1.8,
+                    letterSpacing: '0.01em',
+                  }}
+                >
+                  O RSV regula a <strong>integridade da barreira intestinal</strong> e 
+                  afeta a microbiota. Com o intestino "blindado" e a flora equilibrada 
+                  pelo resveratrol, a sinalização que sobe pelo <strong>Nervo Vago</strong> muda. 
+                  Em vez de sinais de estresse, o cérebro recebe sinais de equilíbrio.
+                </p>
+              </div>
+
+              {/* BOTÃO CTA */}
+              <div className="flex justify-center pt-4">
+                <a
+                  href="#produtos"
+                  className="w-full max-w-sm py-4 px-8 rounded-xl font-bold text-base transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center cursor-pointer"
+                  style={{
+                    backgroundColor: '#1a1a1a',
+                    color: '#c9a962',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  QUERO INTESTINO SAUDÁVEL
+                </a>
+              </div>
+            </div>
+          </Container>
+        </div>
+
+        {/* DESKTOP: Layout Split 50/50 */}
+        <div className="hidden md:block">
+          <div className="grid grid-cols-2 min-h-[600px] lg:min-h-[700px]">
+            {/* COLUNA ESQUERDA - TEXTO */}
+            <div 
+              className="flex flex-col justify-center px-8 lg:px-16 xl:px-20 py-12"
+              style={{ backgroundColor: '#faf9f7' }}
+            >
+              <div className="max-w-xl">
+                {/* TÍTULO */}
+                <h2
+                  className="font-serif font-semibold tracking-tight leading-tight mb-6"
+                  style={{
+                    fontSize: 'clamp(36px, 4vw, 52px)',
                     color: '#000000',
                     fontFamily: "'Playfair Display', Georgia, serif",
                   }}
                 >
-                  O intestino - Nosso "Segundo Cérebro"
+                  O intestino{" "}
+                  <span style={{ color: '#c9a962' }}>—</span>{" "}
+                  <br />
+                  Nosso "Segundo Cérebro"
                 </h2>
 
-                {/* Linha decorativa - PADRÃO BEAUTYSECTION */}
+                {/* Linha decorativa */}
                 <div 
-                  className="w-24 h-1 rounded-full mt-6" 
+                  className="w-20 h-1 rounded-full mb-8" 
                   style={{ backgroundColor: '#c9a962' }} 
                 />
 
-                {/* TEXTO PRINCIPAL - PADRÃO BEAUTYSECTION */}
-                <p
-                  style={{
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: 'clamp(19px, 2.2vw, 22px)',
-                    fontWeight: 300,
-                    color: '#000000',
-                    lineHeight: 1.85,
-                    letterSpacing: '0.01em',
-                  }}
-                >
-                  Estudos recentes mostram que o Trans-Resveratrol atua como um Probiótico de luxo. 
-                  Ele não é apenas digerido; ele <strong>alimenta as bactérias boas</strong> e inibe as 
-                  bactérias patogênicas.
-                </p>
+                {/* TEXTOS */}
+                <div className="space-y-5">
+                  <p
+                    style={{
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontSize: 'clamp(17px, 1.5vw, 20px)',
+                      fontWeight: 300,
+                      color: '#1a1a1a',
+                      lineHeight: 1.75,
+                      letterSpacing: '0.01em',
+                    }}
+                  >
+                    Estudos recentes mostram que o Trans-Resveratrol atua como um{" "}
+                    <strong>Probiótico de luxo</strong>. Ele não é apenas digerido; ele{" "}
+                    <strong>alimenta as bactérias boas</strong> e inibe as bactérias patogênicas.
+                  </p>
 
-                {/* TEXTO LEAKY GUT - PADRÃO BEAUTYSECTION */}
-                <p
-                  style={{
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: 'clamp(19px, 2.2vw, 22px)',
-                    fontWeight: 300,
-                    color: '#000000',
-                    lineHeight: 1.85,
-                    letterSpacing: '0.01em',
-                  }}
-                >
-                  Um dos maiores vilões do envelhecimento moderno é o <strong>Leaky Gut (Intestino Permeável)</strong>. 
-                  Devido ao estresse e má alimentação, a parede do intestino fica "esburacada", 
-                  permitindo que toxinas vazem para o sangue.
-                </p>
+                  <p
+                    style={{
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontSize: 'clamp(17px, 1.5vw, 20px)',
+                      fontWeight: 300,
+                      color: '#1a1a1a',
+                      lineHeight: 1.75,
+                      letterSpacing: '0.01em',
+                    }}
+                  >
+                    Um dos maiores vilões do envelhecimento moderno é o{" "}
+                    <strong>Leaky Gut (Intestino Permeável)</strong>. Devido ao estresse 
+                    e má alimentação, a parede do intestino fica "esburacada", 
+                    permitindo que toxinas vazem para o sangue.
+                  </p>
 
-                {/* TEXTO NERVO VAGO - PADRÃO BEAUTYSECTION */}
-                <p
-                  style={{
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontSize: 'clamp(19px, 2.2vw, 22px)',
-                    fontWeight: 300,
-                    color: '#000000',
-                    lineHeight: 1.85,
-                    letterSpacing: '0.01em',
-                  }}
-                >
-                  O RSV regula a <strong>integridade da barreira intestinal</strong> e afeta a microbiota. 
-                  Com o intestino "blindado" e a flora equilibrada pelo resveratrol, a sinalização 
-                  que sobe pelo <strong>Nervo Vago</strong> muda. Em vez de sinais de estresse, 
-                  o cérebro recebe sinais de equilíbrio.
-                </p>
+                  <p
+                    style={{
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontSize: 'clamp(17px, 1.5vw, 20px)',
+                      fontWeight: 300,
+                      color: '#1a1a1a',
+                      lineHeight: 1.75,
+                      letterSpacing: '0.01em',
+                    }}
+                  >
+                    O RSV regula a <strong>integridade da barreira intestinal</strong> e 
+                    afeta a microbiota. Com o intestino "blindado" e a flora equilibrada 
+                    pelo resveratrol, a sinalização que sobe pelo <strong>Nervo Vago</strong> muda.
+                  </p>
+                </div>
 
-                {/* BOTÃO CTA - DESKTOP - Scroll nativo */}
-                <div className="flex justify-start pt-4">
+                {/* BOTÃO CTA */}
+                <div className="pt-8">
                   <a
                     href="#produtos"
-                    className="w-full max-w-sm md:w-auto md:min-w-[320px] py-4 px-8 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center cursor-pointer"
+                    className="inline-block py-4 px-10 rounded-xl font-bold text-base transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95 text-center cursor-pointer"
                     style={{
                       backgroundColor: '#1a1a1a',
                       color: '#c9a962',
@@ -295,20 +311,34 @@ export function PrebioticSection() {
                   </a>
                 </div>
               </div>
+            </div>
 
-              {/* COLUNA DIREITA - IMAGEM SEGUNDO CÉREBRO */}
-              <div className="relative overflow-hidden rounded-2xl shadow-xl">
-                <img
-                  src="/resverabio-segundocerebro.png"
-                  alt="Intestino - Nosso Segundo Cérebro"
-                  className="w-full h-auto object-contain"
-                  loading="lazy"
-                />
+            {/* COLUNA DIREITA - IMAGEM */}
+            <div 
+              className="relative overflow-hidden"
+              style={{ 
+                background: 'linear-gradient(135deg, #f5f4f2 0%, #faf9f7 100%)'
+              }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center p-8 lg:p-12">
+                <div className="relative w-full h-full max-w-lg">
+                  <img
+                    src="/resverabio-newbrain.png"
+                    alt="Intestino - Nosso Segundo Cérebro"
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
               </div>
+              {/* Elemento decorativo sutil */}
+              <div 
+                className="absolute top-0 left-0 w-px h-full opacity-20"
+                style={{ backgroundColor: '#c9a962' }}
+              />
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
