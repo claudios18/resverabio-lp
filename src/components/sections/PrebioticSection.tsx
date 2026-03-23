@@ -45,52 +45,6 @@ export function PrebioticSection() {
     >
       {/* 
         ═══════════════════════════════════════════════════════════════════
-        BANNER PARADIGMA - TRANSIÇÃO VISUAL
-        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-        • Desktop: Imagem horizontal (resverabio-paradigma.jpg)
-        • Mobile: Imagem vertical (resverabio-paradigmamobile.png)
-        • Estilo: Full width, elegante, transição limpa entre blocos
-        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <Container className="pt-8 md:pt-12 lg:pt-14 pb-0">
-        <div
-          className={`transition-all duration-700 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <div className="w-full mb-8 md:mb-10 lg:mb-12">
-            {/* DESKTOP: Imagem horizontal padrão */}
-            <div className="relative w-full rounded-xl md:rounded-2xl overflow-hidden shadow-2xl hidden md:block">
-              <img
-                src="/resverabio-paradigma.jpg"
-                alt="Resverabio - O Paradigma do Rejuvenescimento"
-                className="w-full h-auto object-contain"
-                loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                }}
-              />
-            </div>
-            
-            {/* MOBILE: Imagem vertical específica */}
-            <div className="relative w-full rounded-xl overflow-hidden shadow-xl block md:hidden">
-              <img
-                src="/resverabio-paradigmamobile.png"
-                alt="Resverabio - O Paradigma do Rejuvenescimento"
-                className="w-full h-auto object-contain"
-                loading="lazy"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </Container>
-
-      {/* 
-        ═══════════════════════════════════════════════════════════════════
         SPLIT SECTION: INTESTINO - NOSSO SEGUNDO CÉREBRO
         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         • Layout janela dividida (50/50)
