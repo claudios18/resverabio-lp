@@ -107,13 +107,13 @@ export function PrebioticSection() {
           </div>
         </div>
 
-        {/* PILARES MOBILE */}
-        <div className="w-full bg-white pb-8">
-          <div className="px-2 sm:px-4">
+        {/* PILARES MOBILE - IMAGEM AMPLIADA */}
+        <div className="w-full bg-white pb-8 overflow-visible">
+          <div className="px-1">
             <img
               src="/resverabio-pilares-mobile.png"
               alt="Pilares Resverabio"
-              className="w-full max-w-4xl mx-auto h-auto object-contain transform scale-110 sm:scale-125 lg:scale-100"
+              className="w-full h-auto object-contain transform scale-[1.85] origin-top"
               loading="lazy"
             />
           </div>
