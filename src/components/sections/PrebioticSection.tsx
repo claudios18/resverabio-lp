@@ -108,6 +108,22 @@ export function PrebioticSection() {
         </div>
       </div>
 
+      {/* BANNER FINAL - DESKTOP ONLY */}
+      <div className="hidden lg:block w-full py-12 xl:py-16 bg-white">
+        <Container>
+          <div 
+            className="max-w-6xl mx-auto rounded-xl xl:rounded-2xl overflow-hidden border-2 border-[#c9a962] shadow-xl"
+          >
+            <img
+              src="/resverabio-bannerend.jpg"
+              alt="Resverabio - Banner Final"
+              className="w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+        </Container>
+      </div>
+
     </section>
   );
 }
