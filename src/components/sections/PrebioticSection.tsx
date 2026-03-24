@@ -103,6 +103,18 @@ export function PrebioticSection() {
             </div>
           </div>
         </div>
+
+        {/* PILARES MOBILE - APENAS CELULAR */}
+        <div className="block lg:hidden w-full bg-white pb-8">
+          <div className="px-4">
+            <img
+              src="/resverabio-pilares-mobile.png"
+              alt="Resverabio - Pilares"
+              className="w-full h-auto object-contain"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Desktop */}
