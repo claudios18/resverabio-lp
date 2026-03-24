@@ -68,7 +68,7 @@ export function PrebioticSection() {
               className="rounded-xl overflow-hidden border-2 border-[#c9a962] shadow-xl"
             >
               <img
-                src="/resverabio-bannerendmobile.jpg"
+                src="/resverabio-bannerendmobile.png"
                 alt="Resverabio - Banner Mobile"
                 className="w-full h-auto object-contain"
                 loading="lazy"
