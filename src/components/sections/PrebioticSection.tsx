@@ -4,7 +4,7 @@
  * ║                                                                          ║
  *  VERSÃO FINAL - LIMPA E ESTÁVEL:                                          ║
  *  • Sem hooks, sem animações, sem código morto                            ║
- *  • Mobile: Imagem topo → Texto baixo                                     ║
+ *  • Mobile: Imagem topo → Texto baixo → Banner → Pilares                  ║
  *  • Desktop: Texto esquerda | Imagem direita                              ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
  */
@@ -15,8 +15,12 @@ export function PrebioticSection() {
   return (
     <section id="prebiotico" className="relative w-full overflow-hidden bg-white">
       
-      {/* Mobile */}
-      <div className="flex flex-col lg:hidden">
+      {/* ==========================================
+          MOBILE (block lg:hidden)
+      ========================================== */}
+      <div className="block lg:hidden">
+        
+        {/* Imagem Newbrain */}
         <div className="w-full px-4 py-6">
           <div className="rounded-2xl overflow-hidden shadow-2xl bg-gray-50">
             <img
@@ -28,6 +32,7 @@ export function PrebioticSection() {
           </div>
         </div>
 
+        {/* Texto Intestino */}
         <Container className="py-8">
           <div className="flex flex-col items-center space-y-6">
             <h2 
@@ -61,12 +66,10 @@ export function PrebioticSection() {
           </div>
         </Container>
 
-        {/* BANNER FINAL - MOBILE ONLY */}
-        <div className="block lg:hidden w-full pb-8 bg-white">
+        {/* Banner Mobile */}
+        <div className="w-full pb-8">
           <div className="px-4">
-            <div 
-              className="rounded-xl overflow-hidden border-2 border-[#c9a962] shadow-xl"
-            >
+            <div className="rounded-xl overflow-hidden border-2 border-[#c9a962] shadow-xl">
               <img
                 src="/resverabio-bannerendmobile.png"
                 alt="Resverabio - Banner Mobile"
@@ -77,8 +80,8 @@ export function PrebioticSection() {
           </div>
         </div>
 
-        {/* TEXTO INSTITUCIONAL - MOBILE ONLY */}
-        <div className="block lg:hidden w-full bg-white">
+        {/* Texto Institucional */}
+        <div className="w-full bg-white">
           <div className="px-6 py-10">
             <div className="max-w-lg mx-auto space-y-6">
               <p 
@@ -104,12 +107,12 @@ export function PrebioticSection() {
           </div>
         </div>
 
-        {/* PILARES MOBILE - APENAS CELULAR */}
-        <div className="block lg:hidden w-full bg-white pb-8">
+        {/* PILARES MOBILE */}
+        <div className="w-full bg-white pb-8">
           <div className="px-4">
             <img
               src="/resverabio-pilares-mobile.png"
-              alt="Resverabio - Pilares"
+              alt="Pilares Resverabio"
               className="w-full h-auto object-contain"
               loading="lazy"
             />
@@ -117,7 +120,9 @@ export function PrebioticSection() {
         </div>
       </div>
 
-      {/* Desktop */}
+      {/* ==========================================
+          DESKTOP (hidden lg:block) - INTACTO
+      ========================================== */}
       <div className="hidden lg:grid lg:grid-cols-2 min-h-[600px] xl:min-h-[700px]">
         <div className="flex flex-col justify-center px-8 xl:px-16 py-12 bg-white">
           <div className="max-w-xl">
@@ -166,9 +171,7 @@ export function PrebioticSection() {
       {/* BANNER FINAL - DESKTOP ONLY */}
       <div className="hidden lg:block w-full py-12 xl:py-16 bg-white">
         <Container>
-          <div 
-            className="max-w-6xl mx-auto rounded-xl xl:rounded-2xl overflow-hidden border-2 border-[#c9a962] shadow-xl"
-          >
+          <div className="max-w-6xl mx-auto rounded-xl xl:rounded-2xl overflow-hidden border-2 border-[#c9a962] shadow-xl">
             <img
               src="/resverabio-bannerend.jpg"
               alt="Resverabio - Banner Final"
