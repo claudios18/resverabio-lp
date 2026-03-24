@@ -60,6 +60,22 @@ export function PrebioticSection() {
             </a>
           </div>
         </Container>
+
+        {/* BANNER FINAL - MOBILE ONLY */}
+        <div className="block lg:hidden w-full pb-8 bg-white">
+          <div className="px-4">
+            <div 
+              className="rounded-xl overflow-hidden border-2 border-[#c9a962] shadow-xl"
+            >
+              <img
+                src="/resverabio-bannerendmobile.jpg"
+                alt="Resverabio - Banner Mobile"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Desktop */}
