@@ -111,7 +111,7 @@ export function PrebioticSection() {
         <div className="w-full bg-white pb-8 overflow-visible">
           <div className="px-1">
             <img
-              src="/resverabio-pilares-mobile2.png"
+              src="/resverabio-pilares-mobile3.png"
               alt="Pilares Resverabio"
               className="w-full h-auto object-contain transform scale-[1.85] origin-top"
               loading="lazy"
