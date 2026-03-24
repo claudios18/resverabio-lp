@@ -79,24 +79,24 @@ export function PrebioticSection() {
 
         {/* TEXTO INSTITUCIONAL - MOBILE ONLY */}
         <div className="block lg:hidden w-full bg-white">
-          <div className="px-6 py-8">
-            <div className="max-w-lg mx-auto space-y-4">
+          <div className="px-6 py-10">
+            <div className="max-w-lg mx-auto space-y-6">
               <p 
-                className="text-black text-center leading-relaxed"
-                style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: '15px' }}
+                className="text-black text-center leading-relaxed text-lg"
+                style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
               >
-                <strong className="font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '18px' }}>RESVERABIO<sup className="text-xs">®</sup></strong>{' '}
+                <strong className="font-bold text-2xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>RESVERABIO<sup className="text-sm">®</sup></strong>{' '}
                 Através do Trans-Resveratrol e associados, o RESVERABIO<sup>®</sup> transcende a suplementação comum para atuar diretamente na renovação dos telômeros e na preservação da integridade do seu DNA.
               </p>
               <p 
-                className="text-black text-center leading-relaxed"
-                style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: '15px' }}
+                className="text-black text-center leading-relaxed text-lg"
+                style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
               >
                 Nossa fórmula Premium funde o poder antioxidante à biotecnologia de rejuvenescimento celular, protegendo sua saúde.
               </p>
               <p 
-                className="text-black text-center font-medium"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '16px' }}
+                className="text-black text-center font-medium text-xl"
+                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 Beleza e Bem Estar: são Bonus !
               </p>
