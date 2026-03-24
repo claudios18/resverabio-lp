@@ -76,6 +76,33 @@ export function PrebioticSection() {
             </div>
           </div>
         </div>
+
+        {/* TEXTO INSTITUCIONAL - MOBILE ONLY */}
+        <div className="block lg:hidden w-full bg-white">
+          <div className="px-6 py-8">
+            <div className="max-w-lg mx-auto space-y-4">
+              <p 
+                className="text-black text-center leading-relaxed"
+                style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: '15px' }}
+              >
+                <strong className="font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '18px' }}>RESVERABIO<sup className="text-xs">®</sup></strong>{' '}
+                Através do Trans-Resveratrol e associados, o RESVERABIO<sup>®</sup> transcende a suplementação comum para atuar diretamente na renovação dos telômeros e na preservação da integridade do seu DNA.
+              </p>
+              <p 
+                className="text-black text-center leading-relaxed"
+                style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: '15px' }}
+              >
+                Nossa fórmula Premium funde o poder antioxidante à biotecnologia de rejuvenescimento celular, protegendo sua saúde.
+              </p>
+              <p 
+                className="text-black text-center font-medium"
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '16px' }}
+              >
+                Beleza e Bem Estar: são Bonus !
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Desktop */}
